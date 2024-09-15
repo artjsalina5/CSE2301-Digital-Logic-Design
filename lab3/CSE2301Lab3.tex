@@ -238,20 +238,20 @@ This produces:
 \textbf{A Output}
 \begin{center}
 \begin{karnaugh-map}(label=corner)[4][4][2][$Z$][$Y$][$X$][$W$][$V$]
-\minterms{5,12,9,18,20,24}
-\maxterms{17,3,6,10}
+\minterms{5,12,9,18,24}
+\maxterms{20,17,3,6,10}
 \autoterms[X]
 \implicant{0}{9}[0]
-\implicantedge{0}{4}{2}{6}[1]
+\implicantedge{0}{0}{2}{2}[1]
 \implicant{12}{10}[1]
 \end{karnaugh-map}
 \end{center}
 This produces:
 \[
-	A = \closure{V}\closure{Y} + V(\closure{W}\closure{Z} + \closure{W})
+	A = \closure{V}\closure{Y} + V(\closure{W}\closure{X}\closure{Z} + \closure{W})
 \]
 \[
-	A = \closure{V}\closure{Y} + V\closure{W}\closure{Z} + V\closure{W} \quad \text{(Distribution)}
+	A = \closure{V}\closure{Y} + V\closure{W}\closure{X}\closure{Z} + V\closure{W} \quad \text{(Distribution)}
 \]
 \end{examp}
 \newpage
