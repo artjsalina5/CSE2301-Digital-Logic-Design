@@ -1,0 +1,139 @@
+\documentclass[options]{report}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\graphicspath{ {./images/} }
+
+
+
+\newenvironment{Theory}
+{
+	\begin{center}
+		\textbf{Theory\\}
+	\end{center}
+}
+
+\newenvironment{Deliverables}
+{
+	\begin{center}
+		\textbf{Deliverables\\}
+	\end{center}
+}
+
+\newenvironment{Practice Questions}
+{
+	\begin{center}
+		\textbf{Practice Questions\\}
+	\end{center}
+}
+
+\author{Arturo Salinas-Aguayo}
+\title{Lab 01: Logicworks}
+
+\begin{document}
+	\begin{titlepage}
+		\begin{center}
+			\vspace*{1cm}
+			\LARGE
+			\textbf{Lab 01: Logicworks Introduction\\}
+			\vspace{8cm}
+			\large
+			\textbf{Arturo Salinas-Aguayo \\}
+			\normalsize
+			CSE 2301: Principles and Practice of Digital Logic Design\\
+			Dr. Mohammad Khan Section 001\\
+			\vspace{2cm}
+			\includegraphics[scale=.1]{uconnlogo}
+		\end{center}
+	\end{titlepage}
+
+	\begin{Theory}
+		\begin{flushleft}
+			\textbf{ORing Three Signals Using 2-Input OR Gates\\}
+			To OR three signals \(C\), \(B\), and \(A\) together using only 2-input OR gates:
+		\end{flushleft}
+		\begin{enumerate}
+			\item Connect signals B and A to the inputs of the first OR gate.
+			\item The output of this OR gate is then connected to one input of the second OR gate.
+			\item The remaining signal (C) is connected to the other input of the second OR gate.
+		\end{enumerate}
+		This arrangement ensures that the output of the circuit will be the logical OR of all three inputs. The truth table for this 3-way OR gate is given by:
+		\vspace{2cm}
+		\begin{center}
+			\begin{tabular}{ c c c | c }
+				C & B & A & F \\
+				\hline
+				0 & 0 & 0 & 0 \\
+				0 & 0 & 1 & 1 \\
+				0 & 1 & 0 & 1 \\
+				0 & 1 & 1 & 1 \\
+				1 & 0 & 0 & 1 \\
+				1 & 0 & 1 & 1 \\
+				1 & 1 & 0 & 1 \\
+				1 & 1 & 1 & 1
+			\end{tabular}
+		\end{center}
+	\end{Theory}
+	\pagebreak
+
+	\begin{Deliverables}
+		\begin{flushleft}
+		For Exercise 1, we were tasked with creating a circuit to acquaint ourselves with Logicworks 5. The circuit produced a truth table with the following inputs and outputs:\\
+		\end{flushleft}
+		\begin{center}
+			\begin{tabular}{c c c |c c c| c}
+				C & B & A & X & Y & Z & Hex \\
+				\hline
+				0 & 0 & 0 & 0 & 0 & 0 & 0x0 \\
+				0 & 0 & 1 & 0 & 0 & 1 & 0x1 \\
+				0 & 1 & 0 & 0 & 1 & 0 & 0x2 \\
+				0 & 1 & 1 & 0 & 1 & 1 & 0x3 \\
+				1 & 0 & 0 & 0 & 1 & 1 & 0x3 \\
+				1 & 0 & 1 & 1 & 0 & 0 & 0x4 \\
+				1 & 1 & 0 & 1 & 0 & 1 & 0x5 \\
+				1 & 1 & 1 & 1 & 1 & 0 & 0x6
+			\end{tabular}
+		\end{center}
+		\vspace{.5cm}
+		\begin{flushleft}
+			The hex output effectively converts a 3-bit binary input into 8 different possible combinations through the use of a Programmable Logic Array that weights the input values \(C\), \(B\), and \(A\) to 3, 2, and 1 respectively.  Each output line represents a "power of two" such that \(Z\) is \(2^0\), \(Y\) is \(2^1\), and \(X\) is \(2^2\). These are considered our "binary" output from which the Hex display device's inner logic renders the proper digit in our logicworks program. Hexadecimal is a base 16 radix system, and the conversion is straightforward as learned in class. Since \(C\) is worth a weight of 3, inputs \(100\) and \(001\) have the same XYZ and hex output.
+		\end{flushleft}
+
+		\textbf{Discussion}
+		\begin{flushleft}
+	This lab assignment had us gain familiarity with Logicworks 5 and our TA's. I have some experience using the Logisim Evolution open-source digital prototyping software, so it was a joy to learn a new tool, although a little bit disappointing that we will not be able to locally install this software on our computers. However, the lab was engaging as I gained familiarity with the class format and the gates' functions. The introduction to the circuit in the second example provided a new definition for me to learn, the 'minterm', which allowed us to create a sum-of-products form to design the circuit in Example 2.
+		\end{flushleft}
+
+	\end{Deliverables}
+	\pagebreak
+	\begin{Practice Questions}
+		\textbf{Voltage Drop Across LED and Resistor in Series\\}
+		- Given that the voltage drop across the LED is 4V: \\
+		\begin{align*}
+		V_{LED} &= 4V \\
+		R &= 7000 \Omega \\
+		V_{TOT} &= 18V \\
+		V_{R} &= V_{TOT} - V_{R} = 18V - 4V = 14V \\
+		V &= IR \Rightarrow I = \frac{V_{R}}{R} = \frac{14V}{7000\Omega} = 2mA
+		\end{align*}
+
+
+
+		\begin{flushleft}
+			\textbf{TTL Logic Ranges\\}
+
+
+
+
+		In TTL (Transistor-Transistor Logic): \\
+		- Logic 0: A Voltage betweeen 0.8V and 2V is considered a logical `0`.\\
+		- Logic 1: A voltage between 2V and 5V is considered a logical '1'.\\
+
+		\vspace*{.5cm}
+
+		This ensures the circuit can clearly distinguish between low (0) and high (1) signals. As a side effect, this makes TTL logic compatible with CMOS Logic as long as the 5V HIGH does not damage the receiver input.
+		\end{flushleft}
+\vspace{2cm}
+	\end{Practice Questions}
+
+\end{document}

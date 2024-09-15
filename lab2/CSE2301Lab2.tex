@@ -1,0 +1,280 @@
+\documentclass[12pt]{report}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{circuitikz}
+\usepackage{caption}
+
+\geometry{letterpaper, margin=1in}
+\graphicspath{{./images/}}
+
+% Header and Footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{CSE 2301 - Lab 02: Code Conversion}
+\fancyhead[R]{\thepage}
+\setlength{\headheight}{15pt}
+
+\author{Arturo Salinas-Aguayo}
+\title{Lab 02: Code Conversion}
+% theorem set
+\newtheorem{example}{Example}
+% Example block environment
+\newenvironment{examp}
+{
+    \vspace{0.5cm}
+    \hrule
+    \begin{example}
+}
+{
+    \hrule
+    \vspace{0.5cm}
+    \end{example}
+}
+
+\begin{document}
+\newcommand{\closure}[2][3]{%
+	{}\mkern#1mu\overline{\mkern-#1mu#2}}
+\newcommand\ncoverline[1]{\mkern1mu\overline{\mkern-1mu#1\mkern-1mu}\mkern1mu}
+% Title Page
+\begin{titlepage}
+	\centering
+	\vspace*{3cm}
+	\huge\textbf{Lab 02: Code Conversion}\\
+	\vspace{5cm}
+	\Large\textbf{Arturo Salinas-Aguayo}\\
+	\normalsize
+	CSE 2301: Principles and Practice of Digital Logic Design\\
+	Dr. Mohammad Khan, Section 003L-1248\\
+	\vfill
+	\includegraphics[scale=0.1]{uconnlogo}\\
+	University of Connecticut\\
+	\tiny{Coded in \LaTeX}
+	\vspace*{1cm}
+\end{titlepage}
+\section*{Theory}
+\subsection*{Weighting Determination of a Bit}
+The weight of a bit in a binary number is determined by its position in the sequence. Each column has twice the weight of the column to its right, which is why binary is considered a \textit{base-2} system. This concept extends to other number systems as well.
+\begin{examp}
+	\textbf{Number Systems and Base Conversions} \\
+	In base 10 (decimal):
+	\[9742_{10} = (9 \cdot 10^3) + (7 \cdot 10^2) + (4 \cdot 10^1) + (2 \cdot 10^0)\]
+	Converting between base 10 and base 2 (binary):
+	\[10110_2 = (1 \cdot 2^4) + (0 \cdot 2^3) + (1 \cdot 2^2) + (1 \cdot 2^1) + (0 \cdot 2^0) = 22_{10}\]
+	For base 3 (ternary), the possible digits are $0$, $1$, and $2$:
+	\[2021_3 = (2 \cdot 3^3) + (0 \cdot 3^2) + (2 \cdot 3^1) + (1 \cdot 3^0) = 61_{10}\]
+\end{examp}
+In general, for a numeral system of base $N$, a number $d_k d_{k-1} \ldots d_1 d_0$ represents the value:
+
+\[ (d_k \cdot N^k) + (d_{k-1} \cdot N^{k-1}) + \ldots + (d_1 \cdot N^1) + (d_0 \cdot N^0) \]
+where $d_i$ represents the digit at position $i$, and $k$ is the position of the leftmost non-zero digit.
+\subsection*{Radix and Radix Economy} \
+Another name for the \textit{bases} that were used in the previous example is Radix. The radix of a number system is what determines how many different values that can be used in that system.
+\begin{examp}
+	\textbf{Common Radii}
+	\begin{itemize}
+		\item \textbf{Binary} has a Radix of 2. Values can be $0$ or $1$.
+		\item \textbf{Octal} has a Radix of 8. Values can be $0, 1, 2, 3, 4, 5, 6,$ or $7$.
+		\item \textbf{Hexadecimal} has a Radix of 16. Values can be $0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E,$ or $F$.
+	\end{itemize}
+\end{examp}
+\subsection*{Radix Economy in Number Systems}
+
+The concept of \textit{Radix Economy} provides a metric for evaluating the efficiency of number systems in representing information. It is defined by the formula:
+\[ E = r \cdot \log_r N \]
+where $E$ is the economy, $r$ is the radix (base) of the number system, and $N$ is the number of unique values to be represented. \
+
+This metric balances two competing factors:
+\begin{itemize}
+	\item The number of unique digits required (complexity)
+	\item The number of digit positions needed to represent a given range of values (length)
+\end{itemize}
+
+A lower value of $E$ indicates a more economical system, offering a better trade-off between these factors.
+
+\subsubsection*{Implications and Applications}
+Systems with good radix economy can offer several advantages:
+\begin{itemize}
+	\item Enhanced human readability
+	\item Reduced system complexity
+	\item More compact and efficient computational implementations
+	\item Potential for reduced physical space requirements in hardware
+	\item Improved circuit performance and reduced power consumption
+	\item Potential for lower overall project costs in hardware design
+\end{itemize}
+\subsubsection*{Optimal Radix vs. Practical Considerations}
+
+Mathematically, the optimal radix for maximal economy is $e \approx 2.718$ which is derived by using the second derivative test to determine the maximum value. However, practical considerations often outweigh pure mathematical optimality
+
+Binary (\textit{radix-2}) systems are prevalent in computing despite not having the best radix economy. The simplicity of binary representation, with only two states (0 and 1), greatly simplifies computer architecture and logic design. This simplicity often outweighs the theoretical advantages of more economical bases in real-world applications.
+
+The choice of number system thus involves a balance between theoretical efficiency and practical implementation constraints.
+
+% Deliverables Section
+\section*{Deliverables}
+After calculating the minterms for our \(Z_{0}, Z_{1}, Z_{2}, Z_{3}\) outputs, that is, the equations such that our corresponding output bit is TRUE (1), we get some fairly large equations that were then able to get reduced by boolean logic algebra. Unfortunately, because the lab limited us to only two-input OR, AND, and one-input NOT gates, the simplicity of the circuit was not able to get greatly reduced.
+\begin{examp}
+	Outputs \( Z_3, Z_2, Z_1, Z_0 \):
+	\begin{itemize}
+		\item \( Z_0 = \closure{D}\closure{C}\closure{B}A + \overline{D}C\overline{B}\closure{A} + \overline{D}CBA + D\overline{C}B\overline{A} \) \\
+		      \( Z_0 = \closure{D}\closure{C}BA + C{B A} + CBA) + D\overline{C}B\overline{A} \) \\
+		      \( Z_0 = \overline{D}(\closure{C}\closure{B}A + C(\closure{B}\closure{A}\ + BA)) + D\overline{C}B\overline{A} \) \\
+		      The \( Z_0 \) bit could be simplified by grouping the \( \overline{D} \) signal to the outside of common multiples and some mild reduction utilizing distributivity and identity boolean algebra rules.
+		\item \( Z_1 = \closure{D}\closure{C}B\overline{A} + \overline{D}C\overline{B}A + D\closure{C}\closure{B}\closure{A}\) \\
+		      \( Z_1 = \overline{D}(\overline{C}B\overline{A} + C\overline{B}A) + D\closure{C}\closure{B}\closure{A}\) \\
+		      The \( Z_1 \) bit could also be simplified by grouping the \( \overline{D} \) signal to the outside of common multiples. \
+
+		\item \( Z_2 = 0 \quad \text{(Always FALSE)} \)
+
+		\item \( Z_3 = 0 \quad \text{(Always FALSE)} \)
+	\end{itemize}
+\end{examp}
+% Discussion Section
+% TODO: Discussion needs to be expanded
+\section*{Discussion}
+The practical portion of the lab was more involved with Logicworks as we learned about simplifying Boolean expressions. The inclusion of the Hex Keyboard into the schematic allowed for a nicer way of interacting with the circuits and careful wire routing throughout the workspace was crucial for success in completing this. Ultimately, the simplifications couldn't be applied as much as I initially thought that would be possible when it came to designing the circuit, but nevertheless each network of signals was easily troubleshot and ran through until the target output was reached.
+
+Practically, this was quite engaging as the network of wires needed to be very closely monitored to ensure that a certain system wouldn't change after modification. After some troubleshooting and careful analysis of wire and inverter placement, the circuit was able to run, and the desired truth table was output successfully.
+
+To conclude and summarize, the Lab reinforced concepts learned in class through pen and paper arithmetic and familiarity with the Digital Design Software tools in Logicworks.
+% Practice Questions Section
+\section*{Practice Questions}
+\subsection*{Radix Conversion} \
+Given the decimal number \(92_{10}\) we can change between number systems utilizing the algorithm discussed previously.
+\begin{examp}
+	\textbf{Binary:}
+	\[
+		92_{10} = (1 \cdot 2^6) + (0 \cdot 2^5) + (1 \cdot 2^4) + (1 \cdot 2^3) + (1 \cdot 2^2) + (0 \cdot 2^1) + (0 \cdot 2^0)
+	\]
+	\[
+		92_{10} = 1011100_2
+	\]
+\end{examp}
+
+\begin{examp}
+	\textbf{Octal:}
+	\[
+		92_{10} = (1 \cdot 8^2) + (3 \cdot 8^1) + (4 \cdot 8^0)
+	\]
+	\[
+		92_{10} = 134_8
+	\]
+\end{examp}
+
+\begin{examp}
+	\textbf{Hexadecimal:}
+	\[
+		92_{10} = (5 \cdot 16^1) + (12 \cdot 16^0) \quad \text{(where \(C = 12\))}
+	\]
+	\[
+		92_{10} = 5C_{16}
+	\]
+\end{examp}
+\pagebreak
+\subsection*{2's Compliment and Decimal Conversion}
+Given the signed binary number \(11001101_2\) swapping between 2's compliment and decimal is extremely easily. Begin by looking at the Most-Significant-Bit (MSB) for the first information about what decimal number this signed binary number contains. An MSB of 1 indicates a negative number, an MSB of 0 represents a positive number.
+
+The two's complement representation facilitates simpler arithmetic operations and algorithms in digital systems. However, this comes at the cost of a reduced range for the maximum positive number that can be represented, compared to unsigned integers of the same bit length.
+\begin{examp}
+	\textbf{Size limits} \\
+	Unsigned 8-bit integer:
+	\begin{itemize}
+		\item Range: $0 \to 2^8 - 1$ (0 to 255)
+	\end{itemize}
+	Signed 8-bit integer (two's complement):
+	\begin{itemize}
+		\item Positive range (MSB = 0): $0 \to 2^7 - 1$ (0 to 127)
+		\item Negative range (MSB = 1): $-2^7 \to -1$ (-128 to -1)
+	\end{itemize}
+	\noindent\textbf{Note:} The signed range includes one more negative number (-128) than positive number (127) due to the nature of two's complement representation.
+\end{examp}
+\begin{examp}
+	\textbf{Two's Complement Conversion:} \\
+	Flip the bits and add 1.
+	\[
+		\begin{aligned}
+			11001101_2  & \quad \text{(original number)}         \\
+			00110010_2  & \quad \text{(flipped bits)}            \\
+			+00000001_2 & \quad \text{(add 1)}                   \\
+			\hline
+			00110011_2  & \quad \text{(two's complement result)} \\
+		\end{aligned}
+	\]
+	The two's complement of \(11001101_2\) is:
+	\[
+		00110011_2
+	\]
+\end{examp}
+\pagebreak
+\begin{examp}
+	Two's Complement to Decimal: \\
+	To convert \(11001101_2\) (signed) to decimal, we take the two's complement result and compute its negative value.
+
+	The two's complement result is \(00110011_2\), which is positive. Converting this binary number to decimal:
+
+	\[
+		00110011_2 = (0 \cdot 2^7) + (0 \cdot 2^6) + (1 \cdot 2^5) + (1 \cdot 2^4) + (0 \cdot 2^3) + (0 \cdot 2^2) + (1 \cdot 2^1) + (1 \cdot 2^0)
+	\]
+	\[
+		= (1 \cdot 32) + (1 \cdot 16) + (1 \cdot 2) + (1 \cdot 1) = 32 + 16 + 2 + 1 = 51
+	\]
+
+	Since \(11001101_2\) is a negative signed number, the decimal value of the original binary number is:
+	\[-51_{10}\]
+\end{examp}
+\subsection*{Boolean Logic to Gates}
+To finish things off, the extraction of 2 input gates from a simple boolean expression is done in the following example accompanied by the corresponding truth table.
+
+In order to correctly populate the table, each expression was treated seperately and ORed together to form the final output column of $F$.
+\begin{examp}
+	$ \overline{A} + C\overline{D} + BA \text{ is expressed in logic gates in the following figure }$
+	$ \vspace{.5cm} $
+	\begin{figure}[h]
+		\centering
+		\begin{circuitikz} \draw
+			(0,0) node[anchor=east] {A} -- (.5,0) node[not port, anchor=in] (notA) {}
+			(notA.out) -| (4,0.5) node[or port, anchor=in 2] (orA) {}
+
+			(0,4) node[anchor=east] {C} -- (2,4) node[and port, anchor=in 2] (andCD) {}
+			(0,5) node[anchor=east] {D} -- (.5,5) node[not port, anchor=in] (notD) {}
+			(notD.out) -| (andCD.in 1)
+
+			(0,2) node[anchor=east] {B} -- (2,2) node[and port, anchor=in 1] (andBA) {}
+			(0,1) node[anchor=east] {A} -| (andBA.in 2)
+
+			(orA.out) -| (6,3) node[or port, anchor=in 2] (orFinal) {}
+			(andCD.out) -| (orFinal.in 1)
+			(andBA.out) -| (orA.in 1)
+
+			(orFinal.out) -- (9,3.25) node[anchor=west] {F}
+			;
+		\end{circuitikz}
+		\captionof{figure}{Logic gate diagram for $\overline{A} + C\overline{D} + BA$}
+	\end{figure}
+	\begin{center}
+		\rm\begin{tabular}{| c c c c|c|c|c|c|}
+			\hline
+			\rule{0pt}{3ex}D & C & B & A & $\overline{A}$ & $C\overline{D}$ & BA & F \\
+			\hline
+			0                & 0 & 0 & 0 & 1              & 0               & 0  & 1 \\
+			0                & 0 & 0 & 1 & 0              & 0               & 0  & 0 \\
+			0                & 0 & 1 & 0 & 1              & 0               & 0  & 1 \\
+			0                & 0 & 1 & 1 & 0              & 0               & 1  & 1 \\
+			0                & 1 & 0 & 0 & 1              & 1               & 0  & 1 \\
+			0                & 1 & 0 & 1 & 0              & 1               & 0  & 1 \\
+			0                & 1 & 1 & 0 & 1              & 1               & 0  & 1 \\
+			0                & 1 & 1 & 1 & 0              & 1               & 1  & 1 \\
+			1                & 0 & 0 & 0 & 1              & 0               & 0  & 1 \\
+			1                & 0 & 0 & 1 & 0              & 0               & 0  & 0 \\
+			1                & 0 & 1 & 0 & 1              & 0               & 0  & 1 \\
+			1                & 0 & 1 & 1 & 0              & 0               & 1  & 1 \\
+			1                & 1 & 0 & 0 & 1              & 0               & 0  & 1 \\
+			1                & 1 & 0 & 1 & 0              & 0               & 0  & 0 \\
+			1                & 1 & 1 & 0 & 1              & 0               & 0  & 1 \\
+			1                & 1 & 1 & 1 & 0              & 0               & 1  & 1 \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{examp}
+\end{document}
