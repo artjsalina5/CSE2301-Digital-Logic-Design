@@ -1,4 +1,4 @@
-PWD C:/home/projects/CSE-2301
+PWD C:/home/projects/CSE2301-Digital-Logic-Design/lab2
 INPUT c:/texlive/2024/texmf.cnf
 INPUT c:/texlive/2024/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt
@@ -199,11 +199,11 @@ INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT ./images/uconnlogo.png
-INPUT ./images/uconnlogo.png
-INPUT ./images/uconnlogo.png
+INPUT ../images/uconnlogo.png
+INPUT ../images/uconnlogo.png
+INPUT ../images/uconnlogo.png
 OUTPUT CSE2301Lab2.pdf
-INPUT ./images/uconnlogo.png
+INPUT ../images/uconnlogo.png
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm

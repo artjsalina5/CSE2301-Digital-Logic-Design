@@ -1,4 +1,4 @@
-PWD C:/home/projects/cse2301
+PWD C:/home/projects/CSE2301-Digital-Logic-Design/lab1
 INPUT c:/texlive/2024/texmf.cnf
 INPUT c:/texlive/2024/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt
@@ -63,15 +63,16 @@ INPUT c:/texlive/2024/texmf-dist/tex/generic/iftex/iftex.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT c:/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT c:/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+INPUT c:/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT ./images/uconnlogo.png
-INPUT ./images/uconnlogo.png
-INPUT ./images/uconnlogo.png
+INPUT ../images/uconnlogo.png
+INPUT ../images/uconnlogo.png
+INPUT ../images/uconnlogo.png
 OUTPUT CSE2301Lab1.pdf
-INPUT ./images/uconnlogo.png
+INPUT ../images/uconnlogo.png
 INPUT c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
