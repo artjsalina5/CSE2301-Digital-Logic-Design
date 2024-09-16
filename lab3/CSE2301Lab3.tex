@@ -141,6 +141,7 @@ The current through each LED is calculated using Ohm's Law:
 	\]
 \end{examp}
 \pagebreak
+\section*{Deliverables}
 \subsection*{POSTNET to $XS_{3}$ Encoding}
 \begin{table}[h!]
 	\centering
@@ -162,7 +163,7 @@ The current through each LED is calculated using Ohm's Law:
 	\end{tabular}
 	\caption{POSTNET to XS3 Conversion Table}
 \end{table}
-
+From here, each output signal \(D, C, B, A\) is isolated into its own, separate equation, signifying the combination of inputs necessary to eventually output a 4-bit \(XS_{3}\) encoded output.
 \begin{examp}
 \textbf{D Output}
 
@@ -180,13 +181,13 @@ The map is divided into two layers for $V=0$ and $V=1$. Pay Attention to $V$.
 
 This produces:
 \[
-	D = V(\closure{W}) + \closure{V}(WX + WY)
+	D = \closure{V}(WX + WY) + V(\closure{W})
 \]
 \[
-	D = V\closure{W} + \closure{V}WX + \closure{V}WY \quad \text{(Distribution)}
+	D = \closure{V}WX + \closure{V}WY + V\closure{W} \quad \text{(Distribution)}
 \]
 \[
-	D = V\closure{W} + WX + WY \quad \text{(Absorption)}
+	D =  WX + WY + V\closure{W} \quad \text{(Absorption)}
 \]
 \end{examp}
 \newpage
@@ -258,74 +259,32 @@ This produces:
 	A = \closure{V}\closure{Y} + V\closure{W}\closure{X}\closure{Z} + VW \quad \text{(Distribution)}
 \]
 \end{examp}
-\subsection*{Discussion}
-Ultimately, this lab aided me in gaining experience with Karnaugh maps and reducing boolean expressions. The 3D representation of the K-maps in the documentation allowed for a simpler visualization of this in my own head. It was actually quite engaging and took a lot of carful attention to detail to each and every single value. I found myself having multiple transcription errors, but in doing this, I gained a lot more practice. The introduction to the breadboard circuit and having hands on real hardware was a nice change in pace for me. I have not worked with physical hardware since I was attached to Reactor Controls division on a nuclear fast attack submarine. Nevertheless, it was interesting to see how much more lenient the lab can be when only dealing with 5V coming from the transformers. 
+\section*{Discussion}
+Ultimately, this lab aided me in gaining experience with Karnaugh maps and reducing boolean expressions. The 3D representation of the K-maps in the documentation allowed for a simpler visualization of this in my own head. It was actually quite engaging and took a lot of carful attention to detail to each and every single value. I found myself having multiple transcription errors, but in doing this, I gained a lot more practice. 
 
-Careful attention was placed on cable routing as this is paramount to allow for comprehensive troubleshooting down the line. Looking forward to the other labs, I want to learn more complex combinational logic and start gronking the sequential logic again that I was exposed to in Nuclear Field Electronics Technician 'A' School many years ago. The pace and military obligations during "A" school were way too demanding to appreciate the subject and what it is that we learned, it was just a fire hose of information for 2 years straight 7am to frequently close to 8pm. The slower pace of a University course where more attention is given to everyone is a breath of fresh air as it allows me to really get into the weeds of what the specifics are. For this lab, I reviewed silicon doping and how a PN Junction works in order to understand (or better yet, remember) how a BJT's components react to different values of potential. 
+The introduction to the breadboard and having hands on real hardware was a nice change in pace for me. I have not worked with physical hardware since I was attached to Reactor Controls division on a nuclear fast attack submarine. Nevertheless, it was interesting to see how much more lenient the lab can be when only dealing with 5V coming from the transformers compared to the vast hoops I had to jump through with electrical safety in the Nuclear Navy.
+
+Careful attention was placed on cable routing as this is paramount to allow for comprehensive troubleshooting down the line. Looking forward to the other labs, I want to learn more complex combinational logic and start gronking the sequential logic again that I was exposed to in Nuclear Field Electronics Technician 'A' School many years ago. The pace and military obligations during `A` school were way too demanding to appreciate the subject and what it is that we learned, it was just a fire hose of information for 2 years straight 7am to frequently close to 8pm. The slower pace of a University course where more attention is given to everyone is a breath of fresh air as it allows me to really get into the weeds of what the specifics are. For this lab, I reviewed silicon doping and how a PN Junction works in order to understand (or better yet, remember) how a BJT's components react to different values of potential. 
 
 This sparked a lot of memories of troubleshooting various circuit cards on the boat and reading endless documentation until the problem was identified and the guilty components replaced, installed, and retested. It also allowed for use of some standardized lab equipment such as a digital multimeter and a logic probe, which I am very excited to continue working with.
 
-\newpage
- % Deliverables Section
-\section*{Deliverables}
-After calculating the minterms for our \(Z_{0}, Z_{1}, Z_{2}, Z_{3}\) outputs, that is, the equations such that our corresponding output bit is TRUE (1), we get some fairly large equations that were then able to get reduced by boolean logic algebra. Unfortunately, because the lab limited us to only two-input OR, AND, and one-input NOT gates, the simplicity of the circuit was not able to get greatly reduced.
-\begin{examp}
-	Outputs \( Z_3, Z_2, Z_1, Z_0 \):
-	\begin{itemize}
-		\item \( Z_0 = \closure{D}\closure{C}\closure{B}A + \overline{D}C\overline{B}\closure{A} + \overline{D}CBA + D\overline{C}B\overline{A} \) \\
-		      \( Z_0 = \closure{D}\closure{C}BA + C{B A} + CBA) + D\overline{C}B\overline{A} \) \\
-		      \( Z_0 = \overline{D}(\closure{C}\closure{B}A + C(\closure{B}\closure{A}\ + BA)) + D\overline{C}B\overline{A} \) \\
-		      The \( Z_0 \) bit could be simplified by grouping the \( \overline{D} \) signal to the outside of common multiples and some mild reduction utilizing distributivity and identity boolean algebra rules.
-		\item \( Z_1 = \closure{D}\closure{C}B\overline{A} + \overline{D}C\overline{B}A + D\closure{C}\closure{B}\closure{A}\) \\
-		      \( Z_1 = \overline{D}(\overline{C}B\overline{A} + C\overline{B}A) + D\closure{C}\closure{B}\closure{A}\) \\
-		      The \( Z_1 \) bit could also be simplified by grouping the \( \overline{D} \) signal to the outside of common multiples. \
-
-		\item \( Z_2 = 0 \quad \text{(Always FALSE)} \)
-
-		\item \( Z_3 = 0 \quad \text{(Always FALSE)} \)
-	\end{itemize}
-\end{examp}
-% Discussion Section
-% TODO: Discussion needs to be expanded
-\section*{Discussion}
-The practical portion of the lab was more involved with Logicworks as we learned about simplifying Boolean expressions. The inclusion of the Hex Keyboard into the schematic allowed for a nicer way of interacting with the circuits and careful wire routing throughout the workspace was crucial for success in completing this. Ultimately, the simplifications couldn't be applied as much as I initially thought that would be possible when it came to designing the circuit, but nevertheless each network of signals was easily troubleshot and ran through until the target output was reached.
-
-Practically, this was quite engaging as the network of wires needed to be very closely monitored to ensure that a certain system wouldn't change after modification. After some troubleshooting and careful analysis of wire and inverter placement, the circuit was able to run, and the desired truth table was output successfully.
-
-To conclude and summarize, the Lab reinforced concepts learned in class through pen and paper arithmetic and familiarity with the Digital Design Software tools in Logicworks.
 % Practice Questions Section
 \section*{Practice Questions}
-\subsection*{Radix Conversion} \
-Given the decimal number \(92_{10}\) we can change between number systems utilizing the algorithm discussed previously.
 \begin{examp}
-	\textbf{Binary:}
-	\[
-		92_{10} = (1 \cdot 2^6) + (0 \cdot 2^5) + (1 \cdot 2^4) + (1 \cdot 2^3) + (1 \cdot 2^2) + (0 \cdot 2^1) + (0 \cdot 2^0)
-	\]
-	\[
-		92_{10} = 1011100_2
-	\]
+\textbf{4-Varible Karnaugh Map}
+\begin{center}
+\begin{karnaugh-map}(label=corner)[4][4][1][$Z$][$Y$][$X$][$W$]
+\minterms{0,2,3,4,6,7,8,10,12}
+\autoterms[0]
+\implicantcorner
+\implicant{3}{6}
+\implicant{0}{8}
+\end{karnaugh-map}
+\end{center}
+This produces:
+
 \end{examp}
 
-\begin{examp}
-	\textbf{Octal:}
-	\[
-		92_{10} = (1 \cdot 8^2) + (3 \cdot 8^1) + (4 \cdot 8^0)
-	\]
-	\[
-		92_{10} = 134_8
-	\]
-\end{examp}
-
-\begin{examp}
-	\textbf{Hexadecimal:}
-	\[
-		92_{10} = (5 \cdot 16^1) + (12 \cdot 16^0) \quad \text{(where \(C = 12\))}
-	\]
-	\[
-		92_{10} = 5C_{16}
-	\]
-\end{examp}
 \pagebreak
 \subsection*{2's Compliment and Decimal Conversion}
 Given the signed binary number \(11001101_2\) swapping between 2's compliment and decimal is extremely easily. Begin by looking at the Most-Significant-Bit (MSB) for the first information about what decimal number this signed binary number contains. An MSB of 1 indicates a negative number, an MSB of 0 represents a positive number.
