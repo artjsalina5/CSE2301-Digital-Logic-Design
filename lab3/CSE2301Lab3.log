@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.15)  15 SEP 2024 20:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.15)  21 SEP 2024 08:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -441,25 +441,32 @@ File: tikzlibrarymatrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
 \@karnaughmap@var@colorindex@=\count318
 \@karnaughmap@var@colorindexnext@=\count319
+) (c:/texlive/2024/texmf-dist/tex/latex/tools/bm.sty
+Package: bm 2023/12/19 v1.2f Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup4
+\symboldletters=\mathgroup5
+\symboldsymbols=\mathgroup6
+Package bm Info: No bold for \OMX/cmex/m/n, using \pmb.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
 )
 \c@example=\count320
  (./CSE2301Lab3.aux)
 \openout1 = `CSE2301Lab3.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
  (c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count321
@@ -518,7 +525,7 @@ Package caption Info: End \AtBeginDocument code.
 <../images/uconnlogo.png, id=4, 1027.84pt x 1027.84pt>
 File: ../images/uconnlogo.png Graphic file (type png)
 <use ../images/uconnlogo.png>
-Package pdftex.def Info: ../images/uconnlogo.png  used on input line 50.
+Package pdftex.def Info: ../images/uconnlogo.png  used on input line 51.
 (pdftex.def)             Requested size: 102.79001pt x 102.79001pt.
 
 
@@ -528,7 +535,7 @@ Package pdftex.def Info: ../images/uconnlogo.png  used on input line 50.
 <../images/NPN.png, id=16, 523.9575pt x 509.65407pt>
 File: ../images/NPN.png Graphic file (type png)
 <use ../images/NPN.png>
-Package pdftex.def Info: ../images/NPN.png  used on input line 75.
+Package pdftex.def Info: ../images/NPN.png  used on input line 76.
 (pdftex.def)             Requested size: 157.18846pt x 152.8974pt.
 
 
@@ -536,12 +543,12 @@ Package pdftex.def Info: ../images/NPN.png  used on input line 75.
 <../images/04.png, id=24, 530.3564pt x 457.71pt>
 File: ../images/04.png Graphic file (type png)
 <use ../images/04.png>
-Package pdftex.def Info: ../images/04.png  used on input line 94.
+Package pdftex.def Info: ../images/04.png  used on input line 95.
 (pdftex.def)             Requested size: 227.62204pt x 196.44131pt.
 <../images/05.png, id=25, 710.655pt x 528.09796pt>
 File: ../images/05.png Graphic file (type png)
 <use ../images/05.png>
-Package pdftex.def Info: ../images/05.png  used on input line 96.
+Package pdftex.def Info: ../images/05.png  used on input line 97.
 (pdftex.def)             Requested size: 227.62204pt x 169.1479pt.
 
 
@@ -614,29 +621,25 @@ Package pdftex.def Info: ../images/05.png  used on input line 96.
 
 [7]
 
-[8]
-
-[9]
-
-[10] (./CSE2301Lab3.aux)
+[8] (./CSE2301Lab3.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 34522 strings out of 473579
- 871577 string characters out of 5732257
- 1554867 words of memory out of 5000000
- 57093 multiletter control sequences out of 15000+600000
- 568126 words of font info for 70 fonts, out of 8000000 for 9000
+ 34462 strings out of 473579
+ 868276 string characters out of 5732257
+ 1556775 words of memory out of 5000000
+ 57014 multiletter control sequences out of 15000+600000
+ 574879 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,14n,107p,963b,1159s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on CSE2301Lab3.pdf (11 pages, 562806 bytes).
+ 99i,14n,107p,963b,1160s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on CSE2301Lab3.pdf (9 pages, 602870 bytes).
 PDF statistics:
- 118 PDF objects out of 1000 (max. 8388607)
- 70 compressed objects within 1 object stream
+ 137 PDF objects out of 1000 (max. 8388607)
+ 81 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  33 words of extra memory for PDF output out of 10000 (max. 10000000)
 
