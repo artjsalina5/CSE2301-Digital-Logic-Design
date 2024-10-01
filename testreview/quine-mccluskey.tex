@@ -1,0 +1,95 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{circuitikz}
+\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{karnaugh-map}
+\usepackage{bm}
+\usepackage{pst-barcode}
+\usepackage{auto-pst-pdf}
+
+\geometry{letterpaper, margin=1in}
+\graphicspath{ {../images/} }
+
+
+\begin{document}
+\section{Quine-McCluskey Method}
+\label{sec:qm}
+The Quine-McCluskey method is a tabular method for minimising Boolean functions. It is based on the observation that if two minterms differ in only one variable, then the two minterms can be combined to eliminate that variable. The method is based on the following steps:
+\begin{enumerate}
+	\item Write down the minterms of the function in a table.
+	\item Group the minterms based on the number of 1s in the minterm.
+	\item Compare the minterms in each group to find pairs that differ in only one variable.
+	\item Combine the pairs to eliminate the differing variable.
+	\item Repeat the process until no further simplification is possible.
+\end{enumerate}
+
+\subsection{Example}
+\begin{karnaugh-map}(label=corner)[4][4][1][$D$][$C$][$B$][$A$]
+\minterms{0,1,2,3,4,5,6,7,8,15}
+\implicant{0}{1}
+\implicant{5}{13}
+\end{karnaugh-map}
+
+\subsection{Example 2}
+\textbf{Simplify the function $f(A,B,C,D) = \Sigma(0,1,2,3,4,5,6,7,8,14)$ using the Quine-McCluskey method.}
+\begin{table}[H]
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\textbf{Group} & \textbf{Minterms}   & \textbf{Binary}                         & \textbf{Grouped} & \textbf{Combined}   & \textbf{Binary} & \textbf{Grouped}    & \textbf{Combined} \\
+		\hline
+		0              & 0,1,2,3,8,9,10,11   & 0000,0001,0010,0011,1000,1001,1010,1011 & 0,1,8,9          & 0000,0001,1000,1001 & 0,1,8,9         & 0000,0001,1000,1001                     \\
+		1              & 4,5,6,7,12,13,14,15 & 0100,0101,0110,0111,1100,1101,1110,1111 & 4,5,12,13        & 0100,0101,1100,1101 & 4,5,12,13       & 0100,0101,1100,1101                     \\
+		2              & 0,2,4,6,8,10,12,14  & 0000,0010,0100,0110,1000,1010,1100,1110 & 0,2,8,10         & 0000,0010,1000,1010 & 0,2,8,10        & 0000,0010,1000,1010                     \\
+		3              & 1,3,5,7,9,11,13,15  & 0001,0011,0101,0111,1001,1011,1101,1111 & 1,3,9,11         & 0001,0011,1001,1011 & 1,3,9,11        & 0001,0011,1001,1011                     \\
+		\hline
+	\end{tabular}
+\end{table}
+four input binary table:
+\begin{table}[h]
+	\caption{}\label{tab:2}
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\textbf{A} & \textbf{B} & \textbf{C} & \textbf{D}
+			\\\hline
+			0          & 0          & 0          & 0
+			\\\hline
+			0          & 0          & 0          & 1
+			\\\hline
+			0          & 0          & 1          & 0
+			\\\hline
+			0          & 0          & 1          & 1
+			\\\hline
+			0          & 1          & 0          & 0
+			\\\hline
+			0          & 1          & 0          & 1
+			\\\hline
+			0          & 1          & 1          & 0
+			\\\hline
+			0          & 1          & 1          & 1
+			\\\hline
+			1          & 0          & 0          & 0
+			\\\hline
+			1          & 0          & 0          & 1
+			\\\hline
+			1          & 0          & 1          & 0
+			\\\hline
+			1          & 0          & 1          & 1
+			\\\hline
+			1          & 1          & 0          & 0
+			\\\hline
+			1          & 1          & 0          & 1
+			\\\hline
+			1          & 1          & 1          & 0
+			\\\hline
+			1          & 1          & 1          & 1
+			\\\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\end{document}
