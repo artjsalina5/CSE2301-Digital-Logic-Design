@@ -1,0 +1,46 @@
+% preamble.tex
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{circuitikz}
+\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{karnaugh-map}
+\usepackage{bm}
+\usepackage{pst-barcode}
+\usepackage{auto-pst-pdf}
+
+\geometry{letterpaper, margin=1in}
+
+\begin{document}
+\section{Half-adder}
+\label{sec:ha}
+\begin{circuitikz} \draw
+	;
+\end{circuitikz}
+For a half adder we get an exclusive OR gate for the sum and an AND gate for the carry.
+for a full adder, we get two half adders and an OR gate.
+
+\begin{circuitikz}
+	\draw (0,0) node[xor port] (myxor) {};
+	\draw	(myxor.in 1) node[left] {A};
+	\draw	(myxor.in 2) node[left] {B};
+	\draw	(myxor.out) node[right] {S};
+	\draw	(myxor.out) ++ (0,2) node[right] {C};
+	\draw
+	(myxor.out) ++ (5,5) node[xor port] (myxor2) {}
+	(myxor2.in 1) node[left] {S}
+	(myxor2.in 2) node[below] {Cin}
+	(myxor2.out) node[right] {Sout}
+	(myxor2.out) ++ (6,5) node[right] {Cout}
+	;
+	\draw
+	(myxor.out) ++ (1,0) ++ (1,0) node[and port] (myand) {}
+	(myand.in 1) node[left] {S}
+	(myand.in 2) node[below] {Cin}
+	;
+\end{circuitikz}
+
+\end{document}
