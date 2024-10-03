@@ -1,0 +1,54 @@
+// ALU Circuit Design using 74LS153 and 74LS157 multiplexers for single-bit inputs
+
+COMPONENT ALU_1bit_MUX
+
+INPUTS
+    A, B, C, D: 1-bit inputs for first MUX group
+    W, X, Y, Z: 1-bit inputs for second MUX group
+    S1, S2: Control bits for selecting between inputs
+
+OUTPUTS
+    C0, C1, C2, C3, C4, C5, C6, C7: 8-bit output
+
+SIGNALS
+    MUX1_QA, MUX1_QB, MUX1_QC, MUX1_QD: Outputs from 74LS157
+    MUX2_YA, MUX2_YB: Outputs from first 74LS153
+    MUX3_YA, MUX3_YB: Outputs from second 74LS153
+
+BEGIN
+
+// ------------------- 74LS157 MUX for selecting between D, C, B, A -------------------
+// 74LS157: Quad 2-to-1 MUX selects between inputs D, C, B, and A for each bit
+    GATE MUX_157 (74LS157)
+        D, C, B, A -> MUX1_QA; // First 2-to-1 select for bit 0
+        D, C, B, A -> MUX1_QB; // Second 2-to-1 select for bit 1
+        D, C, B, A -> MUX1_QC; // Third 2-to-1 select for bit 2
+        D, C, B, A -> MUX1_QD; // Fourth 2-to-1 select for bit 3
+        S1 -> MUX1_SELECT;     // Control input (Select between D/C/B/A)
+        EN -> MUX1_ENABLE;     // Enable input for 157
+
+// ------------------- 74LS153 MUX for selecting between W, X, Y, Z -------------------
+// 74LS153: Dual 4-to-1 MUX selects between W, X, Y, Z
+    GATE MUX_153_1 (74LS153)
+        W, X, Y, Z -> MUX2_YA; // First 4-to-1 select for bit 0
+        W, X, Y, Z -> MUX2_YB; // Second 4-to-1 select for bit 1
+        S1, S2 -> MUX2_SELECT; // Control input for selecting between W/X/Y/Z
+
+// Second 74LS153 for remaining bits
+    GATE MUX_153_2 (74LS153)
+        W, X, Y, Z -> MUX3_YA; // Third 4-to-1 select for bit 2
+        W, X, Y, Z -> MUX3_YB; // Fourth 4-to-1 select for bit 3
+        S1, S2 -> MUX3_SELECT; // Control input for selecting between W/X/Y/Z
+
+// ------------------- Connecting to Outputs -------------------
+// Connect the outputs from 157 and 153 MUXs to the output bits C0 - C7
+    MUX1_QA -> C0;
+    MUX1_QB -> C1;
+    MUX1_QC -> C2;
+    MUX1_QD -> C3;
+    MUX2_YA -> C4;
+    MUX2_YB -> C5;
+    MUX3_YA -> C6;
+    MUX3_YB -> C7;
+
+END COMPONENT

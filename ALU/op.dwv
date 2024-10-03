@@ -1,0 +1,65 @@
+
+COMPONENT ALU_2bit
+
+INPUTS
+    A0, A1: Input 2-bit number A
+    B0, B1: Input 2-bit number B
+    S0, S1: Selector bits (S0, S1)
+
+OUTPUTS
+    R0, R1, R2, R3: 4-bit output from ALU
+
+// Intermediate connections for AND, OR, ADD, MULT operations
+SIGNALS
+    AND0, AND1: Intermediate outputs for AND operation
+    OR0, OR1: Intermediate outputs for OR operation
+    SUM0, SUM1, CarryOut: Intermediate outputs for ADD operation (using 7483)
+    P0, P1, P2, P3: Intermediate outputs for MULT operation
+
+BEGIN
+
+// ------------------- AND OPERATION -------------------
+    // 7408 AND Gate for A0 & B0 and A1 & B1
+    GATE AND_GATE1 (7408) 
+        A0, B0 -> AND0; // AND gate for A0 and B0
+    GATE AND_GATE2 (7408) 
+        A1, B1 -> AND1; // AND gate for A1 and B1
+
+// ------------------- OR OPERATION -------------------
+    // 7432 OR Gate for A0 | B0 and A1 | B1
+    GATE OR_GATE1 (7432) 
+        A0, B0 -> OR0; // OR gate for A0 and B0
+    GATE OR_GATE2 (7432) 
+        A1, B1 -> OR1; // OR gate for A1 and B1
+
+// ------------------- ADDITION OPERATION -------------------
+    // 7483 4-bit Adder for A and B (only using 2 bits)
+    GATE ADDER_2BIT (7483) 
+        A0, A1, B0, B1 -> SUM0, SUM1, CarryOut; // Sum and Carry out
+
+// ------------------- MULTIPLICATION OPERATION -------------------
+    // Multiplication (Combinational logic gates)
+    GATE MULT_GATE1 (7408) 
+        A0, B0 -> P0; // Partial product P0 = A0 * B0
+    GATE MULT_GATE2 (7408) 
+        A1, B0 -> P1_temp1; // Partial product A1 * B0
+    GATE MULT_GATE3 (7408) 
+        A0, B1 -> P1_temp2; // Partial product A0 * B1
+    GATE XOR_GATE1 (7486) 
+        P1_temp1, P1_temp2 -> P1; // XOR to calculate P1
+    GATE MULT_GATE4 (7408) 
+        A1, B1 -> P2; // Partial product P2 = A1 * B1
+    // P3 is not needed for this 2-bit multiplication
+
+// ------------------- MULTIPLEXER FOR SELECTING OPERATIONS -------------------
+    // 74153 MUX for selecting between AND, OR, ADD, and MULT
+    GATE MUX1 (74153) 
+        AND0, OR0, SUM0, P0, S1, S0 -> R0; // MUX for selecting R0 based on S1, S0
+    GATE MUX2 (74153) 
+        AND1, OR1, SUM1, P1, S1, S0 -> R1; // MUX for selecting R1 based on S1, S0
+    GATE MUX3 (74153) 
+        '0', '0', CarryOut, P2, S1, S0 -> R2; // MUX for selecting R2 (CarryOut for ADD or P2 for MULT)
+    GATE MUX4 (74153) 
+        '0', '0', '0', '0', S1, S0 -> R3; // MUX for R3 (Multiplication only needs 3 bits)
+
+END COMPONENT
