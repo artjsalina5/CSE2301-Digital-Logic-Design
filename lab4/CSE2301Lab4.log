@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.9.15)  1 OCT 2024 17:59
-=======
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.15)  1 OCT 2024 12:22
->>>>>>> Stashed changes
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.9.15)  3 OCT 2024 20:06
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -559,6 +555,38 @@ runsystem(rm -- "CSE2301Lab4.w18")...executed.
 
 )
 \c@app@runs=\count335
+runsystem(echo " ")...executed.
+
+runsystem(echo "-------------------------------------------------")...executed.
+
+runsystem(echo "auto-pst-pdf: Auxiliary LaTeX compilation")...executed.
+
+runsystem(echo "-------------------------------------------------")...executed.
+
+runsystem(rm -- "CSE2301Lab4-pics.pdf")...executed.
+
+runsystem(latex -no-shell-escape -jobname="CSE2301Lab4-autopp" -interaction=batchmode  "\let \APPmakepictures \empty \input  CSE2301Lab4.tex")...executed.
+
+runsystem(dvips -Ppdf -o "CSE2301Lab4-autopp.ps" "CSE2301Lab4-autopp.dvi")...executed.
+
+runsystem(ps2pdf -dAutoRotatePages=/None "CSE2301Lab4-autopp.ps" "CSE2301Lab4-autopp.pdf")...executed.
+
+runsystem(pdfcrop  "CSE2301Lab4-autopp.pdf" "CSE2301Lab4-pics.pdf")...executed.
+
+runsystem(rm -- "CSE2301Lab4-autopp.log")...executed.
+
+runsystem(rm -- "CSE2301Lab4-autopp.dvi")...executed.
+
+runsystem(rm -- "CSE2301Lab4-autopp.ps")...executed.
+
+runsystem(rm -- "CSE2301Lab4-autopp.pdf")...executed.
+
+runsystem(echo "-------------------------------------------------")...executed.
+
+runsystem(echo "auto-pst-pdf: End auxiliary LaTeX compilation")...executed.
+
+runsystem(echo "-------------------------------------------------")...executed.
+
  (/usr/share/texlive/texmf-dist/tex/latex/pst-pdf/pst-pdf.sty
 Package: pst-pdf 2020/10/10 v1.2f PS graphics for pdfLaTeX (RN,HjG)
  (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifxetex.sty
@@ -685,38 +713,44 @@ Non-PDF special ignored!
 \@karnaughmap@local@northwest@=\count352
 \@karnaughmap@local@southeast@=\count353
  [1]
-Package marginnote Info: Using workaround for absolute page number on input line 117.
-<CSE2301Lab4-pics.pdf, id=26, page=1, 171.64125pt x 17.06375pt>
+Package marginnote Info: Using workaround for absolute page number on input line 113.
+ [2]
+<../images//postnetimp.png, id=31, 729.47531pt x 840.89156pt>
+File: ../images//postnetimp.png Graphic file (type png)
+<use ../images//postnetimp.png>
+Package pdftex.def Info: ../images//postnetimp.png  used on input line 155.
+(pdftex.def)             Requested size: 437.68855pt x 504.53882pt.
+ [3 <../images//postnetimp.png>]
+<CSE2301Lab4-pics.pdf, id=36, page=1, 171.64125pt x 17.06375pt>
 File: CSE2301Lab4-pics.pdf Graphic file (type pdf)
 <use CSE2301Lab4-pics.pdf, page 1>
-Package pdftex.def Info: CSE2301Lab4-pics.pdf , page1 used on input line 163.
+Package pdftex.def Info: CSE2301Lab4-pics.pdf , page1 used on input line 162.
 (pdftex.def)             Requested size: 171.64081pt x 17.06369pt.
- [2 <./CSE2301Lab4-pics.pdf>]
-<CSE2301Lab4-pics.pdf, id=38, page=2, 171.64125pt x 17.06375pt>
+ [4 <./CSE2301Lab4-pics.pdf>]
+<CSE2301Lab4-pics.pdf, id=47, page=2, 171.64125pt x 17.06375pt>
 File: CSE2301Lab4-pics.pdf Graphic file (type pdf)
 <use CSE2301Lab4-pics.pdf, page 2>
-Package pdftex.def Info: CSE2301Lab4-pics.pdf , page2 used on input line 225.
+Package pdftex.def Info: CSE2301Lab4-pics.pdf , page2 used on input line 223.
 (pdftex.def)             Requested size: 171.64081pt x 17.06369pt.
- [3 <./CSE2301Lab4-pics.pdf>]
 <../images//lab043.png, id=48, 1355.0625pt x 461.47406pt>
 File: ../images//lab043.png Graphic file (type png)
 <use ../images//lab043.png>
-Package pdftex.def Info: ../images//lab043.png  used on input line 249.
+Package pdftex.def Info: ../images//lab043.png  used on input line 247.
 (pdftex.def)             Requested size: 406.5219pt x 138.44327pt.
- [4 <../images//lab043.png>] (./CSE2301Lab4.aux) ) 
+ [5 <./CSE2301Lab4-pics.pdf> <../images//lab043.png>] (./CSE2301Lab4.aux) ) 
 Here is how much of TeX's memory you used:
- 32897 strings out of 478287
- 801693 string characters out of 5849289
- 1353778 words of memory out of 5000000
- 50643 multiletter control sequences out of 15000+600000
+ 32921 strings out of 478287
+ 802305 string characters out of 5849289
+ 1352772 words of memory out of 5000000
+ 50665 multiletter control sequences out of 15000+600000
  482549 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,14n,103p,668b,1193s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 99i,14n,103p,780b,1193s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on CSE2301Lab4.pdf (5 pages, 351999 bytes).
+Output written on CSE2301Lab4.pdf (6 pages, 443145 bytes).
 PDF statistics:
- 108 PDF objects out of 1000 (max. 8388607)
- 63 compressed objects within 1 object stream
+ 113 PDF objects out of 1000 (max. 8388607)
+ 65 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 38 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 43 words of extra memory for PDF output out of 10000 (max. 10000000)
 

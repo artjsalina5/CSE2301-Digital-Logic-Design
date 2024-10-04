@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.15)  3 OCT 2024 17:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.15)  3 OCT 2024 20:39
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **CSE2301Lab05.tex
 (./CSE2301Lab05.tex
@@ -538,17 +538,18 @@ Package pdftex.def Info: ../images/uconnlogo.png  used on input line 54.
 [1
 
 {c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <../images/uconnlogo.png>]
-
-[1]
-<../images/twoscompliment.png, id=22, 519.81703pt x 316.18124pt>
+<../images/twoscompliment.png, id=16, 519.81703pt x 316.18124pt>
 File: ../images/twoscompliment.png Graphic file (type png)
 <use ../images/twoscompliment.png>
-Package pdftex.def Info: ../images/twoscompliment.png  used on input line 76.
+Package pdftex.def Info: ../images/twoscompliment.png  used on input line 78.
 (pdftex.def)             Requested size: 389.8618pt x 237.13535pt.
+
+
+[1]
 <../images/overflow.png, id=23, 436.63126pt x 411.78844pt>
 File: ../images/overflow.png Graphic file (type png)
 <use ../images/overflow.png>
-Package pdftex.def Info: ../images/overflow.png  used on input line 81.
+Package pdftex.def Info: ../images/overflow.png  used on input line 83.
 (pdftex.def)             Requested size: 283.80695pt x 267.6593pt.
 
 
@@ -556,25 +557,12 @@ Package pdftex.def Info: ../images/overflow.png  used on input line 81.
 <../images/overflower.png, id=29, 855.195pt x 586.44093pt>
 File: ../images/overflower.png Graphic file (type png)
 <use ../images/overflower.png>
-Package pdftex.def Info: ../images/overflower.png  used on input line 108.
-(pdftex.def)             Requested size: 555.87018pt x 381.18208pt.
+Package pdftex.def Info: ../images/overflower.png  used on input line 111.
+(pdftex.def)             Requested size: 427.59647pt x 293.21974pt.
 
-Overfull \hbox (86.11516pt too wide) in paragraph at lines 108--109
-[][] 
+Underfull \hbox (badness 10000) in paragraph at lines 116--117
+
  []
-
-
-! LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.111 	\textbf
-              {Test Case Selection} \\
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
 
 
 
@@ -582,11 +570,11 @@ or  <return>  to continue without it.
 <../images/examp051.png, id=34, 421.575pt x 357.335pt>
 File: ../images/examp051.png Graphic file (type png)
 <use ../images/examp051.png>
-Package pdftex.def Info: ../images/examp051.png  used on input line 143.
-(pdftex.def)             Requested size: 274.0205pt x 232.26498pt.
+Package pdftex.def Info: ../images/examp051.png  used on input line 152.
+(pdftex.def)             Requested size: 189.70699pt x 160.79926pt.
 
 
-[4]
+[4{c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 \@karnaughmap@local@northwest@=\count327
 \@karnaughmap@local@southeast@=\count328
 \@karnaughmap@local@northwest@=\count329
@@ -598,25 +586,35 @@ Package pdftex.def Info: ../images/examp051.png  used on input line 143.
 
 [5 <../images/examp051.png>]
 
-[6] (./CSE2301Lab05.aux)
+[6] (./CSE2301Lab05.aux
+! Extra }, or forgotten \endgroup.
+l.8 @percent }
+              
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 33646 strings out of 473579
- 849109 string characters out of 5732257
- 1475320 words of memory out of 5000000
- 56199 multiletter control sequences out of 15000+600000
- 571022 words of font info for 79 fonts, out of 8000000 for 9000
+ 33654 strings out of 473579
+ 849249 string characters out of 5732257
+ 1476329 words of memory out of 5000000
+ 56205 multiletter control sequences out of 15000+600000
+ 572077 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,14n,107p,739b,1163s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on CSE2301Lab05.pdf (7 pages, 434481 bytes).
+ 99i,14n,107p,669b,1167s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on CSE2301Lab05.pdf (7 pages, 433213 bytes).
 PDF statistics:
- 92 PDF objects out of 1000 (max. 8388607)
- 52 compressed objects within 1 object stream
+ 93 PDF objects out of 1000 (max. 8388607)
+ 53 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  38 words of extra memory for PDF output out of 10000 (max. 10000000)
 
