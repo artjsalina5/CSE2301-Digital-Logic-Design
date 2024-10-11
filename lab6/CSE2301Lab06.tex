@@ -76,14 +76,14 @@ The maximum size of the output in bits is crucial for ensuring that the circuit 
 	\item If you have an \( m \)-bit multiplicand and an \( n \)-bit multiplier, the resulting product will have a maximum of \( m + n \) bits. This is because multiplying two numbers potentially doubles the value size, which requires more bits to represent accurately.
 	\item For example:
 	      \begin{itemize}
-		      \item A 2x2 binary multiplier (multiplying two 2-bit numbers) will produce a 4-bit product, as \( 2 + 2 = 4 \).
-		      \item A 3x4 binary multiplier (multiplying a 3-bit number by a 4-bit number) will produce a 7-bit product, as \( 3 + 4 = 7 \).
+		      \item A 2x2 binary multiplier (multiplying two 2-bit numbers) will produce a 4-bit product, as \( 2 + 2 = 4 \)
+		      \item A 3x4 binary multiplier (multiplying a 3-bit number by a 4-bit number) will produce a 7-bit product, as \( 3 + 4 = 7 \)
 	      \end{itemize}
 \end{itemize}
 
 Thus, to determine the output size of any binary multiplication circuit, you add the bit lengths of the two operands, ensuring enough bits to represent the highest possible result.
 
-\subsection*{Use of 74153 Chips with Shared Selectors}
+\subsubsection*{Use of 74153 Chips with Shared Selectors}
 
 The 74153 chip is a dual 4-to-1 multiplexer (MUX) IC, meaning it contains two independent 4:1 MUX circuits within a single chip. However, these multiplexers share the same set of selector inputs, meaning they operate in tandem, controlled by the same selector bits.
 
@@ -102,16 +102,16 @@ If we wanted each MUX to have different selectors (operate independently), we wo
 	\item \textbf{Add Separate Selector Lines:} Provide separate control inputs for each MUX, which would require additional control logic. This could involve adding extra multiplexers or decoders to ensure that each MUX has its own dedicated selector input.
 	\item \textbf{Increase Chip Complexity:} This change would increase the circuit’s complexity, requiring more wires and potentially additional ICs to handle the independent selectors, which could lead to higher power consumption and a larger physical layout.
 \end{itemize}
-
 In summary, shared selectors on the 74153 chip reduce circuit complexity and are advantageous in applications where synchronized selection is desired, making it a suitable choice for many standard combinational circuits.
 \subsection*{Discussion}
 \subsubsection*{A 4x4 Bit Combinational Multiplier?}
 In my realized 4x4 bit multiplier circuit, two 4-bit binary numbers, \( A = \{A3, A2, A1, A0\} \) and \( B = \{B3, B2, B1, B0\} \), are multiplied using a combination of AND gates for generating partial products and 4-bit full adders for summing these products.
 
-
 The maximum number this circuit can calculate is \( 15 \times 15 = 225 \), which fits within 8 bits. This is because the bit size of the product equals the sum of the bit sizes of the multiplicand and multiplier.
 
-Each bit of \( A \) is ANDed with each bit of \( B \) to generate 16 partial products. These partial products are fed into the \textbf{PPBus}, which is then connected to three 4-bit full adders to sum the partial products and produce the final 8-bit product \( P = \{P7, P6, P5, P4, P3, P2, P1, P0\} \).
+Each bit of \( A \) is ANDed with each bit of \( B \) to generate 16 partial products.
+These partial products are fed into the \textbf{PPBus}, which is then connected to three 4-bit full adders to sum the partial products and produce the final 8-bit product \( P = \{P7, P6, P5, P4, P3, P2, P1, P0\} \)
+
 The PPBus is organized as follows:
 \[
 	\text{pp[0..15]} = \{ pp0, pp1, pp2, \dots, pp15 \}
@@ -239,8 +239,83 @@ This configuration allows the ALU to dynamically select the appropriate operatio
 
 \begin{examp}
 	\textbf{Binary Multiplication}
+	\begin{itemize}
+		\item \(1011_2 \times 1001_2\)
+		      Start by doing line by line multiplication like in decimal, then do binary addition as before:
+		      \[
+			      \begin{array}{c  c  c  c  c  c  c  c  c}
+				        &                    &   &   &        & 1 & 0 & 1 & 1   \\
+				        &                    &   &   & \times & 1 & 0 & 0 & 1   \\
+				      \hline
+				        & 1 \times 1011_2    &   &   &        & 1 & 0 & 1 & 1   \\
+				        & 0 \times 1 0 1 1_2 &   &   & 0      & 0 & 0 & 0       \\
+				        & 0 \times 1 0 1 1_2 &   & 0 & 0      & 0 & 0 &         \\
+				      + & 1 \times 1011_2    & 1 & 0 & 1      & 1 &   &   &   &
+				      \hline
+				        &                    & 1 & 1 & 0      & 1 & 1 & 1 & 1   \\
+			      \end{array}
+		      \]
+		      \centering
+		      \(1011_2 \times 1001_2 = 1101111_2\)
 
-	% Insert binary multiplication steps here as needed.
+
+	\end{itemize}
+	\begin{itemize}
+		\item In decimal, \(-15 \times 7 = 105\).
+		      Because -15 is negative, we must first take the two's compliment in order to perform the multiplication.
+		\item 15 is \(1111_2\), so the two's complement is \(0001_2\) added to the flipped bits of 15 expanded to 8 bits.
+		      \[
+			      \begin{aligned}
+				      00001111_2   & \quad \text{(original number)}         \\
+				      \hline
+				      11110000_2   & \quad \text{(flipped bits)}            \\
+				      + 00000001_2 & \quad \text{(add 1)}                   \\
+				      \hline
+				      11110001_2   & \quad \text{(two's complement result)} \\
+			      \end{aligned}
+		      \]
+		      The two's complement of \(00001111_2\) is:
+		      \[
+			      11110001_2
+		      \]
+		\item Multiply \(11110001_2\) by \(00000111_2\) following binary multiplication rules:
+		      \[
+			      \begin{array}{c c c c c c c c c c c c c c c c c }
+				       &          &  &  &  &  &   &   &   & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 1 \\
+				       & \times   &  &  &  &  &   &   &   & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 \\
+				      \hline
+
+				       & 1 \times &  &  &  &  &   &   &   & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 1 \\
+
+				       & 1 \times &  &  &  &  &   &   & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 1 &   \\
+				       & 1 \times &  &  &  &  &   & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 1 &   &   \\
+				       & 0 \times &  &  &  &  & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &   &   &   \\
+				      \hline
+				       &          &  &  &  &  &   &   &   & 1 & 0 & 0 & 1 & 0 & 1 & 1 & 1 \\
+			      \end{array}
+		      \]
+		      There really is no need to keep extending the partial products to the left, as the result is already well over our 8-bits.
+
+		\item So, \(1111_2 \times 0111_2 = 10010111_2\), which, converting back to two's complement:
+		      \[
+			      \begin{aligned}
+				      10010111_2   & \quad \text{(original number)}         \\
+				      \hline
+				      01101000_2   & \quad \text{(flipped bits)}            \\
+				      + 00000001_2 & \quad \text{(add 1)}                   \\
+				      \hline
+				      01101001_2   & \quad \text{(two's complement result)}
+			      \end{aligned}
+		      \]
+		\item Since we know this is a negative value, we append the negative when we convert back to decimal to receive
+		      \[
+			      01101001_2
+		      \]
+		      \[
+			      -105_{10}
+		      \]
+	\end{itemize}
 \end{examp}
+
 \end{document}
 % vim: set spell spelllang=en_us expandtab tabstop=4 shiftwidth=4 softtabstop=4:
