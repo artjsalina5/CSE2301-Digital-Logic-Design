@@ -1,13 +1,7 @@
-<<<<<<< HEAD
 INFO:  ANSI Code Page: 1252
 INFO:  latexindent.exe version 3.24.4, 2024-07-18, a script to indent .tex files
        latexindent.exe lives here: C:/Users/ArturoSalinas/AppData/Local/nvim-data/mason/packages/latexindent/
        Fri Oct 11 16:25:26 2024
-=======
-INFO:  latexindent version 3.24.4, 2024-07-18, a script to indent .tex files
-       latexindent lives here: /home/wsl2/.local/share/nvim/mason/packages/latexindent/
-       Mon Oct  7 21:32:46 2024
->>>>>>> 3f13d0ad9f9a32acd2b63ac6c545aafbd595943b
        Reading input from STDIN
 INFO:  Processing switches:
 INFO:  Directory for backup files and log file indent.log:

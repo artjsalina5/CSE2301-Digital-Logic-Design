@@ -124,7 +124,7 @@ The final product \( P \) is given by:
 	P = \{ P7, P6, P5, P4, P3, P2, P1, P0 \}
 \]
 The LSB of the first partial product flows directly to \( P0 \). The LSB of each adder's sum output contributes to a bit of the final product, while the higher bits are cascaded into the next adder’s inputs until all partial products are summed. The key to this major simplification is actually within the first full adder, by setting A3 to \(0\) a beautiful, cascading circuit can be made.
-\subsubsection*{ALU Circuit Elongation}
+\subsubsection*{ALU Circuit Design Using 74153 and 74157 Multiplexers}
 \textbf{1. 74157 Quad 2-1 MUX (Middle Multiplexer in Diagram)}
 
 This multiplexer is used for choosing between the AND and OR operations:
@@ -140,7 +140,7 @@ This multiplexer is used for choosing between the AND and OR operations:
 	      \end{itemize}
 	\item \textbf{Outputs:}
 	      \begin{itemize}
-		      \item \( QA, QB, QC, QD \): Outputs the result of either the AND or OR operations based on the \( SEL \) line.
+		      \item \( Z0, Z1, Z2, Z3 \): Outputs the result of either the AND or OR operations based on the \( SEL \) line.
 	      \end{itemize}
 \end{itemize}
 
