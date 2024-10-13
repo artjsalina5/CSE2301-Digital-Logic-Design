@@ -68,9 +68,7 @@ To create a binary multiplier for any input size:
 	\item \textbf{Partial Product Generation:} Each bit of the multiplier (second operand) is ANDed with each bit of the multiplicand (first operand). For an \( m \)-bit multiplicand and an \( n \)-bit multiplier, this creates \( m \times n \) partial products.
 	\item \textbf{Summing Partial Products:} These partial products are then aligned according to their bit significance (like shifting in decimal multiplication) and summed to produce the final result. The addition process can be achieved using a series of adders, such as half-adders and full-adders, to accumulate each partial product.
 \end{itemize}
-
 \textbf{Output Size Calculation:}
-
 The maximum size of the output in bits is crucial for ensuring that the circuit can handle any possible product without overflow. When multiplying two binary numbers:
 \begin{itemize}
 	\item If you have an \( m \)-bit multiplicand and an \( n \)-bit multiplier, the resulting product will have a maximum of \( m + n \) bits. This is because multiplying two numbers potentially doubles the value size, which requires more bits to represent accurately.
@@ -90,10 +88,9 @@ The 74153 chip is a dual 4-to-1 multiplexer (MUX) IC, meaning it contains two in
 \textbf{Benefit of Shared Selector Bits:}
 
 In our case, having shared selectors is beneficial because:
-\begin{itemize}
-	\item \textbf{Synchronized Selection:} Shared selectors ensure that both multiplexers select their respective inputs simultaneously. This feature is useful when we need two related but separate signals to be processed in parallel, such as in addition circuits where similar operations are performed on corresponding bits of different operands.
-	\item \textbf{Simplified Control Logic:} By using the same selector bits for both MUXes, the design complexity is reduced, as only one set of control signals is needed. This reduces the number of lines required for control inputs and makes the overall circuit more compact and less complex.
-\end{itemize}
+	\item \textbf{Synchronized Selection:} 
+        By having all the selector lines tied together, we can designate the entire circuit to perform a single function. That is, we can have a universal opcode implementation that will span all three of the muliplexors. In my circuit, I used the shared selector lines to choose between AND, OR, ADD, and MULT operations. 
+
 
 \textbf{Modifications for Independent Selectors:}
 
