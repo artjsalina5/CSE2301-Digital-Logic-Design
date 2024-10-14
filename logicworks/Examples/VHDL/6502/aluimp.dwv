@@ -1,0 +1,60 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity ALU is
+    port (
+        A       : in  std_logic_vector(3 downto 0); -- First 4-bit input
+        B       : in  std_logic_vector(3 downto 0); -- Second 4-bit input
+        S       : in  std_logic_vector(1 downto 0); -- Selector (S1, S0)
+        Result  : out std_logic_vector(7 downto 0)  -- 8-bit result for extended multiplication
+    );
+end ALU;
+
+architecture Behavioral of ALU is
+    signal AND_Result      : std_logic_vector(3 downto 0); -- AND result (4-bit)
+    signal OR_Result       : std_logic_vector(3 downto 0); -- OR result (4-bit)
+    signal Add_Result      : std_logic_vector(4 downto 0); -- Addition result (5-bit to handle carry)
+    signal Mult_Result     : std_logic_vector(7 downto 0); -- Multiplication result (8-bit)
+    signal ALU_Result      : std_logic_vector(7 downto 0); -- Final ALU result
+begin
+
+    -- AND Operation (4-bit)
+    AND_Result <= A and B;
+
+    -- OR Operation (4-bit)
+    OR_Result <= A or B;
+
+    -- 4-bit Addition (basic adder)
+    Add_Result <= ('0' & A) + ('0' & B);  -- 5-bit result to capture overflow
+
+    -- 4-bit Multiplication (Combinational logic)
+    Mult_Result(0) <= A(0) and B(0);
+    Mult_Result(1) <= (A(1) and B(0)) xor (A(0) and B(1));
+    Mult_Result(2) <= (A(2) and B(0)) xor (A(1) and B(1)) xor (A(0) and B(2));
+    Mult_Result(3) <= (A(3) and B(0)) xor (A(2) and B(1)) xor (A(1) and B(2)) xor (A(0) and B(3));
+    Mult_Result(4) <= (A(3) and B(1)) xor (A(2) and B(2)) xor (A(1) and B(3));
+    Mult_Result(5) <= (A(3) and B(2)) xor (A(2) and B(3));
+    Mult_Result(6) <= A(3) and B(3);
+    Mult_Result(7) <= '0';  -- No overflow beyond 8-bits for 4x4 multiplication
+
+    -- Multiplexing based on S1 and S0 selection
+    process (S, AND_Result, OR_Result, Add_Result, Mult_Result)
+    begin
+        case S is
+            when "00" =>  -- AND operation
+                ALU_Result <= "0000" & AND_Result; -- Padding to make it 8-bits
+            when "01" =>  -- OR operation
+                ALU_Result <= "0000" & OR_Result;  -- Padding to make it 8-bits
+            when "10" =>  -- Addition
+                ALU_Result <= "000" & Add_Result;  -- Addition result is 5-bits
+            when others =>  -- Multiplication
+                ALU_Result <= Mult_Result;         -- Multiplication result is already 8-bits
+        end case;
+    end process;
+
+    -- Assign ALU result to output
+    Result <= ALU_Result;
+
+end Behavioral;
