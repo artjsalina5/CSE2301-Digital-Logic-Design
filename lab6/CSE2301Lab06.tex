@@ -88,8 +88,7 @@ The 74153 chip is a dual 4-to-1 multiplexer (MUX) IC, meaning it contains two in
 \textbf{Benefit of Shared Selector Bits:}
 
 In our case, having shared selectors is beneficial because:
-	\item \textbf{Synchronized Selection:} 
-        By having all the selector lines tied together, we can designate the entire circuit to perform a single function. That is, we can have a universal opcode implementation that will span all three of the muliplexors. In my circuit, I used the shared selector lines to choose between AND, OR, ADD, and MULT operations. 
+By having all the selector lines tied together, we can designate the entire circuit to perform a single function. That is, we can have a universal opcode implementation that will span all three of the muliplexors. In my circuit, I used the shared selector lines to choose between AND, OR, ADD, and MULT operations.
 
 
 \textbf{Modifications for Independent Selectors:}
@@ -107,11 +106,15 @@ In my realized 4x4 bit multiplier circuit, two 4-bit binary numbers, \( A = \{A3
 The maximum number this circuit can calculate is \( 15 \times 15 = 225 \), which fits within 8 bits. This is because the bit size of the product equals the sum of the bit sizes of the multiplicand and multiplier.
 
 Each bit of \( A \) is ANDed with each bit of \( B \) to generate 16 partial products.
-These partial products are fed into the \textbf{PPBus}, which is then connected to three 4-bit full adders to sum the partial products and produce the final 8-bit product \( P = \{P7, P6, P5, P4, P3, P2, P1, P0\} \)
+
+These partial products are fed into the \textbf{PPBus}, which is then connected to three 4-bit full adders to sum the partial products and produce the final 8-bit product
+\[
+	P = \{P7, P6, P5, P4, P3, P2, P1, P0\}
+\]
 
 The PPBus is organized as follows:
 \[
-	\text{pp[0..15]} = \{ pp0, pp1, pp2, \dots, pp15 \}
+	\text{pp[0..15]} =  pp0, pp1, pp2, \dots, pp15
 \]
 where each \( pp_{ij} = A_i \cdot B_j \).
 
@@ -237,27 +240,6 @@ This configuration allows the ALU to dynamically select the appropriate operatio
 \begin{examp}
 	\textbf{Binary Multiplication}
 	\begin{itemize}
-		\item \(1011_2 \times 1001_2\)
-		      Start by doing line by line multiplication like in decimal, then do binary addition as before:
-		      \[
-			      \begin{array}{c  c  c  c  c  c  c  c  c}
-				        &                    &   &   &        & 1 & 0 & 1 & 1   \\
-				        &                    &   &   & \times & 1 & 0 & 0 & 1   \\
-				      \hline
-				        & 1 \times 1011_2    &   &   &        & 1 & 0 & 1 & 1   \\
-				        & 0 \times 1 0 1 1_2 &   &   & 0      & 0 & 0 & 0       \\
-				        & 0 \times 1 0 1 1_2 &   & 0 & 0      & 0 & 0 &         \\
-				      + & 1 \times 1011_2    & 1 & 0 & 1      & 1 &   &   &   &
-				      \hline
-				        &                    & 1 & 1 & 0      & 1 & 1 & 1 & 1   \\
-			      \end{array}
-		      \]
-		      \centering
-		      \(1011_2 \times 1001_2 = 1101111_2\)
-
-
-	\end{itemize}
-	\begin{itemize}
 		\item In decimal, \(-15 \times 7 = 105\).
 		      Because -15 is negative, we must first take the two's compliment in order to perform the multiplication.
 		\item 15 is \(1111_2\), so the two's complement is \(0001_2\) added to the flipped bits of 15 expanded to 8 bits.
@@ -315,4 +297,4 @@ This configuration allows the ALU to dynamically select the appropriate operatio
 \end{examp}
 
 \end{document}
-% vim: set spell spelllang=en_us expandtab tabstop=4 shiftwidth=4 softtabstop=4:
+% vim: ft=tex tw=0 wrap linebreak tw=80 fo+=M
