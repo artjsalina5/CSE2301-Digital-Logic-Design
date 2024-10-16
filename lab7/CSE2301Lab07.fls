@@ -1,4 +1,4 @@
-PWD C:/home/projects/CSE2301-Digital-Logic-Design/lab7
+PWD C:/home/projects/CSE-2301/lab7
 INPUT c:/texlive/2024/texmf.cnf
 INPUT c:/texlive/2024/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt
@@ -283,6 +283,10 @@ INPUT ../images/examp071.png
 INPUT ../images/examp071.png
 INPUT ../images/examp071.png
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm
+INPUT ../images/examp072.png
+INPUT ../images/examp072.png
+INPUT ../images/examp072.png
+INPUT ../images/examp072.png
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmti8.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm
