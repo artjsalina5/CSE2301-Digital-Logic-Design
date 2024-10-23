@@ -160,8 +160,31 @@ with the second selection bit passed through them.
   would for a regular parity code. We calculate the sum of all the bits in the
   code and check if it is even or odd.
 
-```math 0 1 1 1 0 1 0 C8 = ? 1 0 1 0 1 0 C4 = ?
+```math
+0 1 1 1 0 1 0 C8 = ? 1 0 1 0 1 0 C4 = ?
 
 ```
 
-<!-- vim:set noai tw=80 ts=2 sw=2: -->
+## Line codes
+
+- Unipolar signifies that a positive voltage means a logic 1, while 0 is a logic
+
+0.
+
+- NRZ means Non Return to Zero, at the end of the first one, it does not return
+  to zero.
+
+- For example, a Unipolar NRZ line encoding will have problems with long
+  streams of the same logiic state.
+
+- Unipolar Return to Zero (RTZ) goes to 1 for half the bit period and returns to
+  zero. This makes long strings of zeros difficult to decode.
+
+- Polar signifies that a positive voltage above baseline (+V) for a clock
+  period, but a 0 goes to a negative voltage (-V) for a clock period. This still
+  makes it difficult for long number of repeated strings.
+
+- Manchester ceombines these functions by having a positive voltage and negative
+  voltage usd in 10BASE-T Ethernet() IEEE 802.3
+
+<!-- Vim: set noai tw=80 ts=2 sw=2: -->

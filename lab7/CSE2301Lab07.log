@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.15)  16 OCT 2024 16:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.15)  23 OCT 2024 14:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -477,20 +477,20 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
  (./CSE2301Lab07.aux)
 \openout1 = `CSE2301Lab07.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
  (c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count321
@@ -550,13 +550,13 @@ Package caption Info: End \AtBeginDocument code.
 <../images/uconnlogo.png, id=4, 1027.84pt x 1027.84pt>
 File: ../images/uconnlogo.png Graphic file (type png)
 <use ../images/uconnlogo.png>
-Package pdftex.def Info: ../images/uconnlogo.png  used on input line 57.
+Package pdftex.def Info: ../images/uconnlogo.png  used on input line 58.
 (pdftex.def)             Requested size: 102.79001pt x 102.79001pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 59.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 60.
 (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 59.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 60.
  (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -571,7 +571,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <../images/examp071.png, id=26, 619.3539pt x 397.84634pt>
 File: ../images/examp071.png Graphic file (type png)
 <use ../images/examp071.png>
-Package pdftex.def Info: ../images/examp071.png  used on input line 147.
+Package pdftex.def Info: ../images/examp071.png  used on input line 148.
 (pdftex.def)             Requested size: 402.57526pt x 258.59705pt.
 
 
@@ -579,7 +579,7 @@ Package pdftex.def Info: ../images/examp071.png  used on input line 147.
 <../images/examp072.png, id=32, 913.91437pt x 625.21078pt>
 File: ../images/examp072.png Graphic file (type png)
 <use ../images/examp072.png>
-Package pdftex.def Info: ../images/examp072.png  used on input line 182.
+Package pdftex.def Info: ../images/examp072.png  used on input line 183.
 (pdftex.def)             Requested size: 411.25766pt x 281.34225pt.
 
 
