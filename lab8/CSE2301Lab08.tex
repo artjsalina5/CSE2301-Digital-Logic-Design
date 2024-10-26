@@ -13,6 +13,7 @@
 \usepackage{caption}
 \usepackage{karnaugh-map}
 \usepackage{bm}
+\usepackage[table]{xcolor}
 \usepackage{float}
 
 \geometry{letterpaper, margin=1in}
@@ -21,22 +22,22 @@
 % Header and Footer
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{CSE 2301 - Lab 07: Hamming Code}
+\fancyhead[L]{CSE 2301 - Lab 08: The Voting Machine}
 \fancyhead[R]{\thepage}
 \setlength{\headheight}{15pt}
 
 \author{Arturo Salinas-Aguayo}
-\title{Lab 07: Hamming Code}
+\title{Lab 08: The Voting Machine}
 % theorem set
 \newtheorem{example}{Example}
 % Example block environment
 \newenvironment{examp}
-{\vspace{0.5cm}
- \hrule
-\vspace{0.5cm}
-\begin{example}}
-{\hrule
-\vspace{0.5cm}
+{
+	\vspace{.5cm}
+	\hrule
+\begin{example}\upshape}
+	{\hrule
+		\vspace{0.5cm}
 \end{example}}
 
 \begin{document}
@@ -47,7 +48,7 @@
 \begin{titlepage}
 	\centering
 	\vspace*{3cm}
-	\huge\textbf{Lab 07: Hamming Code}\\
+	\huge\textbf{Lab 08: The Voting Machine}\\
 	\vspace{5cm}
 	\Large\textbf{Arturo Salinas-Aguayo}\\
 	\normalsize
@@ -91,13 +92,225 @@ The lab has us design a circuit to implement two MUX's as a lookup table. In
 this orientation, because each input MUX has two select states, and we only
 utilize one output per MUX, we only need one of the two MUX's in the 74153.
 
+Functionally, we are essentially turning each pair of MUX's into a 4 bit
+selector.
+
 Since we are using Shannon's expansion to convert the inputs to a function that
 depends on the last input, each three person voting machine has select lines
 assigned to two people, \(W\) and \(X\) in this case, and \(Y\) is used to be the
 input to the mux as needed. By doing this, the inputs are limited to \(1, 0, Y
 \) or  \(\overline{Y}\) and the output is a function of \(Y\).
-\subsection*{Discussion}
-\section*{Practice Questions}
+\section*{Discussion}
+\begin{examp}
+	\vspace{.5cm}
+	\textbf{A Three Person Voting Machine}
+	\begin{enumerate}
+		\item \textbf{Derive the Truth Table from the Inputs:}\\
+		      Given the inputs, \(W (S_1) \quad X (S_0) \quad \text{and}\quad Y\),a standard
+		      truth table is developed, with the output, \(F\) being the majority
+		      vote outcome.
+		      \(W\) and \(X\) were denoted \(S_1\) and \(S_0\) forward
+		      thinking to the implementation.
+		      \begin{table}[H]
+			      \centering
+			      \begin{tabular}{|c|c|c|c|}
+				      \hline
+				      \(W (S_1)\) & \(X (S_0)\) & \(Y\) & \(F\) \\
+				      \hline
+				      0           & 0           & 0     & 0     \\
+				      0           & 0           & 1     & 0     \\
+				      0           & 1           & 0     & 0     \\
+				      0           & 1           & 1     & 1     \\
+				      1           & 0           & 0     & 0     \\
+				      1           & 0           & 1     & 1     \\
+				      1           & 1           & 0     & 1     \\
+				      1           & 1           & 1     & 1     \\
+				      \hline
+			      \end{tabular}
+			      \caption{Voting Machine Logic}
+		      \end{table}
+		\item \textbf{Intuit the Design}\\
+		      With the 4-1 MUX, we only have two select lines, so the classic
+		      implementation where each select line ``selects" a specific output, the
+		      complexity must be reduced from three to two.
+		      Grouping the first two inputs \(S_1\) and \(S_0\) and making a fifth column which designates
+		      our four inputs \(D_0\) \(D_1\) \(D_2\) and \(D_3\) allows this to be
+		      done simply:
+		      \begin{table}[H]
+			      \centering
+			      \begin{tabular}{|c|c|c|c|c|}
+				      \hline
+				      \(W (S_1)\)           & \(X (S_0)\) & \(Y\) & \(F\) & \(D_i\)                         \\
+				      \hline
+				      \rowcolor[gray]{.9}	0 & 0           & 0     & 0     & D\textsubscript{0} \textbf{= 0} \\
+				      \rowcolor[gray]{.9}	0 & 0           & 1     & 0     & D\textsubscript{0} \textbf{= 0} \\
+				      0                     & 1           & 0     & 0     & D\textsubscript{1} \textbf{= Y} \\
+				      0                     & 1           & 1     & 1     & D\textsubscript{1} \textbf{= Y} \\
+				      \rowcolor[gray]{.9}	1 & 0           & 0     & 0     & D\textsubscript{2} \textbf{= Y} \\
+				      \rowcolor[gray]{.9}	1 & 0           & 1     & 1     & D\textsubscript{2} \textbf{= Y} \\
+				      1                     & 1           & 0     & 1     & D\textsubscript{3} \textbf{= 1} \\
+				      1                     & 1           & 1     & 1     & D\textsubscript{3} \textbf{= 1} \\
+				      \hline
+			      \end{tabular}
+			      \caption{Simplified Voting Machine Logic}
+		      \end{table}
+		\item \textbf{Outcome}\\
+		      This table shows that the inputs to the MUX can now be mapped to
+		      either the third voter, \(Y\), Logic High, or Logic Low. This is exactly
+		      what is needed for hardware implementation.
+	\end{enumerate}
+\end{examp}
 
+\begin{examp}
+	\subsubsection*{A 12-Person Voting Machine?}
+	A almost identical approach was given to the expansion from three to 12 possible
+	voters, but with an 8-1 MUX added at the final output.
+	\begin{enumerate}
+		\item \textbf{The 74151 MUX}\\
+		      The 74151 MUX has \textit{three} select lines which can be mapped to our
+		      inputs.
+		      Essentially, the problem is an expansion of the first in learning how to
+		      get four seperate input logic inputs to a single output that represents a
+		      majority vote.
+		\item \textbf{The Select Lines}\\
+		      In order to do this, the MUX from Part 1 is used as an input, signifying
+		      the vote of a block of three voters.
+		      If each block of three voters is an input, a logic table indicating the
+		      results of these MUX's can be made and implemented
+		\item \textbf{The Simplification}\\
+		      The same simplification must occur. There are four inputs to be selected,
+		      with only three select lines, so one of the inputs becomes the logic.
+		      \begin{table}[H]
+			      \centering
+			      \begin{tabular}{|c|c|c|c|c|c|}
+				      \hline
+				      \(D (S_2)\)             & \(C (S_1)\) & \(B (S_0)\) & \(A\) & \(F\) & \(D_i\)                         \\
+				      \hline
+				      \rowcolor[gray]{.9} 0   & 0           & 0           & 0     & 0     & D\textsubscript{0} \textbf{= 0} \\
+				      \rowcolor[gray]{.9}		0  & 0           & 0           & 1     & 0     & D\textsubscript{0} \textbf{= 0} \\
+				      0                       & 0           & 1           & 0     & 0     & D\textsubscript{1} \textbf{= 0} \\
+				      \rowcolor[gray]{.9} 0   & 0           & 1           & 1     & 0     & D\textsubscript{1} \textbf{= 0} \\
+				      \rowcolor[gray]{.9} 		0 & 1           & 0           & 0     & 0     & D\textsubscript{2} \textbf{= 0} \\
+				      0                       & 1           & 0           & 1     & 0     & D\textsubscript{2} \textbf{= 0} \\
+				      \rowcolor[gray]{.9} 0   & 1           & 1           & 0     & 0     & D\textsubscript{3} \textbf{= A} \\
+				      \rowcolor[gray]{.9} 0   & 1           & 1           & 1     & 1     & D\textsubscript{3} \textbf{= A} \\
+				      \hline
+				      1                       & 0           & 0           & 0     & 0     & D\textsubscript{4} \textbf{= 0} \\
+				      1                       & 0           & 0           & 1     & 0     & D\textsubscript{4} \textbf{= 0} \\
+				      \rowcolor[gray]{.9}  1  & 0           & 1           & 0     & 0     & D\textsubscript{5} \textbf{= A} \\
+				      \rowcolor[gray]{.9}1    & 0           & 1           & 1     & 1     & D\textsubscript{5} \textbf{= A} \\
+				      1                       & 1           & 0           & 0     & 0     & D\textsubscript{6} \textbf{= A} \\
+				      1                       & 1           & 0           & 1     & 1     & D\textsubscript{6} \textbf{= A} \\
+				      \rowcolor[gray]{.9}1    & 1           & 1           & 0     & 1     & D\textsubscript{7} \textbf{= 1} \\
+				      \rowcolor[gray]{.9}		1  & 1           & 1           & 1     & 1     & D\textsubscript{7} \textbf{= 1} \\
+				      \hline
+			      \end{tabular}
+			      \caption{12 Person Logic Table with MUX Inputs}
+		      \end{table}
+		\item \textbf{The Outcome}\\
+		      An reduction of what our data inputs to the 8:1 MUX is developed and easily
+		      implementable in hardware with the three varying inputs \(0\) or Logic Low, \(A\), and \(1\) or
+		      Logic High. The select lines input the logical outcome from the first
+		      three voting machines.
+	\end{enumerate}
+\end{examp}
+
+\section*{Practice Questions}
+\subsubsection*{Question 1}
+\begin{examp}
+	\vspace{.5cm}
+	\textbf{The Difference between Mealy and Moore Machines}\\
+	In sequential logic, there are two ways to illustrate the forms of how a circuit
+	operates called \textit{Finite State Machines}. These forms show the
+	\textit{next state logic} and the \textit{output logic}.
+
+	In general, a FSM contains \(2^k\) \textit{finite} output states such that
+	there are \(M\) inputs, \(N\) outputs, and \(k\) bits of state.
+	\begin{enumerate}
+		\item \textbf{The Moore Machine}\\
+		      The outputs depend only on the \textit{current state} of the machine.
+		\item \textbf{The Mealy Machine}\\
+		      The outputs depend on both the \textit{current} state and the \textit{input}
+	\end{enumerate}
+\end{examp}
+\subsubsection*{Question 2}
+\begin{examp}
+\vspace{.5cm}
+\textbf{J-K Flip Flop Made from D Flip-Flop}\\
+
+The \textit{J-K Flip-Flop} is an extended \textit{S-R Flip-Flop} which
+attempts to solve the erroneous state in which both State and Reset are
+Enabled.
+
+This introduces a new ``Toggle" state in which on each clock pulse, the output
+\(Q\) and \(\overline{Q}\) flip values.
+
+The \textit{D Flip-Flop} or \textit{Delay Flip-Flop} are widely used to form
+shift or storage registers. This only has one data input \(D\), a clock CLK, and
+the outputs \(Q\) and \(\overline{Q}\). But first, some terms to describe
+these \textit{things}.
+\begin{itemize}
+	\item Transparent - When Data, \(D\) flows to Output \(Q\).
+	\item Opaque - When Data, \(D\) is blocked from flowing and \(Q\) retains its
+	      old value.
+	\item Master(Leader) - When two back to back flip-flops or latches are
+	      controlled by complimentary clocks and the output of the Master(Leader)
+	      \(Q\) flows into the input of the Slave(Follower) \(D\)
+	\item Slave(Follower) - The second latch or flip-flop in the complimentary clock
+	      chain. This follows what the Master does.
+\end{itemize}
+The D Flip Flop is just two D latches tied together which are simply SR
+Latches that are clocked.
+
+The main difference between any latch and any
+flip-flop is that the flip-flop is \textit{edge-triggered}. In general when
+not specified, it is assumed that a \textit{latch} and \textit{flip-flop}
+refers to a D flip-flop or a D latch.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=.3]{examp082.png}
+	\captionof{figure}{A D Flip-Flop made from D Latches}
+\end{figure}
+
+To convert from one to the other, the the table describing \(Q_n\), our
+current state, and \(Q_{n+1}\), the next state is populated logically. This
+will form the inputs to the D Flip-Flop. Recall that the J and K inputs
+correspond to Set and Reset from the SR Latch.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		\(Q_n\) & \(J\) & \(K\) & \(Q_{n+1}\) & \(D_i\) \\
+		\hline
+		0       & 0     & 0     & 0           & 0       \\
+		0       & 0     & 1     & 0           & 0       \\
+		0       & 1     & 0     & 1           & 1       \\
+		0       & 1     & 1     & 1           & 1       \\
+		1       & 0     & 0     & 1           & 1       \\
+		1       & 0     & 1     & 0           & 0       \\
+		1       & 1     & 0     & 1           & 1       \\
+		1       & 1     & 1     & 0           & 0       \\
+		\hline
+	\end{tabular}
+	\caption{Mapping J-K Logic to D Logic}
+\end{table}
+
+I use a Karnaugh Map to simplify this mapping:
+\begin{center}
+\begin{karnaugh-map}(label=corner)[4][2][1][$J$][$K$][$Q_n$]
+\minterms{2,3,4,6}
+\implicant{3}{2}
+\implicantedge{4}{4}{6}{6}
+\implicant{2}{6}
+\autoterms[0]
+\end{karnaugh-map}
+\end{center}
+Therefore,
+\[
+	D = Q_n\overline{K} + \overline{Q_n}J + J\overline{K}
+\]
+
+\end{examp}
 \end{document}
-% vim: set ft=tex tw=80 ts=2 sts=2 sw=2 noet:
+% vim: set tw=80 ts=2 sts=2 sw=2 noet:
