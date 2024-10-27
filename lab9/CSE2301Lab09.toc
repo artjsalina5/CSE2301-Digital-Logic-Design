@@ -1,0 +1,5 @@
+\contentsline {subsection}{\numberline {0.1}Main Functional Purpose of a Register}{2}{}%
+\contentsline {subsection}{\numberline {0.2}Example of When to Use Serial Inputs}{2}{}%
+\contentsline {subsection}{\numberline {0.3}Example of When to Use Parallel Inputs}{2}{}%
+\contentsline {subsection}{\numberline {0.4}Effect of Using a Clock Without a Debouncer}{3}{}%
+\contentsline {subsection}{\numberline {0.5}Difference Between SN7454 and SN7474}{3}{}%

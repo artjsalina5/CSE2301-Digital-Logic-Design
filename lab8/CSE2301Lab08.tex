@@ -216,7 +216,6 @@ input to the mux as needed. By doing this, the inputs are limited to \(1, 0, Y
 \end{examp}
 
 \section*{Practice Questions}
-\subsubsection*{Question 1}
 \begin{examp}
 	\vspace{.5cm}
 	\textbf{The Difference between Mealy and Moore Machines}\\
@@ -226,14 +225,18 @@ input to the mux as needed. By doing this, the inputs are limited to \(1, 0, Y
 
 	In general, a FSM contains \(2^k\) \textit{finite} output states such that
 	there are \(M\) inputs, \(N\) outputs, and \(k\) bits of state.
-	\begin{enumerate}
-		\item \textbf{The Moore Machine}\\
-		      The outputs depend only on the \textit{current state} of the machine.
-		\item \textbf{The Mealy Machine}\\
-		      The outputs depend on both the \textit{current} state and the \textit{input}
-	\end{enumerate}
+
+	In a \textbf{Moore Machine}, the outputs depend exclusively on the \textit{current state} of the machine. This means that the output remains consistent as long as the system stays in a particular state, regardless of changes in the inputs. Consequently:
+	\begin{itemize}
+		\item \textbf{Predictable Outputs}: Because the outputs are tied solely to the state, they are stable and do not change unexpectedly due to momentary fluctuations in the inputs.
+		\item \textbf{Design Simplicity}: A Moore Machine is often simpler to design because the output logic only needs to account for the state, not the inputs.
+	\end{itemize}
+	In contrast, a \textbf{Mealy Machine}’s outputs are determined by a combination of the \textit{current state} and the \textit{current input}. This makes the output sensitive to changes in the input, allowing for faster responses:
+	\begin{itemize}
+		\item \textbf{Responsive Outputs}: Since outputs are based on both the state and input, a Mealy Machine can react immediately to changes in inputs, making it more dynamic.
+		\item \textbf{Complexity}: The dual dependency on both inputs and state can make a Mealy Machine more complex to design and predict. However, it can also lead to fewer states being required, as the inputs directly influence the outputs.
+	\end{itemize}
 \end{examp}
-\subsubsection*{Question 2}
 \begin{examp}
 \vspace{.5cm}
 \textbf{J-K Flip Flop Made from D Flip-Flop}\\
@@ -260,17 +263,8 @@ these \textit{things}.
 	      chain. This follows what the Master does.
 \end{itemize}
 The D Flip Flop is just two D latches tied together which are simply SR
-Latches that are clocked.
-
-The main difference between any latch and any
-flip-flop is that the flip-flop is \textit{edge-triggered}. In general when
-not specified, it is assumed that a \textit{latch} and \textit{flip-flop}
-refers to a D flip-flop or a D latch.
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=.3]{examp082.png}
-	\captionof{figure}{A D Flip-Flop made from D Latches}
-\end{figure}
+Latches that are clocked. More information on the distinction between these can
+be found in the next example.
 
 To convert from one to the other, the the table describing \(Q_n\), our
 current state, and \(Q_{n+1}\), the next state is populated logically. This
@@ -302,15 +296,48 @@ I use a Karnaugh Map to simplify this mapping:
 \minterms{2,3,4,6}
 \implicant{3}{2}
 \implicantedge{4}{4}{6}{6}
-\implicant{2}{6}
 \autoterms[0]
 \end{karnaugh-map}
 \end{center}
 Therefore,
 \[
-	D = Q_n\overline{K} + \overline{Q_n}J + J\overline{K}
+	D = Q_n\overline{K} + \overline{Q_n}J
 \]
 
+\begin{figure}[H]
+	\center{\includegraphics[scale=0.5]{examp083.png}}
+	\captionof{figure}{The J-K Flip-Flop Implemented with D Flip-Flop}
+\end{figure}
 \end{examp}
+
+\begin{examp}
+	\textbf{Latch and Flip-Flops?}\\
+	The main difference between any latch and any
+	flip-flop is that the flip-flop is \textit{edge-triggered}.
+
+	Edge-Triggered means that when a clock's rising or falling edge is felt on the circuitry, depending on whether it is positive or negative edge-triggered, triggers the data to flow and the Flip-Flop to be transparent.
+
+	In general when
+	not specified, it is assumed that a \textit{latch} and \textit{flip-flop}
+	refers to a D flip-flop or a D latch.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=.3]{examp082.png}
+		\captionof{figure}{A D Flip-Flop made from D Latches}
+	\end{figure}
+	\begin{enumerate}
+		\item The Master is enabled during the clock's LOW phase.
+		\item The Slave is enabled during the clock's HIGH phase.
+	\end{enumerate}
+	Latches are Level Triggered, not Edge-Triggered.
+
+	The complimentary clock pulse
+	is tied to a slave and a master latch, which handle the pulse on different
+	clock \textit{levels}. This can lead to buggy output behavior, so the
+	Flip-Flop can precicely capture data at the clock edge.
+
+
+\end{examp}
+
 \end{document}
 % vim: set tw=80 ts=2 sts=2 sw=2 noet:

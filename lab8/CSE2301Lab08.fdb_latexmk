@@ -1,10 +1,11 @@
 # Fdb version 4
-["pdflatex"] 1729963920.942 "CSE2301Lab08.tex" "CSE2301Lab08.pdf" "CSE2301Lab08" 1729963922.39476 0
+["pdflatex"] 1729978854.68468 "CSE2301Lab08.tex" "CSE2301Lab08.pdf" "CSE2301Lab08" 1729978856.318 0
   "../images/examp081.png" 1729606917 74109 7d86933cbcda70c3b2de9c7ae086d357 ""
   "../images/examp082.png" 1729960620 98265 d2132d387a3637bb5030f300bd833ae3 ""
+  "../images/examp083.png" 1729977143 53090 4d9d4784184f1aea8a7e264ced1221d9 ""
   "../images/uconnlogo.png" 1728390997 249673 4b83b9ba10f7dbc6ecd8b3167d1a02a1 ""
-  "CSE2301Lab08.aux" 1729963922 802 51cc2efc008f86c4c76919db262d2af6 "pdflatex"
-  "CSE2301Lab08.tex" 1729963920 13959 583cd5e2c18b1140cee2892f7b4cca6c ""
+  "CSE2301Lab08.aux" 1729978856 951 f1792e07fa1cf6dd96444f62fc75c9d2 "pdflatex"
+  "CSE2301Lab08.tex" 1729978851 15897 c8fcc8fe5eb4a9641b9259e32d2801cb ""
   "c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1726450550 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1726452290 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1726451532 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
