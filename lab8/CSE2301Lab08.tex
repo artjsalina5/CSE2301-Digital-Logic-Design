@@ -167,9 +167,8 @@ input to the mux as needed. By doing this, the inputs are limited to \(1, 0, Y
 	voters, but with an 8-1 MUX added at the final output.
 	\begin{enumerate}
 		\item \textbf{The 74151 MUX}\\
-		      The 74151 MUX has \textit{three} select lines which can be mapped to our
-		      inputs.
-		      Essentially, the problem is an expansion of the first in learning how to
+		      The 74151 MUX has \textit{three} select lines which can be mapped to
+		      inputs. The problem is an expansion of the first in learning how to
 		      get four seperate input logic inputs to a single output that represents a
 		      majority vote.
 		\item \textbf{The Select Lines}\\
@@ -231,16 +230,19 @@ input to the mux as needed. By doing this, the inputs are limited to \(1, 0, Y
 		\item \textbf{Predictable Outputs}: Because the outputs are tied solely to the state, they are stable and do not change unexpectedly due to momentary fluctuations in the inputs.
 		\item \textbf{Design Simplicity}: A Moore Machine is often simpler to design because the output logic only needs to account for the state, not the inputs.
 	\end{itemize}
-	In contrast, a \textbf{Mealy Machine}’s outputs are determined by a combination of the \textit{current state} and the \textit{current input}. This makes the output sensitive to changes in the input, allowing for faster responses:
+	In contrast, a \textbf{Mealy Machine}’s outputs are determined by a combination of the \textit{current state} \textbf{and} the \textit{current input}. This makes the output sensitive to changes in the input, allowing for faster responses:
+
 	\begin{itemize}
 		\item \textbf{Responsive Outputs}: Since outputs are based on both the state and input, a Mealy Machine can react immediately to changes in inputs, making it more dynamic.
+
 		\item \textbf{Complexity}: The dual dependency on both inputs and state can make a Mealy Machine more complex to design and predict. However, it can also lead to fewer states being required, as the inputs directly influence the outputs.
 	\end{itemize}
+
 \end{examp}
+
 \begin{examp}
 \vspace{.5cm}
 \textbf{J-K Flip Flop Made from D Flip-Flop}\\
-
 The \textit{J-K Flip-Flop} is an extended \textit{S-R Flip-Flop} which
 attempts to solve the erroneous state in which both State and Reset are
 Enabled.
@@ -256,11 +258,15 @@ these \textit{things}.
 	\item Transparent - When Data, \(D\) flows to Output \(Q\).
 	\item Opaque - When Data, \(D\) is blocked from flowing and \(Q\) retains its
 	      old value.
-	\item Master(Leader) - When two back to back flip-flops or latches are
+	\item Master (Leader) - When two back to back flip-flops or latches are
 	      controlled by complimentary clocks and the output of the Master(Leader)
 	      \(Q\) flows into the input of the Slave(Follower) \(D\)
-	\item Slave(Follower) - The second latch or flip-flop in the complimentary clock
+	\item Slave (Follower) - The second latch or flip-flop in the complimentary clock
 	      chain. This follows what the Master does.
+	\item Edge-Triggered - When the rising or falling "edge" of a signal
+	      causes the logic to advance
+	\item Level-Triggered - When the input being high or low causes the signal
+	      to advance. More in later example.
 \end{itemize}
 The D Flip Flop is just two D latches tied together which are simply SR
 Latches that are clocked. More information on the distinction between these can
@@ -329,7 +335,11 @@ Therefore,
 		\item The Master is enabled during the clock's LOW phase.
 		\item The Slave is enabled during the clock's HIGH phase.
 	\end{enumerate}
-	Latches are Level Triggered, not Edge-Triggered.
+	The primary difference between the two is:
+
+	\begin{itemize}
+		\item Latches are Level Triggered, not Edge-Triggered.
+	\end{itemize}
 
 	The complimentary clock pulse
 	is tied to a slave and a master latch, which handle the pulse on different
@@ -340,4 +350,4 @@ Therefore,
 \end{examp}
 
 \end{document}
-% vim: set tw=80 ts=2 sts=2 sw=2 noet:
+% vim: set tw=80 ts=2 sts=2 sw=2 noai noet:
