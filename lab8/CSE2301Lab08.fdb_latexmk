@@ -1,8 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1730251654.19934 "CSE2301Lab08.tex" "CSE2301Lab08.pdf" "CSE2301Lab08" 1730251654.87216 0
+["pdflatex"] 1730415552.71286 "CSE2301Lab08.tex" "CSE2301Lab08.pdf" "CSE2301Lab08" 1730415554.4221 0
   "../images/examp081.png" 1730302789.99707 74109 71e2e5064d461967df6ce998f00d4a7e ""
   "../images/examp082.png" 1730302789.99707 98265 e5328df1a9e407dd68fd72f83ac6608a ""
   "../images/examp083.png" 1730302789.99707 53090 952d1f1894d5d25f8e97e980f80d3f85 ""
+  "../images/examp084.png" 1730415503.89134 71526 d79a2cb4e2d8e772b1638146d092d5e6 ""
   "../images/uconnlogo.png" 1730302789.99707 249673 7a16062ef39e4714562db84431cd2c08 ""
   "/etc/texmf/web2c/texmf.cnf" 1730250805.00078 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -189,8 +190,8 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1730250817.6505 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1730250902 8214307 48c6d46a01113bb1f99b9fcdcf53aed3 ""
-  "CSE2301Lab08.aux" 1730251654.78385 951 c45231c437e71d4db4185e6eaa456136 "pdflatex"
-  "CSE2301Lab08.tex" 1730302790.20708 16208 9d2734fe2f7e74abe19ccf942f62f1d9 ""
+  "CSE2301Lab08.aux" 1730415554.35611 1071 908d48578ca13b7cae61856c31ff348d "pdflatex"
+  "CSE2301Lab08.tex" 1730415548.95627 16599 642006c9177952e25330353625c72fa2 ""
   (generated)
   "CSE2301Lab08.aux"
   "CSE2301Lab08.log"

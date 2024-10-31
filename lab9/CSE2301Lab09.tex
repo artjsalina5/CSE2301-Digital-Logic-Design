@@ -3,6 +3,7 @@
 \documentclass[12pt]{article}
 
 \usepackage{graphicx}
+\usepackage{gensymb}
 \usepackage{amsmath}
 \usepackage{array}
 \usepackage{amsfonts}
@@ -72,110 +73,107 @@
 
 \section*{Theory}
 
-\subsection{What is a Register?}
+\subsection*{What is a Register?}
 
 \begin{definition}
 	A \textbf{register} is a crucial component in digital systems, acting as a small, high-speed storage unit within a processor or digital circuit. In isolation, a register’s primary job is to temporarily hold data bits, usually as an array of flip-flops, which can be accessed or manipulated synchronously with a clock signal.
 \end{definition}
-
-Registers allow data to be stored, loaded, and transferred within a system, supporting operations such as:
 \begin{itemize}
 	\item \textbf{Data Storage}: Holds binary information temporarily for immediate use by the processor.
 	\item \textbf{Data Manipulation}: In specialized registers, data can be manipulated (e.g., shift registers, where bits can be shifted left or right).
 	\item \textbf{Synchronized Operations}: Registers work in sync with a clock signal to ensure that data is processed in an orderly fashion, avoiding timing issues.
+	\item \textbf{Finite State Machine Design} - Design the next state logic.
 \end{itemize}
 
-\subsection{Serial Input Data}
-
+\subsection*{Serial Input Data}
 \begin{definition}
 	\textbf{Serial inputs} are used when data needs to be transferred one bit at a time, often to save pin count or when minimizing wiring is essential.
 \end{definition}
 
-\begin{example}
+\begin{examp}
 	Examples of when to use serial inputs include:
 	\begin{itemize}
 		\item \textbf{Communication Protocols}: Interfaces like SPI or I²C use serial data lines to transfer data between devices such as sensors and microcontrollers.
 		\item \textbf{Microcontroller Communication}: Reading data from a serial peripheral, like a temperature sensor over a single data line, to save GPIO pins.
+		\item \textbf{Finite State Machine Design} - Desiging for a series of inputs in a
+		      certain order.
 	\end{itemize}
-\end{example}
+\end{examp}
 
-\subsection{Example of When to Use Parallel Inputs}
-
+\subsection*{Parallel Input Data}
 \begin{definition}
 	\textbf{Parallel inputs} are used when multiple bits need to be processed simultaneously, which allows for faster data transfer compared to serial inputs.
 \end{definition}
 
-\begin{example}
+\begin{examp}
 	Examples of when to use parallel inputs include:
 	\begin{itemize}
 		\item \textbf{Microcontroller GPIO Initialization}: Setting an entire 8-bit GPIO port’s value at once with an 8-bit parallel input.
 		\item \textbf{Loading Data into Registers}: Loading a data register with an entire byte (or more) from a bus for quick manipulation.
+		\item \textbf{90s Printers}: Prior to the USB, household printers took data in parallel as it scans across each page and
+		      marks at the design resolution. The size and bulkiness of the
+		      connector always stand out compared to the USB ports they utilize now.
 	\end{itemize}
-\end{example}
+\end{examp}
 
 \subsection*{Effect of Using a Clock Without a Debouncer}
 
 \begin{definition}
 	A \textbf{debouncer} is a circuit or algorithm that removes noise or mechanical bounce from a signal, ensuring stable and predictable behavior.
 \end{definition}
-
-Without a debouncer, the clock signal could suffer from noise or spurious pulses caused by mechanical contacts bouncing. This bouncing can lead to:
-\begin{itemize}
-	\item \textbf{False Triggers}: Noise can cause the clock line to trigger unintended edges, causing registers to latch incorrect data.
-	\item \textbf{Data Corruption}: Unstable signals could make a register latch or shift data unexpectedly, leading to unpredictable outcomes.
-	\item \textbf{System Instability}: The entire circuit could malfunction if synchronization relies on an erratic clock signal.
-\end{itemize}
+\begin{examp}
+	Without a debouncer, the clock signal could suffer from noise or spurious pulses caused by mechanical contacts bouncing. This bouncing can lead to:
+	\begin{itemize}
+		\item \textbf{False Triggers}: Noise can cause the clock line to trigger unintended edges, causing registers to latch incorrect data.
+		\item \textbf{Data Corruption}: Unstable signals could make a register latch or shift data unexpectedly, leading to unpredictable outcomes.
+		\item \textbf{System Instability}: The entire circuit could malfunction if synchronization relies on an erratic clock signal.
+	\end{itemize}
+\end{examp}
 
 \subsection*{Difference Between SN5474 and SN7474}
-
-\begin{definition}
-	The \textbf{SN5474} and \textbf{SN7474} are distinct integrated circuits with the same fucntionality, but different tolerances.
-	\begin{itemize}
-		\item \textbf{SN7474 (Dual D-type Flip-Flop)}: Composed of two D-type flip-flops, which are edge-triggered devices used to store a single bit of data each.
-		\item \textbf{SN5474 (Dual D-type Flip-Flop)}: The same two D-type flip-flops
-		      but designed with a wider operating temperature. This allows for these
-		      chips to be used in systems in which reliable digital operation is
-		      paramount.
-	\end{itemize}
-\end{definition}
-\section*{Shift Register Analysis}
-
-\subsection*{Problem Description}
-For this example, we'll use the last two digits of my zip code: \textbf{40}. Each digit is converted into Binary Coded Decimal (BCD) and then concatenated. Here are the steps:
-
+Temperature tolerances. A hobbiest-tinkerer does not need the same level of precision a
+chip needed to properly read a source range ion chamber compensation tube for a
+nuclear reactor plant exposed to an active neutron flux. Military and Aerospace regularly stock these
+chips for replacement parts.
+The \textbf{SN5474} and \textbf{SN7474} are distinct integrated circuits with the same functionality, but different tolerances.
 \begin{itemize}
-	\item The digit \textbf{4} in BCD is: \( 0100 \)
-	\item The digit \textbf{0} in BCD is: \( 0000 \)
+	\item \textbf{SN7474 (Dual D-type Flip-Flop)}: Composed of two D-type flip-flops, which are edge-triggered devices used to store a single bit of data each. \textbf{0\degree C - 70\degree C}.
+	\item \textbf{SN5474 (Dual D-type Flip-Flop)}: The same two D-type flip-flops but designed with a wider operating temperature. This allows for these chips to be used in systems in which reliable digital operation is paramount. \textbf{-55\degree C - 125\degree C}.
 \end{itemize}
 
-After concatenating these BCD values, we get: \( 0100 \, 0000 \).
+\begin{examp}
+	\textbf{Shift Register Zip Codes}\\
+	For this example, the last two digits of my zip code are: \textbf{40}. Each digit is converted into Binary Coded Decimal (BCD) and then concatenated. Here are the steps:
+	\begin{itemize}
+		\item The digit \textbf{4} in BCD is: \( 0100 \)
+		\item The digit \textbf{0} in BCD is: \( 0000 \)
+	\end{itemize}
 
-We will input this 8-bit number into an imaginary shift register starting from the Least Significant Bit (LSB) to the Most Significant Bit (MSB). The shift register starts cleared (\( 0000 \, 0000 \)) and each bit is shifted right with every clock pulse.
+	After concatenating these BCD values, we get: \( 0100 \, 0000 \).
 
-\subsection*{Shift Register Table}
+	We will input this 8-bit number into an imaginary shift register starting from the Least Significant Bit (LSB) to the Most Significant Bit (MSB). The shift register starts cleared (\( 0000 \, 0000 \)) and each bit is shifted right with every clock pulse.
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.5} % Adjust row height
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\rowcolor{gray!20}
+			\textbf{Step} & \textbf{Input} & \textbf{Registers} & \textbf{Decimal} \\ \hline
+			0             & N/A            & 00000000           & 0                \\ \hline
+			1             & 0              & 00000000           & 0                \\ \hline
+			2             & 1              & 00000000           & 0                \\ \hline
+			3             & 0              & 00000000           & 0                \\ \hline
+			4             & 0              & 00000000           & 0                \\ \hline
+			5             & 0              & 00000000           & 0                \\ \hline
+			6             & 0              & 10000000           & 128              \\ \hline
+			7             & 0              & 01000000           & 64               \\ \hline
+		\end{tabular}
+		\caption{Shift Register Steps for Input 01000000}
+		\label{table:shift_register}
+	\end{table}
 
-\begin{table}[H]
-	\centering
-	\renewcommand{\arraystretch}{1.5} % Adjust row height
-	\begin{tabular}{|c|c|c|c|}
-		\hline
-		\rowcolor{gray!20}
-		\textbf{Step} & \textbf{Input} & \textbf{Registers} & \textbf{Decimal} \\ \hline
-		0             & N/A            & 00000000           & 0                \\ \hline
-		1             & 0              & 00000000           & 0                \\ \hline
-		2             & 0              & 10000000           & 128              \\ \hline
-		3             & 0              & 01000000           & 64               \\ \hline
-		4             & 0              & 00100000           & 32               \\ \hline
-		5             & 1              & 00010000           & 16               \\ \hline
-		6             & 0              & 00001000           & 8                \\ \hline
-		7             & 0              & 00000100           & 4                \\ \hline
-		8             & 0              & 00000010           & 2                \\ \hline
-	\end{tabular}
-	\caption{Shift Register Steps for Input 01000000}
-	\label{table:shift_register}
-\end{table}
-
-\subsection*{Final Result}
-The final 8-bit binary value in the shift register is \( 0100 \, 0000 \), which corresponds to \textbf{64} in decimal.
+	The final 8-bit binary value in the shift register is \( 0100 \, 0000 \), which corresponds to \textbf{64} in decimal.
+	\vspace{5mm}
+\end{examp}
 \end{document}
 % vim: set tw=80 ts=2 sts=2 sw=2 noet:

@@ -92,7 +92,7 @@ The lab has us design a circuit to implement two MUX's as a lookup table. In
 this orientation, because each input MUX has two select states, and we only
 utilize one output per MUX, we only need one of the two MUX's in the 74153.
 
-Functionally, we are essentially turning each pair of MUX's into a 4 bit
+Functionally, each pair of MUX's is abstracted into a 4 bit
 selector.
 
 Since we are using Shannon's expansion to convert the inputs to a function that
@@ -154,7 +154,7 @@ input to the mux as needed. By doing this, the inputs are limited to \(1, 0, Y
 			      \end{tabular}
 			      \caption{Simplified Voting Machine Logic}
 		      \end{table}
-		\item \textbf{Outcome}\\
+		\item \textbf{Result}\\
 		      This table shows that the inputs to the MUX can now be mapped to
 		      either the third voter, \(Y\), Logic High, or Logic Low. This is exactly
 		      what is needed for hardware implementation.
@@ -206,7 +206,7 @@ input to the mux as needed. By doing this, the inputs are limited to \(1, 0, Y
 			      \end{tabular}
 			      \caption{12 Person Logic Table with MUX Inputs}
 		      \end{table}
-		\item \textbf{The Outcome}\\
+		\item \textbf{Result}\\
 		      An reduction of what our data inputs to the 8:1 MUX is developed and easily
 		      implementable in hardware with the three varying inputs \(0\) or Logic Low, \(A\), and \(1\) or
 		      Logic High. The select lines input the logical outcome from the first
@@ -221,23 +221,28 @@ input to the mux as needed. By doing this, the inputs are limited to \(1, 0, Y
 	In sequential logic, there are two ways to illustrate the forms of how a circuit
 	operates called \textit{Finite State Machines}. These forms show the
 	\textit{next state logic} and the \textit{output logic}.
-
+	
 	In general, a FSM contains \(2^k\) \textit{finite} output states such that
 	there are \(M\) inputs, \(N\) outputs, and \(k\) bits of state.
-
+	
 	In a \textbf{Moore Machine}, the outputs depend exclusively on the \textit{current state} of the machine. This means that the output remains consistent as long as the system stays in a particular state, regardless of changes in the inputs. Consequently:
 	\begin{itemize}
 		\item \textbf{Predictable Outputs}: Because the outputs are tied solely to the state, they are stable and do not change unexpectedly due to momentary fluctuations in the inputs.
 		\item \textbf{Design Simplicity}: A Moore Machine is often simpler to design because the output logic only needs to account for the state, not the inputs.
 	\end{itemize}
 	In contrast, a \textbf{Mealy Machine}’s outputs are determined by a combination of the \textit{current state} \textbf{and} the \textit{current input}. This makes the output sensitive to changes in the input, allowing for faster responses:
-
+	
 	\begin{itemize}
 		\item \textbf{Responsive Outputs}: Since outputs are based on both the state and input, a Mealy Machine can react immediately to changes in inputs, making it more dynamic.
-
+		      
 		\item \textbf{Complexity}: The dual dependency on both inputs and state can make a Mealy Machine more complex to design and predict. However, it can also lead to fewer states being required, as the inputs directly influence the outputs.
 	\end{itemize}
-
+	
+	The ticket-to-ride for this concept, is that Moore Machines only rely on
+	Current State. Mealy Machines rely on Current State and the Input. This allows
+	the Mealy Machine FSM to be one clock cycle ahead of the Moore since it
+	actively senses the input.
+	
 \end{examp}
 
 \begin{examp}
@@ -249,6 +254,12 @@ Enabled.
 
 This introduces a new ``Toggle" state in which on each clock pulse, the output
 \(Q\) and \(\overline{Q}\) flip values.
+
+
+\begin{figure}[H]
+	\center{\includegraphics[scale=0.5]{examp084.png}}
+	\captionof{figure}{The J-K Flip Flop}
+\end{figure}
 
 The \textit{D Flip-Flop} or \textit{Delay Flip-Flop} are widely used to form
 shift or storage registers. This only has one data input \(D\), a clock CLK, and
@@ -320,9 +331,9 @@ Therefore,
 	\textbf{Latch and Flip-Flops?}\\
 	The main difference between any latch and any
 	flip-flop is that the flip-flop is \textit{edge-triggered}.
-
+	
 	Edge-Triggered means that when a clock's rising or falling edge is felt on the circuitry, depending on whether it is positive or negative edge-triggered, triggers the data to flow and the Flip-Flop to be transparent.
-
+	
 	In general when
 	not specified, it is assumed that a \textit{latch} and \textit{flip-flop}
 	refers to a D flip-flop or a D latch.
@@ -336,17 +347,17 @@ Therefore,
 		\item The Slave is enabled during the clock's HIGH phase.
 	\end{enumerate}
 	The primary difference between the two is:
-
+	
 	\begin{itemize}
 		\item Latches are Level Triggered, not Edge-Triggered.
 	\end{itemize}
-
+	
 	The complimentary clock pulse
 	is tied to a slave and a master latch, which handle the pulse on different
 	clock \textit{levels}. This can lead to buggy output behavior, so the
 	Flip-Flop can precicely capture data at the clock edge.
-
-
+	
+	
 \end{examp}
 
 \end{document}

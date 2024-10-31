@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1730336998.11143 "CSE2301Lab09.tex" "CSE2301Lab09.pdf" "CSE2301Lab09" 1730336999.21723 0
+["pdflatex"] 1730417288.19753 "CSE2301Lab09.tex" "CSE2301Lab09.pdf" "CSE2301Lab09" 1730417289.56478 0
   "../images/uconnlogo.png" 1730302789.99707 249673 7a16062ef39e4714562db84431cd2c08 ""
   "/etc/texmf/web2c/texmf.cnf" 1730250805.00078 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -39,6 +39,7 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1248133631 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
   "/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcirc.defines.tex" 1698694537 42380 d68b7c16b3b461006f5b7f9098faa2ec ""
   "/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcircbipoles.tex" 1702157706 299395 931c59580629def2d687ad8c25b42803 ""
@@ -137,6 +138,7 @@
   "/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1579991033 13886 d1306dcf79a944f6988e688c1785f9ce ""
   "/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty" 1668028059 18450 88279bf67c81e69f8e3f1c1bad1a26c5 ""
   "/usr/share/texlive/texmf-dist/tex/latex/float/float.sty" 1137110151 6749 16d2656a1984957e674b149555f1ea1d ""
+  "/usr/share/texlive/texmf-dist/tex/latex/gensymb/gensymb.sty" 1666126245 4629 bbc3d88bc1fe1146ecbefa95c41cab26 ""
   "/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty" 1578002852 41601 9cf6c5257b1bc7af01a58859749dd37a ""
   "/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg" 1459978653 1213 620bba36b25224fa9b7e1ccb4ecb76fd ""
   "/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg" 1465944070 1224 978390e9c2234eab29404bc21b268d1e ""
@@ -175,8 +177,8 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1730250817.6505 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1730250902 8214307 48c6d46a01113bb1f99b9fcdcf53aed3 ""
-  "CSE2301Lab09.aux" 1730336999.1534 636 829a0d0caca775c78529eec8cc8c9a14 "pdflatex"
-  "CSE2301Lab09.tex" 1730336995.57585 7364 592fef28369a5ea412254258142d8549 ""
+  "CSE2301Lab09.aux" 1730417289.50157 283 b8717bc540a5a4f217213569b500890d "pdflatex"
+  "CSE2301Lab09.tex" 1730417287.04223 7923 8a9a1b19976a707efd09109a7abeb7ca ""
   (generated)
   "CSE2301Lab09.aux"
   "CSE2301Lab09.log"
