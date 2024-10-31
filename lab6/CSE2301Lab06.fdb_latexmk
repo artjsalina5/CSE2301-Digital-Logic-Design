@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1729263865.48521 "CSE2301Lab06.tex" "CSE2301Lab06.pdf" "CSE2301Lab06" 1729263868.44813 0
-  "../images/examp061.png" 1729180156.79511 30762 ba30fd29a25e17452239533a887bbe45 ""
-  "../images/uconnlogo.png" 1728390997.13395 249673 7a16062ef39e4714562db84431cd2c08 ""
-  "/etc/texmf/web2c/texmf.cnf" 1725024674.77377 475 c0e671620eb5563b2130f56340a5fde8 ""
+["pdflatex"] 1730252773.68114 "CSE2301Lab06.tex" "CSE2301Lab06.pdf" "CSE2301Lab06" 1730252774.39412 0
+  "../images/examp061.png" 1730302789.98707 30762 ba30fd29a25e17452239533a887bbe45 ""
+  "../images/uconnlogo.png" 1730302789.99707 249673 7a16062ef39e4714562db84431cd2c08 ""
+  "/etc/texmf/web2c/texmf.cnf" 1730250805.00078 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1246382020 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -179,12 +179,12 @@
   "/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty" 1700082560 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1636152094 2900 1537cc8184ad1792082cd229ecc269f4 ""
-  "/usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb" 1727057820.39178 136101 f533469f523533d38317ab5729d00c8a ""
+  "/usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb" 1730250813.49864 136101 f533469f523533d38317ab5729d00c8a ""
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
-  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1727057832.61971 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
-  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1727057892 8214058 0160f9aa569cc9d6b48e987f7c9f42df ""
-  "CSE2301Lab06.aux" 1729263870.23157 32 4d1825978335c8847f72f7c473f9edc8 "pdflatex"
-  "CSE2301Lab06.tex" 1729204418.21581 13194 fa544287f1538ea11858018fb4f725be ""
+  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1730250817.6505 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1730250902 8214307 48c6d46a01113bb1f99b9fcdcf53aed3 ""
+  "CSE2301Lab06.aux" 1730252774.33353 32 4d1825978335c8847f72f7c473f9edc8 "pdflatex"
+  "CSE2301Lab06.tex" 1730302790.13708 13194 fa544287f1538ea11858018fb4f725be ""
   (generated)
   "CSE2301Lab06.aux"
   "CSE2301Lab06.log"

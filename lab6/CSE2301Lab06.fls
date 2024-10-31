@@ -1,4 +1,4 @@
-PWD /mnt/c/home/projects/CSE-2301/lab6
+PWD /home/wsl/cse2301/lab6
 INPUT /etc/texmf/web2c/texmf.cnf
 INPUT /usr/share/texmf/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf

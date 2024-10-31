@@ -72,7 +72,7 @@
 
 \section*{Theory}
 
-\subsection{Main Functional Purpose of a Register}
+\subsection{What is a Register?}
 
 \begin{definition}
 	A \textbf{register} is a crucial component in digital systems, acting as a small, high-speed storage unit within a processor or digital circuit. In isolation, a register’s primary job is to temporarily hold data bits, usually as an array of flip-flops, which can be accessed or manipulated synchronously with a clock signal.
@@ -85,7 +85,7 @@ Registers allow data to be stored, loaded, and transferred within a system, supp
 	\item \textbf{Synchronized Operations}: Registers work in sync with a clock signal to ensure that data is processed in an orderly fashion, avoiding timing issues.
 \end{itemize}
 
-\subsection{Example of When to Use Serial Inputs}
+\subsection{Serial Input Data}
 
 \begin{definition}
 	\textbf{Serial inputs} are used when data needs to be transferred one bit at a time, often to save pin count or when minimizing wiring is essential.
@@ -113,7 +113,7 @@ Registers allow data to be stored, loaded, and transferred within a system, supp
 	\end{itemize}
 \end{example}
 
-\subsection{Effect of Using a Clock Without a Debouncer}
+\subsection*{Effect of Using a Clock Without a Debouncer}
 
 \begin{definition}
 	A \textbf{debouncer} is a circuit or algorithm that removes noise or mechanical bounce from a signal, ensuring stable and predictable behavior.
@@ -126,22 +126,18 @@ Without a debouncer, the clock signal could suffer from noise or spurious pulses
 	\item \textbf{System Instability}: The entire circuit could malfunction if synchronization relies on an erratic clock signal.
 \end{itemize}
 
-\subsection{Difference Between SN7454 and SN7474}
+\subsection*{Difference Between SN5474 and SN7474}
 
 \begin{definition}
-	The \textbf{SN7454} and \textbf{SN7474} are distinct integrated circuits with different functionalities:
+	The \textbf{SN5474} and \textbf{SN7474} are distinct integrated circuits with the same fucntionality, but different tolerances.
 	\begin{itemize}
-		\item \textbf{SN7454 (Dual 4-bit Binary Adder)}: Designed to perform arithmetic operations, specifically the addition of two 4-bit binary numbers.
 		\item \textbf{SN7474 (Dual D-type Flip-Flop)}: Composed of two D-type flip-flops, which are edge-triggered devices used to store a single bit of data each.
+		\item \textbf{SN5474 (Dual D-type Flip-Flop)}: The same two D-type flip-flops
+		      but designed with a wider operating temperature. This allows for these
+		      chips to be used in systems in which reliable digital operation is
+		      paramount.
 	\end{itemize}
 \end{definition}
-
-The key differences between the SN7454 and SN7474 are:
-\begin{itemize}
-	\item \textbf{Functionality}: The SN7454 handles arithmetic tasks, while the SN7474 is meant for data storage and synchronization.
-	\item \textbf{Application}: The SN7454 is used in computational circuits requiring arithmetic, whereas the SN7474 is found in sequential logic for data synchronization, timing control, or edge-triggered operations.
-\end{itemize}
-
 \section*{Shift Register Analysis}
 
 \subsection*{Problem Description}
@@ -165,15 +161,15 @@ We will input this 8-bit number into an imaginary shift register starting from t
 		\hline
 		\rowcolor{gray!20}
 		\textbf{Step} & \textbf{Input} & \textbf{Registers} & \textbf{Decimal} \\ \hline
-		0 & N/A & 00000000 & 0   \\ \hline
-		1 & 0   & 00000000 & 0   \\ \hline
-		2 & 0   & 10000000 & 128 \\ \hline
-		3 & 0   & 01000000 & 64  \\ \hline
-		4 & 0   & 00100000 & 32  \\ \hline
-		5 & 1   & 00010000 & 16  \\ \hline
-		6 & 0   & 00001000 & 8   \\ \hline
-		7 & 0   & 00000100 & 4   \\ \hline
-		8 & 0   & 00000010 & 2   \\ \hline
+		0             & N/A            & 00000000           & 0                \\ \hline
+		1             & 0              & 00000000           & 0                \\ \hline
+		2             & 0              & 10000000           & 128              \\ \hline
+		3             & 0              & 01000000           & 64               \\ \hline
+		4             & 0              & 00100000           & 32               \\ \hline
+		5             & 1              & 00010000           & 16               \\ \hline
+		6             & 0              & 00001000           & 8                \\ \hline
+		7             & 0              & 00000100           & 4                \\ \hline
+		8             & 0              & 00000010           & 2                \\ \hline
 	\end{tabular}
 	\caption{Shift Register Steps for Input 01000000}
 	\label{table:shift_register}
