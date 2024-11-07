@@ -1,0 +1,115 @@
+% TEX compiler = latexmk
+% copyright arturo salinas-aguayo 2024
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{circuitikz}
+\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{karnaugh-map}
+\usepackage{bm}
+\usepackage[table]{xcolor}
+\usepackage{float}
+\usepackage{subcaption}
+
+\geometry{letterpaper, margin=1in}
+\graphicspath{ {../images/} }
+
+% Header and Footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{CSE 2301 - Lab 11: Programmable Logic Arrays}
+\fancyhead[R]{\thepage}
+\setlength{\headheight}{15pt}
+
+\author{Arturo Salinas-Aguayo}
+\title{Lab 11: Programmable Logic Arrays}
+% theorem set
+\newtheorem{example}{Example}
+% Example block environment
+\newenvironment{examp}
+{
+	\vspace{.5cm}
+	\hrule
+\begin{example}\upshape}
+	{\hrule
+		\vspace{0.5cm}
+\end{example}}
+
+\begin{document}
+\newcommand{\closure}[2][3]{%
+	{}\mkern#1mu\overline{\mkern-#1mu#2}}
+\newcommand\ncoverline[1]{\mkern1mu\overline{\mkern-1mu#1\mkern-1mu}\mkern1mu}
+% Title Page
+\begin{titlepage}
+	\centering
+	\vspace*{3cm}
+	\huge\textbf{Lab 11: Programmable Logic Arrays}\\
+	\vspace{5cm}
+	\Large\textbf{Arturo Salinas-Aguayo}\\
+	\normalsize
+	CSE 2301: Principles and Practice of Digital Logic Design\\
+	Dr. Mohammad Khan, Section 003L-1248\\
+	Electrical and Computer Engineering Department
+	\vfill
+	\includegraphics[scale=0.1]{uconnlogo}\\
+	College of Engineering, University of Connecticut\\
+	\scriptsize{Coded in \LaTeX}
+	\vspace*{1cm}
+\end{titlepage}
+\section*{Theory}
+\subsection*{Karnaugh-Map Review}
+\textbf{F Output}
+\begin{center}
+\begin{karnaugh-map}(label=corner)[4][4][2][$B$][$A$][$C_0$][$C_1$][$C_2$]
+\minterms{0,1,2,3,5,6,7,8,9,10,13,14,16,19,23,24}
+\implicant{1}{9}
+\implicant{2}{10}
+\implicant{3}{7}[0,1]
+\implicantedge{0}{0}{8}{8}[0,1]
+\autoterms[0]
+\end{karnaugh-map}
+\end{center}
+
+\[
+	F = \closure{C_0}\closure{A}\closure{B} + \closure{C_1}AB +
+	\closure{C_2}\closure{A}B + \closure{C_2}A\closure{B}
+\]
+\begin{table}[h!]
+	\centering
+	\newcommand{\currstatecolor}{gray!30}
+	\begin{tabular}{|c|c|c|c|c
+		|>{\columncolor{\currstatecolor}}c
+		|>{\columncolor{\currstatecolor}}c
+		|>{\columncolor{\currstatecolor}}c
+		|>{\columncolor{\currstatecolor}}c
+		|l|}
+		\hline
+		\textbf{A} & \textbf{B} & \textbf{C} & \textbf{D} & \textbf{E} & \textbf{F} & \textbf{G} & \textbf{H} & \textbf{I} & \textbf{Error Position} \\ \hline
+		0          & 0          & 0          & 0          & 0          & 0          & 0          & 0          & 0          & None (No Error)         \\ \hline
+		1          & 0          & 0          & 0          & 0          & 0          & 1          & 0          & 1          & Parity Bit 5            \\ \hline
+		1          & 1          & 0          & 0          & 0          & 0          & 1          & 0          & 0          & Data Bit 4              \\ \hline
+		1          & 0          & 1          & 0          & 0          & 0          & 0          & 1          & 1          & Data Bit 3              \\ \hline
+		1          & 0          & 0          & 1          & 0          & 0          & 0          & 1          & 0          & Data Bit 2              \\ \hline
+		1          & 0          & 0          & 0          & 1          & 0          & 0          & 0          & 1          & Data Bit 1              \\ \hline
+		0          & 1          & 0          & 0          & 0          & 1          & 0          & 0          & 1          & Parity Bit 9            \\ \hline
+		0          & 1          & 1          & 0          & 0          & 1          & 0          & 0          & 0          & Data Bit 8              \\ \hline
+		0          & 1          & 0          & 1          & 0          & 0          & 1          & 1          & 1          & Data Bit 7              \\ \hline
+		0          & 1          & 0          & 0          & 1          & 0          & 1          & 1          & 0          & Data Bit 6              \\ \hline
+		0          & 0          & 1          & 0          & 0          & 1          & 1          & 0          & 0          & Parity Bit 12           \\ \hline
+		0          & 0          & 1          & 1          & 0          & 1          & 0          & 1          & 1          & Data Bit 11             \\ \hline
+		0          & 0          & 1          & 0          & 1          & 1          & 0          & 1          & 0          & Data Bit 10             \\ \hline
+		0          & 0          & 0          & 1          & 0          & 1          & 1          & 1          & 0          & Parity Bit 14           \\ \hline
+		0          & 0          & 0          & 1          & 1          & 1          & 1          & 0          & 1          & Data Bit 13             \\ \hline
+		0          & 0          & 0          & 0          & 1          & 1          & 1          & 1          & 1          & Parity Bit 15           \\ \hline
+	\end{tabular}
+	\caption{Truth Table for Error Detection (5 Inputs, 4 Outputs)}
+\end{table}
+
+\end{document}
+% vim: set tw=80 ts=2 sts=2 sw=2 noai noet:

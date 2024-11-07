@@ -129,7 +129,7 @@ The current through each LED is calculated using Ohm's Law:
 	\[
 		I = \frac{V_{R}}{R} = \frac{V_{\text{supply}} - V_{\text{LED}}}{R}
 	\]
-
+	
 	Where:
 	\begin{itemize}
 		\item \( V_{\text{supply}} = 5V \) is the supply voltage.
@@ -295,15 +295,15 @@ This sparked a lot of memories of troubleshooting various circuit cards on the b
 	\textbf{IEEE-754 Floating Point Conversion}
 	\newline
 	We are tasked with converting $-19.5_{10}$ into Single Precision IEEE-754 floating point format. We will show the sign bit, exponent, and first 8-bits of the mantissa.
-
+	
 	\textbf{Step 1: Determine the sign bit $\bm{(S)}$}
-
+	
 	Since the number is negative, the sign bit is:
 	\[
 		S = 1	\]
-
+	
 	\textbf{Step 2: Convert the magnitude \(\bm{19.5_{10}}\) to binary}
-
+	
 	First, we convert the integer part and the fractional part of \(19.5_{10}\) to binary:
 	\[
 		19_{10} = 10011_2 \quad \text{and} \quad 0.5_{10} = 0.1_2
@@ -311,18 +311,18 @@ This sparked a lot of memories of troubleshooting various circuit cards on the b
 	Therefore, the binary representation of \(19.5_{10}\) is:
 	\[
 		10011.1_2\]
-
+	
 	\textbf{Step 3: Normalize the binary number}
-
+	
 	We normalize $10011.1_2$ into the form $1.M \times 2^E$ by shifting the decimal point 4 places to the left:
 	\[
 		10011.1_2 = 1.00111_2 \times 2^4
 	\]
-
+	
 	Here, the mantissa $M$ is $00111_2$, and the exponent $E$ is $4$.
-
+	
 	\textbf{Step 4: Calculate the biased exponent}
-
+	
 	The exponent is biased by 127 in Single Precision IEEE-754. So, we add 127 to the actual exponent $4$:
 	\[
 		E = 127 + 4 = 131
@@ -331,7 +331,7 @@ This sparked a lot of memories of troubleshooting various circuit cards on the b
 	\[
 		E = 10000011_2
 	\]
-
+	
 	\textbf{Step 5: Assemble the IEEE-754 representation} \\
 	Now we can assemble the components:
 	\begin{itemize}
@@ -341,13 +341,13 @@ This sparked a lot of memories of troubleshooting various circuit cards on the b
 	\end{itemize}
 	Thus, the first 17 bits of the IEEE-754 floating-point representation of $-19.5_{10}$ are:
 	\[
-        1 \ 10000011 \ 00111000_{IEEE-754}
+		1 \ 10000011 \ 00111000_{IEEE-754}
 	\]
-
+	
 	\textbf{Final Answer:}
 	The IEEE-754 single-precision representation of $-19.5_{10}$ (with the first 8 bits of the mantissa) is:
 	\[
-        1 \ 10000011 \ 00111000_{IEEE-754}
+		1 \ 10000011 \ 00111000_{IEEE-754}
 	\]
 \end{examp}
 \end{document}
