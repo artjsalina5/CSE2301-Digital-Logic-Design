@@ -1,6 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1731010749.07909 "CSE2301Lab10.tex" "CSE2301Lab10.pdf" "CSE2301Lab10" 1731010750.11953 0
+["pdflatex"] 1731106751.71897 "CSE2301Lab10.tex" "CSE2301Lab10.pdf" "CSE2301Lab10" 1731106754.40139 2
   "../images/examp101.png" 1730854891.40635 158523 f9a7f07b86533c1f06fbcf5b7a252975 ""
+  "../images/examp115.png" 1731105284.16681 56797 c5458e069a742c0838c81db84dbc7bc9 ""
   "../images/uconnlogo.png" 1730302789.99707 249673 7a16062ef39e4714562db84431cd2c08 ""
   "/etc/texmf/web2c/texmf.cnf" 1730250805.00078 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -50,6 +51,7 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1248133631 32734 69e00a6b65cedb993666e42eedb3d48f ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
@@ -190,8 +192,8 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1730250817.6505 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1730250902 8214307 48c6d46a01113bb1f99b9fcdcf53aed3 ""
-  "CSE2301Lab10.aux" 1731010750.06939 955 36f006ca06c057af72f419eef82955fd "pdflatex"
-  "CSE2301Lab10.tex" 1731010747.52084 22292 64dcf405385619971f18907a4dcf8706 ""
+  "CSE2301Lab10.aux" 1731106754.30607 1084 7e6631cd03be2223a89737b05d9f3652 "pdflatex"
+  "CSE2301Lab10.tex" 1731106748.64006 23537 fb424fb911dcb66bb8e5cee2472720e8 ""
   (generated)
   "CSE2301Lab10.aux"
   "CSE2301Lab10.log"

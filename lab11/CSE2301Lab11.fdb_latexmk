@@ -1,5 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1731004167.29277 "CSE2301Lab11.tex" "CSE2301Lab11.pdf" "CSE2301Lab11" 1731004168.85204 0
+["pdflatex"] 1731120708.82269 "CSE2301Lab11.tex" "CSE2301Lab11.pdf" "CSE2301Lab11" 1731120710.71804 0
+  "../images/examp111.png" 1731091935.03702 252192 9eb2959c67684525d559483032695167 ""
+  "../images/examp112.png" 1731092698.52551 35278 e5fe94a4bdfb5f7d459283df5df9e7fa ""
+  "../images/examp113.png" 1731094398.18241 19770 df0e9376da72ade500810e3e73276cab ""
   "../images/uconnlogo.png" 1730302789.99707 249673 7a16062ef39e4714562db84431cd2c08 ""
   "/etc/texmf/web2c/texmf.cnf" 1730250805.00078 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -37,13 +40,17 @@
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1136768653 1124 6c73e740cf17375f03eec0ee63599741 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1136768653 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti12.tfm" 1136768653 1484 ed72f8f5cf654cda15ecc8e32bfcbee5 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1248133631 32080 340ef9bf63678554ee606688e7b5339d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1248133631 36741 fa121aac0049305630cf160b86157ee4 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1248133631 35469 70d41d2b9ea31d5d813066df7c99281c ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1248133631 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb" 1248133631 36118 fad905eba93cff5bce1e185fe980a177 ""
   "/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcirc.defines.tex" 1698694537 42380 d68b7c16b3b461006f5b7f9098faa2ec ""
   "/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcircbipoles.tex" 1702157706 299395 931c59580629def2d687ad8c25b42803 ""
@@ -178,8 +185,8 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1730250817.6505 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1730250902 8214307 48c6d46a01113bb1f99b9fcdcf53aed3 ""
-  "CSE2301Lab11.aux" 1731004168.79997 187 828ff7b3495560d76ba62115d6d31dd6 "pdflatex"
-  "CSE2301Lab11.tex" 1731004166.81324 5145 41868b7b989d04acc52339bcb9b07409 ""
+  "CSE2301Lab11.aux" 1731120710.65675 610 68c1e1e13da79a18af5e796d2fc8aed3 "pdflatex"
+  "CSE2301Lab11.tex" 1731120708.22762 8573 7bc5ba28d7706941220ffa19d7beb447 ""
   (generated)
   "CSE2301Lab11.aux"
   "CSE2301Lab11.log"
