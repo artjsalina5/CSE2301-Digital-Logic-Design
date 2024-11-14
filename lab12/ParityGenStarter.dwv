@@ -1,0 +1,32 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+
+entity ParityGen is 
+
+ port(
+		D	: in	std_logic_vector(3 downto 0);
+		Q	: out	std_logic_vector(6 downto 0)
+	);
+
+end ParityGen;
+
+
+architecture arch1 of ParityGen is
+signal P1 : std_logic;
+signal P2 : std_logic;
+signal P3 : std_logic;
+begin
+	Q(6) <= P1;
+	Q(5) <= P2;
+	Q(4) <= D(3);
+	Q(3) <= P3;
+	Q(2) <= D(2);
+	Q(1) <= D(1);
+	Q(0) <= D(0);
+	
+	P1 <= ; --Add an expression for P1 between the = and the ;
+	P2 <= ; --Add an expression for P2 between the = and the ;
+	P3 <= ; --Add an expression for P3 between the = and the ;
+
+end arch1;
