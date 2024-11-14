@@ -66,12 +66,19 @@
 \subsubsection*{A '101' or '010' Serial Sequence Detector}
 This task involved designing a Moore machine from the problem statement. The
 sucessfull implementation will yield a 1 if either the detected sequence was
-\(101\) or \(010\).
+\(101\) or \(010\) and is allowed to overlap.
 
-\section*{Difference between Sequential and Combinational Logic}
+These types of codes may represent start and stop codes to signify the start and
+end of a data stream. For example, if the ACK or acknowledgement code is
+\(101\), then the reciever can be programmed or built such that it starts
+listening after getting to this ``state." Another code could be encoded such
+that it represents NACK or negative-acknowledgement to indicate and error with
+the preceeding bits or operation.
 
-In digital circuits, \textbf{combinational logic} and \textbf{sequential logic} are two fundamental types of circuits, each with unique characteristics based on how they handle inputs and generate outputs.
-
+\subsubsection*{What is the difference between Combinational and Sequential
+	Anyway?}
+\hline
+\vspace{5mm}
 \subsubsection*{Combinational Logic}
 Combinational logic circuits are those in which the outputs depend \textit{only} on the current inputs at any given moment. They do not have any memory element, meaning they cannot retain information about previous input values. As a result, their output is purely a direct response to the present combination of inputs, and it changes immediately whenever an input changes.
 
@@ -80,6 +87,8 @@ Combinational logic circuits are those in which the outputs depend \textit{only}
 	\item \textbf{Example Circuits}: Examples of combinational circuits include arithmetic circuits (such as adders and subtractors), multiplexers, decoders, and encoders.
 	\item \textbf{Behavior}: For each possible combination of inputs, there is a unique output determined by the circuit’s logic function.
 \end{itemize}
+
+\hline
 
 \subsubsection*{Sequential Logic}
 Sequential logic circuits, unlike combinational logic, have outputs that depend on both the current inputs and the history of past inputs. These circuits contain \textit{memory elements} (typically flip-flops or latches), allowing them to store information about previous states. This capability enables sequential circuits to use past events to influence future outputs, making them suitable for state-dependent operations.
@@ -90,30 +99,49 @@ Sequential logic circuits, unlike combinational logic, have outputs that depend 
 	\item \textbf{Example Circuits}: Examples include counters, shift registers, flip-flops, and finite state machines (FSMs), such as Moore and Mealy machines.
 \end{itemize}
 
+\hline
+
 \subsubsection*{Key Differences between Combinational and Sequential Logic}
 \begin{itemize}
 	\item \textbf{Dependency on Past Inputs}: Combinational circuits depend solely on the present inputs, while sequential circuits depend on both the current and past inputs.
 	\item \textbf{Memory}: Combinational circuits are \textit{memoryless}, while sequential circuits include memory elements to retain past states.
 	\item \textbf{Timing}: Combinational circuits respond instantly to input changes, whereas sequential circuits often have a clock signal or other control mechanisms to manage output changes.
 \end{itemize}
+\vspace{.5mm}
+\hline
 
-In summary, \textbf{combinational logic} provides immediate, direct responses to current inputs without retaining past states, making it ideal for simple operations. \textbf{Sequential logic}, by contrast, can remember previous states and is therefore suited for tasks where the input history affects the output, enabling it to perform more complex, time-dependent functions.
 
 \section*{Discussion}
 
-In this lab, we developed a sequence detector using a Moore machine to identify two specific binary sequences: \( 010 \) and \( 101 \). The design required careful attention to state transitions and the use of D flip-flops to hold and propagate the state information. This process emphasized the fundamental differences between combinational and sequential logic, as our sequence detector required memory to retain information about past inputs, which is characteristic of sequential circuits.
+\quad In this lab, a sequence detector using a Moore machine was developed to identify two specific binary sequences: \( 010 \) and \( 101 \). The design required careful attention to state transitions and the use of D flip-flops to hold and propagate the state information. This process emphasized the fundamental differences between combinational and sequential logic, as our sequence detector required memory to retain information about past inputs, which is characteristic of sequential circuits.
 
-\subsection*{Design Considerations}
-To achieve the required functionality, we designed a Moore machine where each state transition reflects the detection of a particular sequence pattern. We used D flip-flops to implement these states, ensuring that the machine could retain the current state information while processing each new bit in the input sequence. Given that two overlapping patterns needed to be detected, the state machine was carefully constructed to handle cases where multiple valid sequences could appear back-to-back within the input string. This resulted in a total of 7 states. This means that we had to have at least 3 Flip-Flops.
+\subsubsection*{Design Considerations}
+\quad To achieve the required functionality, we designed a Moore machine where each
+state transition reflects the detection of a particular state, not input. We
+used D flip-flops to implement these states, ensuring that the machine could
+retain the current state information while processing each new bit in the input
+sequence. Given that two overlapping patterns needed to be detected, the state
+machine was carefully constructed to handle cases where multiple valid sequences
+could appear back-to-back within the input string. This resulted in a total of 7
+states. This means that we had to have at least 3 Flip-Flops of the D variety.
 
-\subsection*{State Diagram and Transition Table}
-A state diagram was created to map out all possible transitions based on the input bit values. Each transition was annotated in the form \( A/B \), where \( A \) represents the input and \( B \) the output, with the output set to \( 1 \) upon detection of either sequence. We ensured that each state had two outgoing transitions, one for an input of \( 0 \) and one for \( 1 \), allowing the detector to appropriately move between states based on incoming bits.
+\subsubsection*{State Diagram and Transition Table}
+\quad A state diagram was created to map out all possible transitions based on the input bit values. Each transition was annotated in the form \( A/B \), where \( A \) represents the input and \( B \) the output, with the output set to \( 1 \) upon detection of either sequence. We ensured that each state had two outgoing transitions, one for an input of \( 0 \) and one for \( 1 \), allowing the detector to appropriately move between states based on incoming bits.
+For this lab, the flip flop inputs were labeled \(Q_0\), \(Q_1\), and \(Q_2\)
+corresponding each to its own flip flop. The excitation states were also labeled
+as such but superscripted with a * to indicate excitation. The input and the
+current output of the D-Flip Flops is combined to make the future or next state
+logic.
 \begin{figure}[H]
 	\center{\includegraphics[scale=1.1]{examp101}}
 	\caption{Moore State Diagram}
 \end{figure}
 
-Following this, a transition table was constructed, detailing all possible states and their corresponding next states based on current inputs. The table provided a clear reference for deriving the next-state logic, a crucial step in mapping the circuit behavior to D flip-flops.
+Following this, a transition table was constructed, detailing all possible
+states and their corresponding next states based on current inputs. The table
+provided a clear reference for deriving the next-state logic, a crucial step in
+mapping the circuit behavior to D flip-flops. S0 marks the first state, S6 marks
+the final state for a total of 7 states as stated previously.
 \begin{figure}[H]
 	\centering
 	\subfigure{
@@ -236,10 +264,10 @@ This lab reinforced key concepts in sequential logic design, particularly the im
 \begin{examp}
 	\vspace{.5cm}
 	\textbf{A Counter Utilizing the J-K Flip-Flop}
-	
+
 	\textit{Using JK flip flops, design a counter that counts from DCBA=0000 sequentially
 		to DCBA=1011 and then returns to 0000. Complete the table below.}
-	
+
 	\begin{table}[H]
 		\centering
 		\newcommand{\currstatecolor}{gray!30}
@@ -254,7 +282,7 @@ This lab reinforced key concepts in sequential logic design, particularly the im
 			|>{\columncolor{\currstatecolor}}c
 			|>{\columncolor{\currstatecolor}}c|c|c|c|}
 			\hline
-			$\#$    & \(D\)   & \(C\)   & \(B\)   & \(A\)   & \(D^*\) & \(C^*\) & \(B^*\) & \(A^*\) & \(J_D\) & 
+			$\#$    & \(D\)   & \(C\)   & \(B\)   & \(A\)   & \(D^*\) & \(C^*\) & \(B^*\) & \(A^*\) & \(J_D\) &
 			\(K_D\) & \(J_C\) & \(K_C\) & \(J_B\) & \(K_B\) & \(J_A\) & \(K_A\)                                                           \\
 			\hline
 			0       & 0       & 0       & 0       & 0       & 0       & 0       & 0       & 1       & 0       & X & 0 & X & 0 & X & 1 & X \\
@@ -307,7 +335,7 @@ are given:
 \end{table}
 Using the binary encoding scheme, that is, each state starting with \(S_0\) is
 represented by the three binary digits counting up starting from 0, which
-corresponds to \(000\) in this case.	
+corresponds to \(000\) in this case.
 
 Implementating this with D Flip-Flops is straight forward.
 \begin{figure}[H]
@@ -331,7 +359,6 @@ logic required is not able to be simplified much due to the groupings.
 \end{center}
 \caption{The $D_0^*$ Input Excitation Karnaugh Map}
 \end{figure}
-\subsubsection*{D_0^*}
 This simplification corresponds with the boolean equation
 \[
 	D_0^* = \closure{Q_{0}}\closure{Q_{1}} + Q_{2} + Q_{0}Q_{1}
@@ -344,28 +371,28 @@ This simplification corresponds with the boolean equation
 	In sequential logic, there are two ways to illustrate the forms of how a circuit
 	operates called \textit{Finite State Machines}. These forms show the
 	\textit{next state logic} and the \textit{output logic}.
-	
+
 	In general, a FSM contains \(2^k\) \textit{finite} output states such that
 	there are \(M\) inputs, \(N\) outputs, and \(k\) bits of state.
-	
+
 	In a \textbf{Moore Machine}, the outputs depend exclusively on the \textit{current state} of the machine. This means that the output remains consistent as long as the system stays in a particular state, regardless of changes in the inputs. Consequently:
 	\begin{itemize}
 		\item \textbf{Predictable Outputs}: Because the outputs are tied solely to the state, they are stable and do not change unexpectedly due to momentary fluctuations in the inputs.
 		\item \textbf{Design Simplicity}: A Moore Machine is often simpler to design because the output logic only needs to account for the state, not the inputs.
 	\end{itemize}
 	In contrast, a \textbf{Mealy Machine}’s outputs are determined by a combination of the \textit{current state} \textbf{and} the \textit{current input}. This makes the output sensitive to changes in the input, allowing for faster responses:
-	
+
 	\begin{itemize}
 		\item \textbf{Responsive Outputs}: Since outputs are based on both the state and input, a Mealy Machine can react immediately to changes in inputs, making it more dynamic.
-		      
+
 		\item \textbf{Complexity}: The dual dependency on both inputs and state can make a Mealy Machine more complex to design and predict. However, it can also lead to fewer states being required, as the inputs directly influence the outputs.
 	\end{itemize}
-	
+
 	The ticket-to-ride for this concept, is that Moore Machines only rely on
 	Current State. Mealy Machines rely on Current State and the Input. This allows
 	the Mealy Machine FSM to be one clock cycle ahead of the Moore since it
 	actively senses the input.
-	
+
 \end{examp}
 
 The \textit{D Flip-Flop} or \textit{Delay Flip-Flop} are widely used to form

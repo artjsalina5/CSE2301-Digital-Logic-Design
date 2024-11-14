@@ -94,7 +94,11 @@ upcoming simplicity of the PLA.
 	\closure{C_2}\closure{A}B + \closure{C_2}A\closure{B}
 \]
 With the PLA implementation, each minterm for each output bit is placed and
-routed by the software and abstracted away from the wires.
+routed by the software and abstracted away from the wires. For the \(C_2 = 0\)
+block, notice how there are potential hazards at bay. These are kept seperate in
+order to best maximize the effect of the 3-Dimensional 5 Variable Karnaugh Map.
+In this case, the blue and yellow squares ``wrap around" the corresponding
+\(C_2\) block.
 \begin{figure}[H]
 	\center{\includegraphics[scale=.60]{examp113}}
 	\caption{Traditional Gate Implementation and Black Box
@@ -107,7 +111,7 @@ abstracting away the gate logic by programming it directly.
 \begin{examp}
 	\vspace{.5mm}
 	\textbf{A Continuation of the Triangle Parity}
-	
+
 	In this lab, we examined a 15-bit data stream configured with EVEN parity using a triangular code. The output identifies error positions by mapping the detected location to a four-bit decimal representation. An error is flagged whenever a mismatch in parity is detected across specific bit groupings, similar to Hamming code principles. Recall that in a Hamming code, the minimum number of parity bits \( p \) needed for \( m \) data bits satisfies \( 2^p \geq m + p + 1 \). This ensures unique identification of single-bit errors. The triangular parity code, however, uses overlapping parity checks to pinpoint errors more precisely by leveraging redundancy within intersecting bit groups.
 	\begin{table}[H]
 		\centering
@@ -130,7 +134,7 @@ abstracting away the gate logic by programming it directly.
 			0          & 1          & 1          & 0          & 0          & 1          & 0          & 0          & 0          & Data Bit 8              \\ \hline
 			0          & 1          & 0          & 1          & 0          & 0          & 1          & 1          & 1          & Data Bit 7              \\ \hline
 			0          & 1          & 0          & 0          & 1          & 0          & 1          & 1          & 0          & Data Bit 6              \\ \hline
-			
+
 			0          & 0          & 1          & 0          & 0          & 1          & 1          & 0          & 0          & Parity Bit 12           \\ \hline
 			0          & 0          & 1          & 1          & 0          & 1          & 0          & 1          & 1          & Data Bit 11             \\ \hline
 			0          & 0          & 1          & 0          & 1          & 1          & 0          & 1          & 0          & Data Bit 10             \\ \hline
@@ -148,13 +152,14 @@ abstracting away the gate logic by programming it directly.
 		\center{\includegraphics[scale=.60]{examp111}}
 		\caption{The 3x3 bit Full Adder Circuit}
 	\end{figure}
-	
-	The output OVERFLOW bit can be determined quickly by comparing the MSB of Y and
+
+	The output \textbf{OVERFLOW} bit, which can be used as a signal for the logic
+	to indicate a potentially erroneous operation, can be determined quickly by comparing the MSB of Y and
 	X. The equation can simply be put as:
 	\[
-		OVERFLOW = \closure{X_2}\closure{Y_2}Z_2 + X_{2}Y_{2}\closure{Z_{2}}
+		\mathbf{OVERFLOW} = \closure{X_2}\closure{Y_2}Z_2 + X_{2}Y_{2}\closure{Z_{2}}
 	\]
-	
+
 \end{examp}
 \begin{examp}
 	\vspace{.5mm}
@@ -170,7 +175,7 @@ abstracting away the gate logic by programming it directly.
 	This is done similarly to creating combinational logic at the begining of the
 	course. Every wire being drawn out and extended to the combination of AND and
 	OR gates is the characteristic of the PLA.
-	
+	\vspace{5mm}
 \end{examp}
 \end{document}
 % vim: set tw=80 ts=2 sts=2 sw=2 noai noet:
