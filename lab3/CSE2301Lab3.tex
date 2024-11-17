@@ -129,7 +129,7 @@ The current through each LED is calculated using Ohm's Law:
 	\[
 		I = \frac{V_{R}}{R} = \frac{V_{\text{supply}} - V_{\text{LED}}}{R}
 	\]
-	
+
 	Where:
 	\begin{itemize}
 		\item \( V_{\text{supply}} = 5V \) is the supply voltage.
@@ -268,6 +268,143 @@ The introduction to the breadboard and having hands on real hardware was a nice 
 Careful attention was placed on cable routing as this is paramount to allow for comprehensive troubleshooting down the line. Looking forward to the other labs, I want to learn more complex combinational logic and start gronking the sequential logic again that I was exposed to in Nuclear Field Electronics Technician 'A' School many years ago. The pace and military obligations during `A` school were way too demanding to appreciate the subject and what it is that we learned, it was just a fire hose of information for 2 years straight 7am to frequently close to 8pm. The slower pace of a University course where more attention is given to everyone is a breath of fresh air as it allows me to really get into the weeds of what the specifics are. For this lab, I reviewed silicon doping and how a PN Junction works in order to understand (or better yet, remember) how a BJT's components react to different values of potential.
 
 This sparked a lot of memories of troubleshooting various circuit cards on the boat and reading endless documentation until the problem was identified and the guilty components replaced, installed, and retested. It also allowed for use of some standardized lab equipment such as a digital multimeter and a logic probe, which I am very excited to continue working with.
+\begin{figure}[h]
+\begin{tikzpicture}[x=1pt,y=-1pt,scale=.8,line cap=rect]
+	\def\logisimfontA#1{\fontfamily{cmr}{#1}} % Replaced by logisim, original font was "SansSerif"
+	\def\logisimfontB#1{\fontfamily{cmtt}{#1}} % Replaced by logisim, original font was "Monospaced"
+	\definecolor{custcol_0_0_0}{RGB}{0, 0, 0}
+	\definecolor{custcol_ff_ff_ff}{RGB}{255, 255, 255}
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (153.0,135.0) -- (103.0,135.0) -- (103.0,415.0) -- (293.0,415.0) ;
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (293.0,375.0) -- (113.0,375.0) -- (113.0,175.0) -- (153.0,175.0) ;
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (183.0,95.0) -- (233.0,95.0) -- (233.0,455.0) ;
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (293.0,205.0) -- (73.0,205.0) -- (73.0,505.0) -- (293.0,505.0) ;
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (153.0,95.0) -- (93.0,95.0) -- (93.0,325.0) -- (293.0,325.0) ;
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (223.0,225.0) -- (293.0,225.0) ;
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (223.0,305.0) -- (293.0,305.0) ;
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (293.0,455.0) -- (233.0,455.0) -- (233.0,525.0) -- (293.0,525.0) ;
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (393.0,235.0) -- (413.0,235.0) -- (413.0,15.0) -- (463.0,15.0) ;
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (183.0,135.0) -- (243.0,135.0) -- (243.0,475.0) -- (293.0,475.0) ;
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (183.0,55.0) -- (223.0,55.0) -- (223.0,225.0) -- (223.0,305.0) -- (223.0,405.0) -- (293.0,405.0) ;
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (253.0,275.0) -- (253.0,425.0) -- (293.0,425.0) ;
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (243.0,475.0) -- (243.0,575.0) -- (293.0,575.0) ;
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (463.0,45.0) -- (423.0,45.0) -- (423.0,335.0) -- (393.0,335.0) ;
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (393.0,435.0) -- (433.0,435.0) -- (433.0,75.0) -- (463.0,75.0) ;
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (463.0,105.0) -- (443.0,105.0) -- (443.0,535.0) -- (393.0,535.0) ;
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (213.0,255.0) -- (293.0,255.0) ;
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (213.0,355.0) -- (293.0,355.0) ;
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (183.0,15.0) -- (213.0,15.0) -- (213.0,255.0) -- (213.0,355.0) -- (213.0,555.0) -- (293.0,555.0) ;
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (183.0,175.0) -- (253.0,175.0) -- (253.0,275.0) -- (293.0,275.0) ;
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (83.0,55.0) -- (153.0,55.0) ;
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (73.0,15.0) -- (73.0,205.0) ;
+	\fill [line width=3.0pt, custcol_0_0_0]  (113.0,175.0) ellipse (5.0 and 5.0 );
+	\fill [line width=3.0pt, custcol_0_0_0]  (93.0,95.0) ellipse (5.0 and 5.0 );
+	\fill [line width=3.0pt, custcol_0_0_0]  (73.0,205.0) ellipse (5.0 and 5.0 );
+	\fill [line width=3.0pt, custcol_0_0_0]  (253.0,275.0) ellipse (5.0 and 5.0 );
+	\fill [line width=3.0pt, custcol_0_0_0]  (213.0,255.0) ellipse (5.0 and 5.0 );
+	\fill [line width=3.0pt, custcol_0_0_0]  (223.0,225.0) ellipse (5.0 and 5.0 );
+	\fill [line width=3.0pt, custcol_0_0_0]  (73.0,15.0) ellipse (5.0 and 5.0 );
+	\fill [line width=3.0pt, custcol_0_0_0]  (233.0,455.0) ellipse (5.0 and 5.0 );
+	\fill [line width=3.0pt, custcol_0_0_0]  (103.0,135.0) ellipse (5.0 and 5.0 );
+	\fill [line width=3.0pt, custcol_0_0_0]  (213.0,355.0) ellipse (5.0 and 5.0 );
+	\fill [line width=3.0pt, custcol_0_0_0]  (223.0,305.0) ellipse (5.0 and 5.0 );
+	\fill [line width=3.0pt, custcol_0_0_0]  (83.0,55.0) ellipse (5.0 and 5.0 );
+	\fill [line width=3.0pt, custcol_0_0_0]  (243.0,475.0) ellipse (5.0 and 5.0 );
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (58.0,75.0) -- (63.0,75.0) -- (93.0,75.0) -- (93.0,95.0) ;
+	\draw [line width=2.0pt, custcol_0_0_0 ]  (48.0,84.0) -- (58.0,75.0) -- (48.0,66.0) -- (24.0,66.0) -- (24.0,84.0) -- cycle;
+	\logisimfontB{\fontsize{12pt}{12pt}\selectfont\node[inner sep=0, outer sep=0, custcol_0_0_0, anchor=base west] at  (29.0,82.0)  {x1};}
+	\logisimfontA{\fontsize{16pt}{16pt}\fontseries{bx}\selectfont\node[inner sep=0, outer sep=0, custcol_0_0_0, anchor=base west] at  (10.0,83.0)  {X};}
+	\fill [line width=2.0pt, custcol_0_0_0]  (63.0,75.0) ellipse (2.0 and 2.0 );
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (58.0,105.0) -- (63.0,105.0) -- (103.0,105.0) -- (103.0,135.0) ;
+	\draw [line width=2.0pt, custcol_0_0_0 ]  (48.0,114.0) -- (58.0,105.0) -- (48.0,96.0) -- (24.0,96.0) -- (24.0,114.0) -- cycle;
+	\logisimfontB{\fontsize{12pt}{12pt}\selectfont\node[inner sep=0, outer sep=0, custcol_0_0_0, anchor=base west] at  (29.0,112.0)  {x1};}
+	\logisimfontA{\fontsize{16pt}{16pt}\fontseries{bx}\selectfont\node[inner sep=0, outer sep=0, custcol_0_0_0, anchor=base west] at  (11.0,113.0)  {Y};}
+	\fill [line width=2.0pt, custcol_0_0_0]  (63.0,105.0) ellipse (2.0 and 2.0 );
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (58.0,145.0) -- (63.0,145.0) -- (113.0,145.0) -- (113.0,175.0) ;
+	\draw [line width=2.0pt, custcol_0_0_0 ]  (48.0,154.0) -- (58.0,145.0) -- (48.0,136.0) -- (24.0,136.0) -- (24.0,154.0) -- cycle;
+	\logisimfontB{\fontsize{12pt}{12pt}\selectfont\node[inner sep=0, outer sep=0, custcol_0_0_0, anchor=base west] at  (29.0,152.0)  {x1};}
+	\logisimfontA{\fontsize{16pt}{16pt}\fontseries{bx}\selectfont\node[inner sep=0, outer sep=0, custcol_0_0_0, anchor=base west] at  (11.0,153.0)  {Z};}
+	\fill [line width=2.0pt, custcol_0_0_0]  (63.0,145.0) ellipse (2.0 and 2.0 );
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (58.0,15.0) -- (63.0,15.0) -- (73.0,15.0) -- (153.0,15.0) ;
+	\draw [line width=2.0pt, custcol_0_0_0 ]  (48.0,24.0) -- (58.0,15.0) -- (48.0,6.0) -- (24.0,6.0) -- (24.0,24.0) -- cycle;
+	\logisimfontB{\fontsize{12pt}{12pt}\selectfont\node[inner sep=0, outer sep=0, custcol_0_0_0, anchor=base west] at  (29.0,22.0)  {x1};}
+	\logisimfontA{\fontsize{16pt}{16pt}\fontseries{bx}\selectfont\node[inner sep=0, outer sep=0, custcol_0_0_0, anchor=base west] at  (10.0,23.0)  {V};}
+	\fill [line width=2.0pt, custcol_0_0_0]  (63.0,15.0) ellipse (2.0 and 2.0 );
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (58.0,45.0) -- (63.0,45.0) -- (83.0,45.0) -- (83.0,55.0) -- (83.0,265.0) -- (293.0,265.0) ;
+	\draw [line width=2.0pt, custcol_0_0_0 ]  (48.0,54.0) -- (58.0,45.0) -- (48.0,36.0) -- (24.0,36.0) -- (24.0,54.0) -- cycle;
+	\logisimfontB{\fontsize{12pt}{12pt}\selectfont\node[inner sep=0, outer sep=0, custcol_0_0_0, anchor=base west] at  (29.0,52.0)  {x1};}
+	\logisimfontA{\fontsize{16pt}{16pt}\fontseries{bx}\selectfont\node[inner sep=0, outer sep=0, custcol_0_0_0, anchor=base west] at  (5.0,53.0)  {W};}
+	\fill [line width=2.0pt, custcol_0_0_0]  (63.0,45.0) ellipse (2.0 and 2.0 );
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (467.0,75.0) -- (464.0,75.0) ;
+	\draw [line width=2.0pt, custcol_0_0_0 ]  (493.0,66.0) -- (503.0,75.0) -- (493.0,84.0) -- (469.0,84.0) -- (469.0,66.0) -- cycle;
+	\logisimfontB{\fontsize{12pt}{12pt}\selectfont\node[inner sep=0, outer sep=0, custcol_0_0_0, anchor=base west] at  (469.0,82.0)  {x1};}
+	\logisimfontA{\fontsize{16pt}{16pt}\fontseries{bx}\selectfont\node[inner sep=0, outer sep=0, custcol_0_0_0, anchor=base west] at  (505.0,83.0)  {B};}
+	\fill [line width=2.0pt, custcol_0_0_0]  (463.0,75.0) ellipse (2.0 and 2.0 );
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (467.0,105.0) -- (464.0,105.0) ;
+	\draw [line width=2.0pt, custcol_0_0_0 ]  (493.0,96.0) -- (503.0,105.0) -- (493.0,114.0) -- (469.0,114.0) -- (469.0,96.0) -- cycle;
+	\logisimfontB{\fontsize{12pt}{12pt}\selectfont\node[inner sep=0, outer sep=0, custcol_0_0_0, anchor=base west] at  (469.0,112.0)  {x1};}
+	\logisimfontA{\fontsize{16pt}{16pt}\fontseries{bx}\selectfont\node[inner sep=0, outer sep=0, custcol_0_0_0, anchor=base west] at  (505.0,113.0)  {A};}
+	\fill [line width=2.0pt, custcol_0_0_0]  (463.0,105.0) ellipse (2.0 and 2.0 );
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (467.0,15.0) -- (464.0,15.0) ;
+	\draw [line width=2.0pt, custcol_0_0_0 ]  (493.0,6.0) -- (503.0,15.0) -- (493.0,24.0) -- (469.0,24.0) -- (469.0,6.0) -- cycle;
+	\logisimfontB{\fontsize{12pt}{12pt}\selectfont\node[inner sep=0, outer sep=0, custcol_0_0_0, anchor=base west] at  (469.0,22.0)  {x1};}
+	\logisimfontA{\fontsize{16pt}{16pt}\fontseries{bx}\selectfont\node[inner sep=0, outer sep=0, custcol_0_0_0, anchor=base west] at  (505.0,23.0)  {D};}
+	\fill [line width=2.0pt, custcol_0_0_0]  (463.0,15.0) ellipse (2.0 and 2.0 );
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (467.0,45.0) -- (464.0,45.0) ;
+	\draw [line width=2.0pt, custcol_0_0_0 ]  (493.0,36.0) -- (503.0,45.0) -- (493.0,54.0) -- (469.0,54.0) -- (469.0,36.0) -- cycle;
+	\logisimfontB{\fontsize{12pt}{12pt}\selectfont\node[inner sep=0, outer sep=0, custcol_0_0_0, anchor=base west] at  (469.0,52.0)  {x1};}
+	\logisimfontA{\fontsize{16pt}{16pt}\fontseries{bx}\selectfont\node[inner sep=0, outer sep=0, custcol_0_0_0, anchor=base west] at  (505.0,53.0)  {C};}
+	\fill [line width=2.0pt, custcol_0_0_0]  (463.0,45.0) ellipse (2.0 and 2.0 );
+	\draw [line width=2.0pt, custcol_0_0_0 ]  (173.0,55.0) -- (154.0,48.0) -- (154.0,62.0) -- cycle;
+	\draw [line width=2.0pt, custcol_0_0_0]  (178.0,55.0) ellipse (4.5 and 4.5 );
+	\fill [line width=2.0pt, custcol_0_0_0]  (183.0,55.0) ellipse (2.0 and 2.0 );
+	\fill [line width=2.0pt, custcol_0_0_0]  (153.0,55.0) ellipse (2.0 and 2.0 );
+	\draw [line width=2.0pt, custcol_0_0_0 ]  (173.0,95.0) -- (154.0,88.0) -- (154.0,102.0) -- cycle;
+	\draw [line width=2.0pt, custcol_0_0_0]  (178.0,95.0) ellipse (4.5 and 4.5 );
+	\fill [line width=2.0pt, custcol_0_0_0]  (183.0,95.0) ellipse (2.0 and 2.0 );
+	\fill [line width=2.0pt, custcol_0_0_0]  (153.0,95.0) ellipse (2.0 and 2.0 );
+	\draw [line width=2.0pt, custcol_0_0_0 ]  (173.0,135.0) -- (154.0,128.0) -- (154.0,142.0) -- cycle;
+	\draw [line width=2.0pt, custcol_0_0_0]  (178.0,135.0) ellipse (4.5 and 4.5 );
+	\fill [line width=2.0pt, custcol_0_0_0]  (183.0,135.0) ellipse (2.0 and 2.0 );
+	\fill [line width=2.0pt, custcol_0_0_0]  (153.0,135.0) ellipse (2.0 and 2.0 );
+	\draw [line width=2.0pt, custcol_0_0_0 ]  (173.0,175.0) -- (154.0,168.0) -- (154.0,182.0) -- cycle;
+	\draw [line width=2.0pt, custcol_0_0_0]  (178.0,175.0) ellipse (4.5 and 4.5 );
+	\fill [line width=2.0pt, custcol_0_0_0]  (183.0,175.0) ellipse (2.0 and 2.0 );
+	\fill [line width=2.0pt, custcol_0_0_0]  (153.0,175.0) ellipse (2.0 and 2.0 );
+	\draw [line width=2.0pt, custcol_0_0_0 ]  (173.0,15.0) -- (154.0,8.0) -- (154.0,22.0) -- cycle;
+	\draw [line width=2.0pt, custcol_0_0_0]  (178.0,15.0) ellipse (4.5 and 4.5 );
+	\fill [line width=2.0pt, custcol_0_0_0]  (183.0,15.0) ellipse (2.0 and 2.0 );
+	\fill [line width=2.0pt, custcol_0_0_0]  (153.0,15.0) ellipse (2.0 and 2.0 );
+	\draw [line width=2.0pt, custcol_0_0_0] (308.0,230.0) arc (90.0:-90.0:15.0 and 15.0 );
+	\draw [line width=2.0pt, custcol_0_0_0 ]  (308.0,200.0) -- (294.0,200.0) -- (294.0,230.0) -- (308.0,230.0) ;
+	\draw [line width=2.0pt, custcol_0_0_0] (308.0,280.0) arc (90.0:-90.0:15.0 and 15.0 );
+	\draw [line width=2.0pt, custcol_0_0_0 ]  (308.0,250.0) -- (294.0,250.0) -- (294.0,280.0) -- (308.0,280.0) ;
+	\draw [line width=2.0pt, custcol_0_0_0] (308.0,330.0) arc (90.0:-90.0:15.0 and 15.0 );
+	\draw [line width=2.0pt, custcol_0_0_0 ]  (308.0,300.0) -- (294.0,300.0) -- (294.0,330.0) -- (308.0,330.0) ;
+	\draw [line width=2.0pt, custcol_0_0_0] (308.0,380.0) arc (90.0:-90.0:15.0 and 15.0 );
+	\draw [line width=2.0pt, custcol_0_0_0 ]  (308.0,350.0) -- (294.0,350.0) -- (294.0,380.0) -- (308.0,380.0) ;
+	\draw [line width=2.0pt, custcol_0_0_0] (308.0,430.0) arc (90.0:-90.0:15.0 and 15.0 );
+	\draw [line width=2.0pt, custcol_0_0_0 ]  (308.0,400.0) -- (294.0,400.0) -- (294.0,430.0) -- (308.0,430.0) ;
+	\draw [line width=2.0pt, custcol_0_0_0] (308.0,480.0) arc (90.0:-90.0:15.0 and 15.0 );
+	\draw [line width=2.0pt, custcol_0_0_0 ]  (308.0,450.0) -- (294.0,450.0) -- (294.0,480.0) -- (308.0,480.0) ;
+	\draw [line width=2.0pt, custcol_0_0_0] (308.0,530.0) arc (90.0:-90.0:15.0 and 15.0 );
+	\draw [line width=2.0pt, custcol_0_0_0 ]  (308.0,500.0) -- (294.0,500.0) -- (294.0,530.0) -- (308.0,530.0) ;
+	\draw [line width=2.0pt, custcol_0_0_0] (308.0,580.0) arc (90.0:-90.0:15.0 and 15.0 );
+	\draw [line width=2.0pt, custcol_0_0_0 ]  (308.0,550.0) -- (294.0,550.0) -- (294.0,580.0) -- (308.0,580.0) ;
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (323.0,215.0) -- (343.0,215.0) -- (343.0,225.0) -- (363.0,225.0) -- (363.0,225.0) ;
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (363.0,245.0) -- (363.0,245.0) -- (343.0,245.0) -- (343.0,265.0) -- (323.0,265.0) ;
+	\draw [line width=2.0pt, custcol_0_0_0 ]  (393.0,235.0) .. controls  (383.0,220.0)  ..  (363.0,220.0) .. controls  (371.0,235.0)  ..  (363.0,250.0) .. controls  (383.0,250.0)  ..  (393.0,235.0) -- cycle ;
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (323.0,315.0) -- (343.0,315.0) -- (343.0,325.0) -- (363.0,325.0) -- (363.0,325.0) ;
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (363.0,345.0) -- (363.0,345.0) -- (343.0,345.0) -- (343.0,365.0) -- (323.0,365.0) ;
+	\draw [line width=2.0pt, custcol_0_0_0 ]  (393.0,335.0) .. controls  (383.0,320.0)  ..  (363.0,320.0) .. controls  (371.0,335.0)  ..  (363.0,350.0) .. controls  (383.0,350.0)  ..  (393.0,335.0) -- cycle ;
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (323.0,415.0) -- (343.0,415.0) -- (343.0,425.0) -- (363.0,425.0) -- (363.0,425.0) ;
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (363.0,445.0) -- (363.0,445.0) -- (343.0,445.0) -- (343.0,465.0) -- (323.0,465.0) ;
+	\draw [line width=2.0pt, custcol_0_0_0 ]  (393.0,435.0) .. controls  (383.0,420.0)  ..  (363.0,420.0) .. controls  (371.0,435.0)  ..  (363.0,450.0) .. controls  (383.0,450.0)  ..  (393.0,435.0) -- cycle ;
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (323.0,515.0) -- (343.0,515.0) -- (343.0,525.0) -- (363.0,525.0) -- (363.0,525.0) ;
+	\draw [line width=3.0pt, custcol_0_0_0 ]  (363.0,545.0) -- (363.0,545.0) -- (343.0,545.0) -- (343.0,565.0) -- (323.0,565.0) ;
+	\draw [line width=2.0pt, custcol_0_0_0 ]  (393.0,535.0) .. controls  (383.0,520.0)  ..  (363.0,520.0) .. controls  (371.0,535.0)  ..  (363.0,550.0) .. controls  (383.0,550.0)  ..  (393.0,535.0) -- cycle ;
+\end{tikzpicture}
+\end{figure}
+
 % Practice Questions Section
 \section*{Practice Questions}
 \begin{examp}
@@ -295,15 +432,15 @@ This sparked a lot of memories of troubleshooting various circuit cards on the b
 	\textbf{IEEE-754 Floating Point Conversion}
 	\newline
 	We are tasked with converting $-19.5_{10}$ into Single Precision IEEE-754 floating point format. We will show the sign bit, exponent, and first 8-bits of the mantissa.
-	
+
 	\textbf{Step 1: Determine the sign bit $\bm{(S)}$}
-	
+
 	Since the number is negative, the sign bit is:
 	\[
 		S = 1	\]
-	
+
 	\textbf{Step 2: Convert the magnitude \(\bm{19.5_{10}}\) to binary}
-	
+
 	First, we convert the integer part and the fractional part of \(19.5_{10}\) to binary:
 	\[
 		19_{10} = 10011_2 \quad \text{and} \quad 0.5_{10} = 0.1_2
@@ -311,18 +448,18 @@ This sparked a lot of memories of troubleshooting various circuit cards on the b
 	Therefore, the binary representation of \(19.5_{10}\) is:
 	\[
 		10011.1_2\]
-	
+
 	\textbf{Step 3: Normalize the binary number}
-	
+
 	We normalize $10011.1_2$ into the form $1.M \times 2^E$ by shifting the decimal point 4 places to the left:
 	\[
 		10011.1_2 = 1.00111_2 \times 2^4
 	\]
-	
+
 	Here, the mantissa $M$ is $00111_2$, and the exponent $E$ is $4$.
-	
+
 	\textbf{Step 4: Calculate the biased exponent}
-	
+
 	The exponent is biased by 127 in Single Precision IEEE-754. So, we add 127 to the actual exponent $4$:
 	\[
 		E = 127 + 4 = 131
@@ -331,7 +468,7 @@ This sparked a lot of memories of troubleshooting various circuit cards on the b
 	\[
 		E = 10000011_2
 	\]
-	
+
 	\textbf{Step 5: Assemble the IEEE-754 representation} \\
 	Now we can assemble the components:
 	\begin{itemize}
@@ -343,12 +480,14 @@ This sparked a lot of memories of troubleshooting various circuit cards on the b
 	\[
 		1 \ 10000011 \ 00111000_{IEEE-754}
 	\]
-	
+
 	\textbf{Final Answer:}
 	The IEEE-754 single-precision representation of $-19.5_{10}$ (with the first 8 bits of the mantissa) is:
 	\[
 		1 \ 10000011 \ 00111000_{IEEE-754}
 	\]
 \end{examp}
+
+
 \end{document}
 % vim: set spell spelllang=en_us expandtab tabstop=4 shiftwidth=4 softtabstop=4:

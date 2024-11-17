@@ -1,0 +1,21 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity combione is 
+	port (
+	A, B, C, D, E : in std_logic;
+	I : out std_logic
+	     );
+end combione;
+
+architecture rtl of combione is
+	signal F, G, N : std_logic;
+begin
+	F <= not A and B and C ;
+	G <= D and not E;
+	N <= F xor G;
+	I <= not N;
+end rtl;
+
+
