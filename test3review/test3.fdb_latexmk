@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1731782765.48123 "test3.tex" "test3.pdf" "test3" 1731782767.6297 0
+["pdflatex"] 1731890642.13073 "test3.tex" "test3.pdf" "test3" 1731890643.29646 0
   "../images/uconnlogo.png" 1730302789.99707 249673 7a16062ef39e4714562db84431cd2c08 ""
   "/etc/texmf/web2c/texmf.cnf" 1730250805.00078 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -176,8 +176,8 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1730250817.6505 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1730250902 8214307 48c6d46a01113bb1f99b9fcdcf53aed3 ""
-  "test3.aux" 1731782767.48789 246 d1c1a67106d5a33987be9203937d9db6 "pdflatex"
-  "test3.tex" 1731782763.85755 10803 bdc7a28608452d23f9ce552355f1c918 ""
+  "test3.aux" 1731890643.20729 246 d1c1a67106d5a33987be9203937d9db6 "pdflatex"
+  "test3.tex" 1731890638.51726 10783 616cfddceff11bbd12d7a4ade17d88a2 ""
   (generated)
   "test3.aux"
   "test3.log"

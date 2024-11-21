@@ -1,14 +1,12 @@
-INFO:  latexindent version 3.24.4, 2024-07-18, a script to indent .tex files
-       latexindent lives here: /home/wsl/.local/share/nvim/mason/packages/latexindent/
-       Sat Nov 16 13:39:39 2024
+INFO:  latexindent version 3.23.6, 2024-01-17, a script to indent .tex files
+       latexindent lives here: /usr/share/texlive/texmf-dist/scripts/latexindent/
+       Sun Nov 17 19:44:38 2024
        Reading input from STDIN
 INFO:  Processing switches:
-INFO:  Directory for backup files and log file indent.log:
+INFO:  Directory for backup files and indent.log:
        .
 INFO:  YAML settings read: defaultSettings.yaml
-       Reading defaultSettings.yaml from /home/wsl/.local/share/nvim/mason/packages/latexindent/defaultSettings.yaml
-       Reading defaultSettings.yaml (2nd attempt) from /home/wsl/.local/share/nvim/mason/packages/latexindent/../../texmf-dist/scripts/latexindent/defaultSettings.yaml
-       and then, if necessary, /home/wsl/.local/share/nvim/mason/packages/latexindent/LatexIndent/defaultSettings.yaml
+       Reading defaultSettings.yaml from /usr/share/texlive/texmf-dist/scripts/latexindent/defaultSettings.yaml
 INFO:  YAML reading settings
        Home directory is /home/wsl
        latexindent.pl didn't find indentconfig.yaml or .indentconfig.yaml

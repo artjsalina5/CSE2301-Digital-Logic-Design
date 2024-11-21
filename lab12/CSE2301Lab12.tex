@@ -63,9 +63,22 @@
 	\vspace*{1cm}
 \end{titlepage}
 \section*{Discussion}
-This lab introduced the concept of a Hardware Description Language in order to
-synthesize logic. VHDL stands for \textit{Very High Speed Hardware Description
-	Language} and was standardized by the IEEE for digital circuit production.
+This lab introduced the concept of a Hardware Description Language (HDL) as a
+means to synthesize digital logic. VHDL, which stands for \textit{Very High
+	Speed Hardware Description Language}, was standardized by the IEEE and is widely
+used for digital circuit design and production. Unlike designing logic at the
+gate level, VHDL allows designers to focus on the high-level behavior or
+structure of a circuit, making complex systems more manageable and modular.
+
+The task in this lab was to implement two circuits previously constructed in
+earlier exercises, this time using VHDL to emphasize the simplicity and power of
+hardware description languages. By abstracting the underlying gate-level
+implementations, VHDL streamlines the design process and highlights how
+real-world production environments operate.
+
+The figures included are generated from tools commonly used in professional production environments. These tools provide a visualization of the synthesized designs but are not targeted toward specific physical specifications. This generality aligns with the educational objectives of the course, allowing students to focus on HDL design without delving into technology-specific constraints.
+
+As usual, further ``discussion" is embedded within each example to provide context and detail regarding the circuits and their implementations. 
 \begin{examp}
 	\vspace{.5cm}
 	\textbf{The Hamming Parity Error Check in VHDL}\\
@@ -102,6 +115,25 @@ begin
 
 end arch1;
 		\end{verbatim}
+	This assignment required the completion of the assignments in the
+	architecture definition for the entity. 
+	
+	In VHDL, several different styles
+	of defining the operation of a circuit exist. This is a \textit{behavioral}
+	description, meaning that the signals are not implicitly connected to the
+	gates (structural) nor does it use signals and operators to describe the
+	dataflow of the entity.
+	
+	In VHDL, the \texttt{<=} operator is used for signal assignments, ensuring that updates
+	to Q and the parity signals (P1, P2, P3) occur concurrently within the
+	architecture. Addressing specific bits in Q using parentheses allows for
+	precise placement of the computed values.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=.55]{examp121}
+		\caption{Synthesized Parity Checker}
+	\end{figure}
+	
 \end{examp}
 \begin{examp}
 	\vspace{.5cm}
@@ -139,128 +171,159 @@ begin
 end arch1;
 
 	\end{verbatim}
-\end{examp}
-\begin{examp}
-\vspace{.5mm}
-\subsection*{The Use of \texttt{unsigned()} Cast}
-
-The \texttt{unsigned()} function in VHDL is used to cast a binary vector to an \texttt{UNSIGNED} type, treating the vector as a positive integer. This explicit casting allows VHDL to interpret binary data without ambiguity, particularly during arithmetic operations, ensuring that the result is processed as an unsigned value. In VHDL, operations between \texttt{SIGNED} and \texttt{UNSIGNED} types require conversions to maintain compatibility, as VHDL does not implicitly mix these types.
-
-In the context of your ALU code:
-\begin{itemize}
-	\item \textbf{\texttt{unsigned()}} ensures that \texttt{A} and \texttt{B} are interpreted as positive integers, allowing for correct behavior in operations like addition (\texttt{+}) without treating them as potentially negative numbers.
-\end{itemize}
-
-\section*{Effect of Using \texttt{signed()} Instead of \texttt{unsigned()}}
-
-If you were to replace \texttt{unsigned()} with \texttt{signed()} in the ALU, the output could change significantly, particularly in cases where \texttt{A} or \texttt{B} have high bits set to \texttt{1} (interpreted as negative in 2’s complement). For example:
-\begin{itemize}
-	\item With \textbf{\texttt{unsigned}}, a binary vector such as \texttt{"1100"} would be interpreted as \(12\).
-	\item With \textbf{\texttt{signed}}, the same vector \texttt{"1100"} would be interpreted as \(-4\) in 2's complement form.
-\end{itemize}
-
-This change would result in different outputs for operations that involve addition or multiplication, where the result might switch from a positive to a negative value, depending on the high bits of the input.
-
-\section*{Circuit Element Emulated by \texttt{if} and \texttt{elsif} Statements}
-
-In the ALU, the \texttt{if} and \texttt{elsif} statements emulate the behavior of a \textbf{multiplexer (MUX)}. The \texttt{Op} input acts as a selector that determines which operation (AND, OR, ADD, or MULTIPLY) the ALU will perform based on its value. Each condition (e.g., \texttt{Op = "00"}, \texttt{Op = "01"}, etc.) corresponds to a specific operation, similar to how a multiplexer selects an output based on control signals.
-\begin{center}
-\begin{karnaugh-map}(label=corner)[4][4][2][$B$][$A$][$C_0$][$C_1$][$C_2$]
-\minterms{0,1,2,3,5,6,7,8,9,10,13,14,16,19,23,24}
-\implicant{1}{9}
-\implicant{2}{10}
-\implicant{3}{7}[0,1]
-\implicantedge{0}{0}{8}{8}[0,1]
-\autoterms[0]
-\end{karnaugh-map}
-\end{center}
-\[
-	F = \closure{C_0}\closure{A}\closure{B} + \closure{C_1}AB +
-	\closure{C_2}\closure{A}B + \closure{C_2}A\closure{B}
-\]
-With the PLA implementation, each minterm for each output bit is placed and
-routed by the software and abstracted away from the wires. For the \(C_2 = 0\)
-block, notice how there are potential hazards at bay. These are kept seperate in
-order to best maximize the effect of the 3-Dimensional 5 Variable Karnaugh Map.
-In this case, the blue and yellow squares ``wrap around" the corresponding
-\(C_2\) block.
-\begin{figure}[H]
-	\center{\includegraphics[scale=.60]{examp113}}
-	\caption{Traditional Gate Implementation and Black Box
-		Implementation}
-\end{figure}
-The PLA form greatly reduces the complexity of visual schematic design by
-abstracting away the gate logic by programming it directly.
-\end{examp}
-
-\begin{examp}
-	\vspace{.5mm}
-	\textbf{A Continuation of the Triangle Parity}
-
-	In this lab, we examined a 15-bit data stream configured with EVEN parity using a triangular code. The output identifies error positions by mapping the detected location to a four-bit decimal representation. An error is flagged whenever a mismatch in parity is detected across specific bit groupings, similar to Hamming code principles. Recall that in a Hamming code, the minimum number of parity bits \( p \) needed for \( m \) data bits satisfies \( 2^p \geq m + p + 1 \). This ensures unique identification of single-bit errors. The triangular parity code, however, uses overlapping parity checks to pinpoint errors more precisely by leveraging redundancy within intersecting bit groups.
-	\begin{table}[H]
+	This assignment differed from the last by having the required portion be
+	filled under the \texttt{process} block. Here, we define an operation that is
+	similar to a MUX utilizing the \texttt{if-elsif} construct from VHDL. 
+	This is still using the \textit{behavioral} strategy of implementation with a
+	\texttt{process} block. 
+	
+	The explicit use of casting the unsigned type and concactenating the signals
+	with leading \(00\) is explained further. The synthesized schematic is as
+	follows:
+	\begin{figure}[H]
 		\centering
-		\newcommand{\currstatecolor}{gray!30}
-		\begin{tabular}{|c|c|c|c|c
-			|>{\columncolor{\currstatecolor}}c
-			|>{\columncolor{\currstatecolor}}c
-			|>{\columncolor{\currstatecolor}}c
-			|>{\columncolor{\currstatecolor}}c
-			|l|}
-			\hline
-			\textbf{A} & \textbf{B} & \textbf{C} & \textbf{D} & \textbf{E} & \textbf{F} & \textbf{G} & \textbf{H} & \textbf{I} & \textbf{Error Position} \\ \hline
-			0          & 0          & 0          & 0          & 0          & 0          & 0          & 0          & 0          & None (No Error)         \\ \hline
-			1          & 0          & 0          & 0          & 0          & 0          & 1          & 0          & 1          & Parity Bit 5            \\ \hline
-			1          & 1          & 0          & 0          & 0          & 0          & 1          & 0          & 0          & Data Bit 4              \\ \hline
-			1          & 0          & 1          & 0          & 0          & 0          & 0          & 1          & 1          & Data Bit 3              \\ \hline
-			1          & 0          & 0          & 1          & 0          & 0          & 0          & 1          & 0          & Data Bit 2              \\ \hline
-			1          & 0          & 0          & 0          & 1          & 0          & 0          & 0          & 1          & Data Bit 1              \\ \hline
-			0          & 1          & 0          & 0          & 0          & 1          & 0          & 0          & 1          & Parity Bit 9            \\ \hline
-			0          & 1          & 1          & 0          & 0          & 1          & 0          & 0          & 0          & Data Bit 8              \\ \hline
-			0          & 1          & 0          & 1          & 0          & 0          & 1          & 1          & 1          & Data Bit 7              \\ \hline
-			0          & 1          & 0          & 0          & 1          & 0          & 1          & 1          & 0          & Data Bit 6              \\ \hline
-
-			0          & 0          & 1          & 0          & 0          & 1          & 1          & 0          & 0          & Parity Bit 12           \\ \hline
-			0          & 0          & 1          & 1          & 0          & 1          & 0          & 1          & 1          & Data Bit 11             \\ \hline
-			0          & 0          & 1          & 0          & 1          & 1          & 0          & 1          & 0          & Data Bit 10             \\ \hline
-			0          & 0          & 0          & 1          & 0          & 1          & 1          & 1          & 0          & Parity Bit 14           \\ \hline
-			0          & 0          & 0          & 1          & 1          & 1          & 1          & 0          & 1          & Data Bit 13             \\ \hline
-			0          & 0          & 0          & 0          & 1          & 1          & 1          & 1          & 1          & Parity Bit 15           \\ \hline
-		\end{tabular}
-		\caption{Truth Table for Error Detection (5 Inputs, 4 Outputs)}
-	\end{table}
+		\includegraphics[scale=.35]{examp122}
+		\caption{Synthesized Toy ALU}
+	\end{figure}
 \end{examp}
 \begin{examp}
 	\vspace{.5mm}
-	\textbf{The Overflow of a 3 bit by 3 bit full Adder}\\
-	\begin{figure}[H]
-		\center{\includegraphics[scale=.60]{examp111}}
-		\caption{The 3x3 bit Full Adder Circuit}
-	\end{figure}
-
-	The output \textbf{OVERFLOW} bit, which can be used as a signal for the logic
-	to indicate a potentially erroneous operation, can be determined quickly by comparing the MSB of Y and
-	X. The equation can simply be put as:
-	\[
-		\mathbf{OVERFLOW} = \closure{X_2}\closure{Y_2}Z_2 + X_{2}Y_{2}\closure{Z_{2}}
-	\]
-
+	\subsubsection*{The Use of \texttt{unsigned()} Cast}
+	The \texttt{unsigned()} function in VHDL is used to cast a binary vector to an \texttt{UNSIGNED} type, treating the vector as a positive integer. This explicit casting allows VHDL to interpret binary data without ambiguity, particularly during arithmetic operations, ensuring that the result is processed as an unsigned value. In VHDL, operations between \texttt{SIGNED} and \texttt{UNSIGNED} types require conversions to maintain compatibility, as VHDL does not implicitly mix these types.
+	
+	\textbf{\texttt{unsigned()}} ensures that \texttt{A} and \texttt{B} are interpreted as positive integers, allowing for correct behavior in operations like addition (\texttt{+}) without treating them as potentially negative numbers.
+	
 \end{examp}
 \begin{examp}
-	\vspace{.5mm}
-	\textbf{Programmable Array Logic}\\
-	For this, the task is to draw a PLA for the equation:
+	\subsubsection*{Effect of Using \texttt{signed()} Instead of \texttt{unsigned()}}
+	
+	If you were to replace \texttt{unsigned()} with \texttt{signed()} in the ALU, the output could change significantly, particularly in cases where \texttt{A} or \texttt{B} have high bits set to \texttt{1} (interpreted as negative in 2’s complement). For example:
+	\begin{itemize}
+		\item With \textbf{\texttt{unsigned}}, a binary vector such as \texttt{"1100"} would be interpreted as \(12\).
+		\item With \textbf{\texttt{signed}}, the same vector \texttt{"1100"} would be interpreted as \(-4\) in 2's complement form.
+	\end{itemize}
+	
+	
+	This change would result in different outputs for operations that involve addition or multiplication, where the result might switch from a positive to a negative value, depending on the high bits of the input.
+\end{examp}
+\begin{examp}
+
+	\subsubsection*{Circuit Element Emulated by \texttt{if} and \texttt{elsif} Statements}
+	In the ALU, the \texttt{if} and \texttt{elsif} statements emulate the behavior of a \textbf{multiplexer (MUX)}. The \texttt{Op} input acts as a selector that determines which operation (AND, OR, ADD, or MULTIPLY) the ALU will perform based on its value. Each condition (e.g., \texttt{Op = "00"}, \texttt{Op = "01"}, etc.) corresponds to a specific operation, similar to how a multiplexer selects an output based on control signals.
+	
+	In VHDL there are several other methods of defining a MUX like operation such
+	as the use of the \texttt{when} and \texttt{else} operators.
+\end{examp}
+
+\begin{examp}
+	\subsubsection*{A Basic Combinational Logic Example}
+	A basic diagram is given that describes
 	\[
-		F = \closure{C}A + BC
+		Q = AB\closure{C} + A \oplus C
 	\]
+	To create this in a VHDL simulation, the following behavioral entity is
+	employed:
+	\begin{verbatim}
+	library IEEE;
+	use IEEE.std_logic_1164.all;
+	use IEEE.numeric_std.all;
+
+	entity examp6 is 
+		port (
+		A, B, C : in std_logic;
+		Q : out std_logic
+		);
+	end examp6;
+
+	architecture rtl of examp6 is
+	begin
+		Q <= (A and B and (not C)) or (A xor C);
+	end rtl;
+	\end{verbatim}
+	
+	This highlights how simple it is to assign complex combinational statements in 
+	a synthesizeable form.
+	
 	\begin{figure}[H]
-		\center{\includegraphics[scale=.50]{examp112}}
-		\caption{$F = \closure{C}A + BC$}
+		\includegraphics[scale=.45]{examp123}
+		\caption{Synthesized Schematic from VHDL}
 	\end{figure}
-	This is done similarly to creating combinational logic at the begining of the
-	course. Every wire being drawn out and extended to the combination of AND and
-	OR gates is the characteristic of the PLA.
-	\vspace{5mm}
+	
+\end{examp}
+\begin{examp}
+	\subsubsection*{Another Multiplexor Example}
+	As stated before, a MUX can be employed in VHDL in several different ways.
+	This goes back to utilizing the \texttt{if-elsif} operators, which are
+	straight forward to implement. 
+	
+	A 4 input MUX with a 2 bit selector is shown
+	that uses two inputs, $A$ and $B$ to implement some sort of logical operation
+	which as seen in previous labs, could be used to implement a larger machine
+	such as a 12-person voting machine.
+	
+	Since we only write synthesizeable VHDL here and not other silly business, the
+	code is completed as follows:
+	\begin{verbatim}
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity examp7 is
+    port (
+        sel : in std_logic_vector(1 downto 0);
+        A, B : in std_logic;
+        Q : out std_logic
+    );
+end examp7;
+
+architecture rtl of examp7 is
+begin
+    process (A, B, sel)
+    begin
+        if sel = "00" then
+            Q <= '0';
+        elsif sel = "01" then
+            Q <= A and B;
+        elsif sel = "10" then
+            Q <= A;
+        elsif sel = "11" then
+            Q <= B;
+        else 
+            Q <= '0';
+        end if;
+    end process;
+end rtl;
+\end{verbatim}
+	This example is slightly more challenging due to the careful use of the
+	\texttt{""} operators and the required formatting for each line according to
+	the VHDL standard.
+	
+	To ensure clarity and adherence to best practices, it is customary to write
+	processes like this for readability. For example, consider the statement:
+	\begin{verbatim}
+Q <= '0';
+\end{verbatim}
+	In this case, \texttt{Q} is of type \texttt{std\_logic}, while \texttt{sel} is
+	of type \texttt{std\_logic\_vector}. The assignment utilizes the \texttt{''}
+	operators which are subtly different than the ones employed the line prior.
+	This distinction is crucial because
+	attempting to assign a \texttt{std\_logic\_vector} directly to a
+	\texttt{std\_logic} would result in errors. This subtle type
+	mismatch is a common source of bugs and can lead to hours of troubleshooting if
+	not addressed early. (Ask me how I know!)
+	
+	Additionally, the assignment code excluded something very important for
+	synthesis, a default condition for the \texttt{sel} utilizing a terminating
+	\texttt{else}. Without this, undesired outcomes may occur during synthesis as
+	the software would place a latch on the output of the circuit, which is not
+	what is intended. I have included this in my code above and assigned Q a 0 for
+	all other edge cases. Again, this might not be pertinent to such a simple
+	design, but can result in nasty, nasty bugs in the testbench.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=.35]{examp124}
+		\caption{Synthesized Mux Module from VHDL}
+	\end{figure}
 \end{examp}
 \end{document}
+
 % vim: set tw=80 ts=2 sts=2 sw=2 noai noet:
