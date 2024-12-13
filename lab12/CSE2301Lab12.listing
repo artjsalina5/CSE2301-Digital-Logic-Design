@@ -1,0 +1,28 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity examp7 is
+    port (
+        sel : in std_logic_vector(1 downto 0);
+        A, B : in std_logic;
+        Q : out std_logic
+    );
+end examp7;
+
+architecture rtl of examp7 is
+begin
+    process (A, B, sel)
+    begin
+        if sel = "00" then
+            Q <= '0';
+        elsif sel = "01" then
+            Q <= A and B;
+        elsif sel = "10" then
+            Q <= A;
+        elsif sel = "11" then
+            Q <= B;
+        else
+            Q <= '0';
+        end if;
+    end process;
+end rtl;
