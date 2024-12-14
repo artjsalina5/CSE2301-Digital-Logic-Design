@@ -1,0 +1,24 @@
+\contentsline {section}{\numberline {1}Exam 1: From the Top}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Topical Guide Objectives}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Number Systems and Conversion}{2}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Basic Binary Arithmetic}{2}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Decimal to Binary:}{3}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Decimal Conversion and IEEE 754}{4}{subsubsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.4}Radix and Other Systems}{6}{subsubsection.1.2.4}%
+\contentsline {subsubsection}{\numberline {1.2.5}XS3, BCD, and Gray Code}{7}{subsubsection.1.2.5}%
+\contentsline {subsection}{\numberline {1.3}Boolean Algebra}{8}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Basic Laws}{8}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Conversion Using DeMorgan's Theorem}{8}{subsubsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.4}Karnaugh Maps}{9}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Circuits}{11}{subsection.1.5}%
+\contentsline {section}{\numberline {2}Exam 2: Getting Hairy}{12}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Topical Guide Objectives}{12}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Vocabulary}{13}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Static Hazards}{13}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Multiplexers and Demultiplexers}{13}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Encoder and Decoders}{14}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Parity and Hamming Codes}{14}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Adder and Subtractor Circuits}{15}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.8}A Priority Encoder/Comparator}{16}{subsection.2.8}%
+\contentsline {section}{\numberline {3}Exam 3: Sequential Circuits}{17}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Topical Guide Objectives}{17}{subsection.3.1}%

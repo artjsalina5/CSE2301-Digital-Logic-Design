@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=http://192.168.40.3:8085/
+HostUrl=http://192.168.40.3:8085/api/storage/file?args=%2Fstorage%2Femulated%2F0%2Fnote%2FDigital%20Design%2FState%20Machine%2FState%20Machine2_18.png&sender=web
