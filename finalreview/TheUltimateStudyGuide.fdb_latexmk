@@ -1,5 +1,5 @@
 # Fdb version 4
-["lualatex"] 1734140513.46461 "TheUltimateStudyGuide.tex" "TheUltimateStudyGuide.pdf" "TheUltimateStudyGuide" 1734140515.55832 2
+["lualatex"] 1734142345.14007 "TheUltimateStudyGuide.tex" "TheUltimateStudyGuide.pdf" "TheUltimateStudyGuide" 1734142347.29721 0
   "../images/uconnlogo.png" 1734088353 249673 4b83b9ba10f7dbc6ecd8b3167d1a02a1 ""
   "C:/Users/Arturo/.texlive2024/texmf-var/luatex-cache/generic/fonts/otl/lmmono12-regular.luc" 1734119901 81764 9f6cacc4ca2505821cad21206bbfc4af ""
   "C:/Users/Arturo/.texlive2024/texmf-var/luatex-cache/generic/fonts/otl/lmmonolt10-bold.luc" 1734119901 82068 57905b61e8ef6f05e8d5c9a2919ff55e ""
@@ -12,10 +12,10 @@
   "C:/Users/Arturo/.texlive2024/texmf-var/luatex-cache/generic/fonts/otl/lmroman6-regular.luc" 1734093387 128508 33c355e594ee4ca8dfd0a96e21b3aaec ""
   "C:/Users/Arturo/.texlive2024/texmf-var/luatex-cache/generic/fonts/otl/lmroman7-regular.luc" 1734121298 128367 1a307a61177a4599f2d3c83ed5ce7e51 ""
   "C:/Users/Arturo/.texlive2024/texmf-var/luatex-cache/generic/fonts/otl/lmroman8-regular.luc" 1734093387 128138 28d59963108ed5e578d906000751f21c ""
-  "TheUltimateStudyGuide.aux" 1734140515 3932 3d9aa02b1c632bea2b7374d68d802834 "lualatex"
-  "TheUltimateStudyGuide.out" 1734140515 4195 825217474a5858b90c2ba0207aae7a32 "lualatex"
-  "TheUltimateStudyGuide.tex" 1734140511 64216 3d03dcf702f653d6201eab6be2cbea4f ""
-  "TheUltimateStudyGuide.toc" 1734140515 2161 20f4b1d7a14166b0c7045ea3a842b54f "lualatex"
+  "TheUltimateStudyGuide.aux" 1734142347 6908 f53dfb9808e6323108e7046e37c1cc28 "lualatex"
+  "TheUltimateStudyGuide.out" 1734142347 6648 e02f391a82f3d2182986e672cff71581 "lualatex"
+  "TheUltimateStudyGuide.tex" 1734142344 77836 5a36f8f053e47bafbaa1bb0d8d4fca22 ""
+  "TheUltimateStudyGuide.toc" 1734142347 3554 b8a7c3dd3afbd264c0c3b93b3bea6512 "lualatex"
   "c:/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmmono12-regular.otf" 1726408957 63012 1fdab367e024aff50d5106788d146f84 ""
   "c:/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmmonolt10-bold.otf" 1726408957 66332 57f887bab47f465bde5e494bf5572b94 ""
   "c:/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf" 1726408957 111536 fc712364c8d0a1b548d46c76f2678030 ""

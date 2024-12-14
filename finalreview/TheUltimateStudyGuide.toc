@@ -22,3 +22,19 @@
 \contentsline {subsection}{\numberline {2.8}A Priority Encoder/Comparator}{16}{subsection.2.8}%
 \contentsline {section}{\numberline {3}Exam 3: Sequential Circuits}{17}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Topical Guide Objectives}{17}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Vocabulary}{18}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Shifting Operations}{18}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Serial vs Parallel Operations}{19}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Latches and Flip-Flops}{19}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}The SR Latch}{19}{subsubsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.2}The Gated SR Latch}{19}{subsubsection.3.5.2}%
+\contentsline {subsubsection}{\numberline {3.5.3}The SR Flip-Flop}{20}{subsubsection.3.5.3}%
+\contentsline {subsubsection}{\numberline {3.5.4}The D Flip-Flop}{20}{subsubsection.3.5.4}%
+\contentsline {subsubsection}{\numberline {3.5.5}The JK Flip-Flop}{21}{subsubsection.3.5.5}%
+\contentsline {subsection}{\numberline {3.6}T Flip-Flop}{21}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}State Diagrams}{22}{subsection.3.7}%
+\contentsline {section}{\numberline {4}Beyond: Architecture, Memory, and I/O}{22}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Topical Guide Objectives}{22}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Vocabulary}{23}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Memory and Speed}{23}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Memory Types}{24}{subsection.4.4}%

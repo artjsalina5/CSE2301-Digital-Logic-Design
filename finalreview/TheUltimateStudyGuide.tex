@@ -1094,8 +1094,326 @@ inputs.
 \section{Exam 3: Sequential Circuits}
 \subsection{Topical Guide Objectives}
 \begin{enumerate}
-
+	\item Understand and derive Latches and Flip-Flops.
+	\item Know the difference between a serial and parallel operation.
+	\item Be able to implement different Flip-Flops in terms of other Flip-Flops.
+	\item Understand the concept of timing diagrams for edge-triggered vs
+	      level triggered devices and draw them.
+	\item Derive the next-state and output equations for a given state
+	      diagram.
+	\item Define shift operations and their applications (Sequential Multiplier)
+	\item Be able to design a Mealy and Moore State Machine from a given
+	      description.
+	\item Be able to walk through the operation of a sequential circuit such
+	      as a counter or a shift register and multiplier.
+	\item Define a PLA and its applications. Be able to design a PLA from a
+	      given truth table as well as derive the equations from a given
+	      circuit.
 \end{enumerate}
+\subsection{Vocabulary}
+\begin{itemize}
+	\item \textbf{Sequential Circuit:} A circuit that has memory.
+	\item \textbf{State:} The current condition of the circuit.
+	\item \textbf{State Diagram:} A diagram that shows the states of a
+	      sequential circuit and the transitions between them.
+	\item \textbf{State Table:} A table that shows the current state, the
+	      inputs, the next state, and the outputs.
+	\item \textbf{Latch:} A circuit that can store one bit of information.
+	\item \textbf{Flip-Flop:} A circuit that has two stable states and can
+	      be used to store one bit of information.
+	\item \textbf{Clock:} A signal that is used to synchronize the
+	      operation of a sequential circuit.
+	\item \textbf{Edge-Triggered:} A circuit that changes state on the
+	      rising or falling edge of a clock signal.
+	\item \textbf{Level-Triggered:} A circuit that changes state when the
+	      clock signal is high or low.
+\end{itemize}
+\subsection{Shifting Operations}
+\begin{itemize}
+	\item \textbf{Shift Left:} Move all bits to the left and fill in the
+	      rightmost bit with a 0. This is equivalent to multiplying by 2.
+	\item \textbf{Shift Right:} Move all bits to the right and fill in the
+	      leftmost bit with a 0. This is equivalent to dividing by 2.
+\end{itemize}
+\begin{examp}
+	\begin{itemize}
+		\item What is the arithemtic result of shifiting a loaded register by two steps
+		      to the left?
 
+		      This is equivalent to multiplying the number by \(2^2 = 4\).
 
+		\item What is the arithmetic result of shifting a loaded register by four steps
+		      to the right?
+
+		      This is equivalent to dividing the number by \(2^4 = 16\).
+	\end{itemize}
+\end{examp}
+\subsection{Serial vs Parallel Operations}
+\begin{itemize}
+	\item \textbf{Serial:} Data is transmitted one bit at a time.
+	\item \textbf{Parallel:} Data is transmitted multiple bits at a time.
+\end{itemize}
+\begin{examp}
+	\begin{itemize}
+		\item How many clock pulses does it take to serially load an 8-bit register?
+
+		      It takes 8 clock pulses to serially load an 8-bit register.
+		\item How many clock pulses does it take to parallel load an 8-bit register?
+
+		      It takes 1 clock pulse to parallel load an 8-bit register.
+	\end{itemize}
+\end{examp}
+\subsection{Latches and Flip-Flops}
+\subsubsection{The SR Latch}
+\begin{itemize}
+	\item The SR Latch is the simplest form of a latch.
+	\item It has two inputs, S (Set) and R (Reset).
+	\item It has two outputs, Q and \(\closure{Q}\).
+	      \begin{figure}[H]
+		      \centering
+		      \begin{tabular}{|c|c|c|c|}
+			      \hline
+			      S & R & Q & \(\closure{Q}\) \\
+			      \hline
+			      0 & 0 & Q & \(\closure{Q}\) \\
+			      0 & 1 & 0 & 1               \\
+			      1 & 0 & 1 & 0               \\
+			      1 & 1 & X & X               \\
+			      \hline
+		      \end{tabular}
+		      \caption{The Truth Table for an SR Latch}
+	      \end{figure}
+	\item The major disadvantage is that the \(S = 1\) and \(R = 1\) state is
+	      undefined. This can be remedied by using a gated SR latch.
+
+\end{itemize}
+\subsubsection{The Gated SR Latch}
+\begin{itemize}
+	\item The Gated SR Latch is an SR Latch with an additional enable input.
+	\item It has three inputs, S (Set), R (Reset), and E (Enable).
+	\item It has two outputs, Q and \(\closure{Q}\).
+	      \begin{figure}[H]
+		      \centering
+		      \begin{tabular}{|c|c|c|c|c|}
+			      \hline
+			      S & R & E & Q & \(\closure{Q}\) \\
+			      \hline
+			      0 & 0 & 0 & Q & \(\closure{Q}\) \\
+			      0 & 0 & 1 & Q & \(\closure{Q}\) \\
+			      0 & 1 & 0 & 0 & 1               \\
+			      1 & 0 & 0 & 1 & 0               \\
+			      1 & 1 & 0 & X & X               \\
+			      \hline
+		      \end{tabular}
+		      \caption{The Truth Table for a Gated SR Latch}
+	      \end{figure}
+	\item The Gated SR Latch is useful for controlling when the latch is
+	      allowed to change state.
+\end{itemize}
+\subsubsection{The SR Flip-Flop}
+\begin{itemize}
+	\item The SR Flip-Flop is an SR Latch with an additional clock input.
+	\item It has three inputs, S (Set), R (Reset), and CLK (Clock).
+	\item It has two outputs, Q and \(\closure{Q}\).
+	\item The SR Flip-Flop only changes state on the rising or falling edge
+	      of the clock signal.
+	\item The SR Flip-Flop is useful for storing one bit of information.
+	      \begin{figure}[H]
+		      \centering
+		      \begin{tabular}{|c|c|c|c|c|}
+			      \hline
+			      S & R & CLK & Q & \(\closure{Q}\) \\
+			      \hline
+			      0 & 0 & X   & Q & \(\closure{Q}\) \\
+			      0 & 1 & X   & 0 & 1               \\
+			      1 & 0 & X   & 1 & 0               \\
+			      1 & 1 & X   & X & X               \\
+			      \hline
+		      \end{tabular}
+		      \caption{The Truth Table for an SR Flip-Flop}
+	      \end{figure}
+\end{itemize}
+\subsubsection{The D Flip-Flop}
+\begin{itemize}
+	\item The D Flip-Flop is a simple flip-flop that stores one bit of
+	      information.
+	\item It has two inputs, D (Data) and CLK (Clock).
+	\item It has two outputs, Q and \(\closure{Q}\).
+	\item The D Flip-Flop only changes state on the rising or falling edge
+	      of the clock signal.
+	\item The D Flip-Flop is useful for storing one bit of information.
+	      \begin{figure}[H]
+		      \centering
+		      \begin{tabular}{|c|c|c|}
+			      \hline
+			      D & CLK & Q \\
+			      \hline
+			      0 & X   & Q \\
+			      1 & X   & Q \\
+			      0 & 0   & Q \\
+			      1 & 0   & Q \\
+			      0 & 1   & 0 \\
+			      1 & 1   & 1 \\
+			      \hline
+		      \end{tabular}
+		      \caption{The Truth Table for a D Flip-Flop}
+	      \end{figure}
+\end{itemize}
+\subsubsection{The JK Flip-Flop}
+\begin{itemize}
+	\item The JK Flip-Flop is a more complex flip-flop that stores one bit of
+	      information.
+	\item It has three inputs, J (Set), K (Reset), and CLK (Clock).
+	\item It has two outputs, Q and \(\closure{Q}\).
+	\item The JK Flip-Flop only changes state on the rising or falling edge
+	      of the clock signal.
+	\item The JK Flip-Flop is useful for storing one bit of information.
+	      \begin{figure}[H]
+		      \centering
+		      \begin{tabular}{|c|c|c|c|}
+			      \hline
+			      J & K & CLK & Q               \\
+			      \hline
+			      0 & 0 & X   & Q               \\
+			      0 & 1 & X   & 0               \\
+			      1 & 0 & X   & 1               \\
+			      1 & 1 & X   & \(\closure{Q}\) \\
+			      0 & 0 & 0   & Q               \\
+			      0 & 1 & 0   & 0               \\
+			      1 & 0 & 0   & 1               \\
+			      1 & 1 & 0   & \(\closure{Q}\) \\
+			      0 & 0 & 1   & Q               \\
+			      0 & 1 & 1   & 0               \\
+			      1 & 0 & 1   & 1               \\
+			      1 & 1 & 1   & \(\closure{Q}\) \\
+			      \hline
+		      \end{tabular}
+		      \caption{The Truth Table for a JK Flip-Flop}
+	      \end{figure}
+\end{itemize}
+\subsection{T Flip-Flop}
+\begin{itemize}
+	\item The T Flip-Flop is a simple flip-flop that toggles its state on the
+	      rising or falling edge of the clock signal.
+	\item It has two inputs, T (Toggle) and CLK (Clock).
+	\item It has two outputs, Q and \(\closure{Q}\).
+	\item The T Flip-Flop is useful for creating counters and other
+	      sequential circuits.
+	      \begin{figure}[H]
+		      \centering
+		      \begin{tabular}{|c|c|c|}
+			      \hline
+			      T & CLK & Q               \\
+			      \hline
+			      0 & X   & Q               \\
+			      1 & X   & Q               \\
+			      0 & 0   & Q               \\
+			      1 & 0   & Q               \\
+			      0 & 1   & \(\closure{Q}\) \\
+			      1 & 1   & \(\closure{Q}\) \\
+			      \hline
+		      \end{tabular}
+		      \caption{The Truth Table for a T Flip-Flop}
+	      \end{figure}
+\end{itemize}
+\subsection{State Diagrams}
+\begin{itemize}
+	\item Mealy Machine - The output depends on the current state and the
+	      input.
+	\item Moore Machine - The output depends only on the current state.
+\end{itemize}
+The general procedure for designing a state machine is as follows:
+\begin{enumerate}
+	\item Define the states of the machine.
+	\item Define the inputs and outputs of the machine.
+	\item Draw a state diagram that shows the states and transitions of the
+	      machine.
+	\item Write the state table that shows the current state, the inputs, the
+	      next state, and the outputs.
+	\item Derive the next-state and output equations from the state table.
+	\item Implement the state machine using flip-flops and logic gates.
+\end{enumerate}
+\section{Beyond: Architecture, Memory, and I/O}
+\subsection{Topical Guide Objectives}
+\begin{enumerate}
+	\item Understand the basic architecture of a computer system.
+	\item Know the difference between the CPU, memory, and I/O devices.
+	\item Be able to describe the function of the CPU, memory, and I/O devices.
+	\item Define the different types of memory and their uses.
+	\item Understand the concept of memory hierarchy and its importance.
+	\item Be able to describe the function of the ALU and the control unit.
+	\item Define the different types of I/O devices and their uses.
+	\item Understand the concept of interrupts and their importance.
+	\item Be able to describe the function of the system bus.
+	\item Define the different types of buses and their uses.
+\end{enumerate}
+\subsection{Vocabulary}
+\begin{itemize}
+	\item \textbf{Architecture:} The structure of a computer system.
+	\item \textbf{CPU:} The Central Processing Unit, the brain of the computer.
+	\item \textbf{Memory:} The storage area of the computer.
+	\item \textbf{I/O:} Input/Output devices, such as keyboards and monitors.
+	\item \textbf{ALU:} Arithmetic Logic Unit, the part of the CPU that performs
+	      arithmetic and logical operations.
+	\item \textbf{Control Unit:} The part of the CPU that controls the flow of
+	      data and instructions.
+	\item \textbf{Memory Hierarchy:} The organization of memory in a computer
+	      system.
+	\item \textbf{Interrupts:} Signals that inform the CPU that an event has
+	      occurred.
+	\item \textbf{System Bus:} The communication pathway between the CPU,
+	      memory, and I/O devices.
+	\item \textbf{Buses:} The communication pathways in a computer system.
+\end{itemize}
+\subsection{Memory and Speed}
+There are multiple different types of memory employed in modern systems.
+There is a heirarchy that starts with the fastest and most expensive
+memory and goes down to the slowest and cheapest memory.
+\begin{enumerate}
+	\item \textbf{Registers:} The fastest and most expensive memory in a
+	      computer system. Registers are used to store data that is
+	      being actively used by the CPU.
+	\item Cache: A small amount of fast memory that is used to store
+	      data that is frequently accessed by the CPU.
+	\item \textbf{RAM:} Random Access Memory, the main memory of the
+	      computer. RAM is used to store data that is being actively
+	      used by the CPU.
+	\item \textbf{Magnetic Disk:} A type of storage device that uses
+	      magnetic storage to store data. Magnetic disks are used to
+	      store large amounts of data that is not being actively used
+	      by the CPU.
+	\item \textbf{Optical Disk:} A type of storage device that uses
+	      optical storage to store data. Optical disks are used to
+	      store large amounts of data that is not being actively used
+	      by the CPU.
+\end{enumerate}
+\subsection{Memory Types}
+There are different sorts of memory to include Volatile and Non-Volatile
+memory. Volatile memory is memory that loses its data when the power is 
+turned off. Non-Volatile memory is memory that retains its data when the
+power is turned off.
+
+\begin{itemize}
+	\item Semiconductor Memory: A type of memory that uses
+	      semiconductor technology to store data. Semiconductor memory
+	      is used in RAM and ROM. This is volatile memory.
+      \item EPROM: Erasable Programmable Read-Only Memory, a type of
+	      memory that can be erased and reprogrammed. EPROM is used
+	      in ROM. This is non-volatile memory that is erased by
+	      ultraviolet light.
+      \item EEPROM: Electrically Erasable Programmable Read-Only
+	      Memory, a type of memory that can be erased and reprogrammed.
+	      EEPROM is used in ROM. This is non-volatile memory that is
+	      erased by an electric signal.
+      \item SRAM: Static Random Access Memory, a type of memory that
+	      uses flip-flops to store data. SRAM is used in cache memory.
+	      This is volatile memory.
+      \item DRAM: Dynamic Random Access Memory, a type of memory that
+	      uses capacitors to store data. DRAM is used in main memory.
+	      This is volatile memory. This constantly needs to be refreshed
+	      to maintain the data.
+      \item SRAM: Static Random Access Memory, a type of memory that
+	      uses flip-flops to store data. SRAM is used in cache memory.
+	      This is volatile memory.
+      \end{itemize}
 \end{document}
