@@ -148,15 +148,6 @@ The lab projects are a cornerstone of **CSE 2301**, blending theoretical concept
 
 ---
 
-## ⚙️ **Tools You’ll Use**
-
-- **LogicWorks**: For digital circuit simulation and design.
-- **GitHub**: For version control and collaboration (make sure you’re familiar with Git basics).
-- **Discord**: For communication and group discussions.
-- **MSI/SSI Components**: For hands-on circuit design.
-
----
-
 ## 🚨 **Final Notes**
 
 This course is demanding but incredibly rewarding. Put in the time, and you'll gain a strong foundation in digital logic design—crucial for your journey into computer engineering.
