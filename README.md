@@ -1,6 +1,6 @@
 # 🎓 **CSE 2301: Principles and Practice of Digital Logic Design - Fall 2024** 🚀
 
-Welcome to the **CSE 2301** repository! This repo holds the projects, demos, and code from my Fall 2024 course on digital logic design. Whether you're exploring combinational and sequential logic circuits or diving into Karnaugh maps, this is where all the magic happens!
+Welcome to the **CSE 2301** repository! This repo holds the projects, and code from my Fall 2024 course on digital logic design. Whether you're exploring combinational and sequential logic circuits or diving into Karnaugh maps, this is where all the magic happens!
 
 ---
 
@@ -8,8 +8,7 @@ Welcome to the **CSE 2301** repository! This repo holds the projects, demos, and
 
 **Course Title**: CSE 2301 - Principles and Practice of Digital Logic Design  
 **Credits**: 4  
-**Instructor**: [Dr. Mohammad Khan](mailto:mohammad.khan@uconn.edu)  
-**Office**: ITE 363 (Office hours: Thu 2-3 PM)
+**Instructor**: Dr. Mohammad Khan 
 
 ---
 
@@ -23,10 +22,9 @@ Welcome to the **CSE 2301** repository! This repo holds the projects, demos, and
 
 ---
 
-### 📚 **Textbook** *(Optional but Recommended)*
+### 📚 **Textbook**
 
 - Fundamentals of Logic Design (7th Ed.) by **Charles H. Roth Jr.** and **Larry L. Kinney**  
-  *(Note: The 6th edition works too!)*
 
 ---
 
@@ -37,7 +35,7 @@ Welcome to the **CSE 2301** repository! This repo holds the projects, demos, and
 - **LogicWorks Software for Simulation and Testing**
 - **Debugging, Timing Diagrams, and More!**
   
-🌟 This course is project-heavy and you’ll be using **LogicWorks** for circuit design and simulation. Get ready to get hands-on with hardware and software.
+🌟 This course is project-heavy and you’ll be using **LogicWorks** for circuit design and simulation.
 
 ---
 
@@ -97,18 +95,34 @@ Read the full **UConn Code of Conduct** for more details.
 
 ## 📡 **Stay Connected!**
 
-- **Discord**: All course communication will happen on our dedicated **Discord server**. Invite links will be shared soon.
+- **Discord**: All course communication will happen on a dedicated **Discord server**.
   
 ---
 
-## 🔧 **Projects**
+## 🧑‍🔬 **Lab Projects Overview**
 
-Here’s a list of all the projects from the course, complete with links to each demo, codebase, and report:
+The lab projects are a cornerstone of **CSE 2301**, blending theoretical concepts with hands-on circuit design and simulation. Below are the key lab topics and projects covered throughout the course:
 
-1. **Project 1**: Basic Logic Gate Design ([View Demo](#) | [Code](#) | [Report](#))
-2. **Project 2**: Karnaugh Map Simplification ([View Demo](#) | [Code](#) | [Report](#))
-3. **Project 3**: Multiplexer and Decoder Design ([View Demo](#) | [Code](#) | [Report](#))
-4. ... *(and more as the course progresses!)*
+1. **Lab 1**: LogicWorks and Basic Gates  
+2. **Lab 2**: Code Conversion Techniques  
+3. **Lab 3**: Hardware I/O and Karnaugh Maps  
+4. **Lab 4**: POSTNET Code Implementation  
+5. **Lab 5**: Two’s Complement and Adders  
+6. **Lab 6**: Multiplexers and ALUs  
+7. **Lab 7**: Hamming Code for Error Detection  
+8. **Lab 8**: Digital Voting Machines  
+9. **Lab 9**: Shift Registers  
+10. **Lab 10**: Three-Out-of-Four Detection Circuits  
+11. **Lab 11**: Programmable Logic Arrays (PLAs)  
+12. **Lab 12**: VHDL Design and Simulation  
+
+---
+
+## ⚙️ **Key Tools and Techniques**
+
+- **LogicWorks**: For circuit simulation and design.  
+- **SSI/MSI Components**: Applied in practical digital circuit implementations.  
+- **VHDL**: Used for advanced digital system modeling and simulation.  
 
 ---
 
@@ -125,12 +139,12 @@ Here’s a list of all the projects from the course, complete with links to each
 
 | **TA Name**                | **Email**                            | **Office Hours**         |
 |----------------------------|--------------------------------------|--------------------------|
-| **CheonJin Park (Jin)**     | [cheon.park@uconn.edu](mailto:cheon.park@uconn.edu) | Mon 2-4 PM                |
-| **Xinyue Zheng**            | [xinyue.zheng@uconn.edu](mailto:xinyue.zheng@uconn.edu) | Tue 12-2 PM               |
-| **Matthew Pierce**          | [matthew.pierce@uconn.edu](mailto:matthew.pierce@uconn.edu) | Tue 12-2 PM               |
-| **Ebubechukwu Jack-Davies** | [ebubechukwu.jack-davies@uconn.edu](mailto:ebubechukwu.jack-davies@uconn.edu) | Mon 10-12 PM              |
-| **Jake Castellano**         | [jake.castellano@uconn.edu](mailto:jake.castellano@uconn.edu) | Wed 10-12 PM              |
-| **Tyler Shollenberger**     | [Tyler.Shollenberger@uconn.edu](mailto:Tyler.Shollenberger@uconn.edu) | Wed 10-12 PM              |
+| **CheonJin Park (Jin)**     | ********* | Mon 2-4 PM                |
+| **Xinyue Zheng**            | ********* | Tue 12-2 PM               |
+| **Matthew Pierce**          | ********* | Tue 12-2 PM               |
+| **Ebubechukwu Jack-Davies** | ********* | Mon 10-12 PM              |
+| **Jake Castellano**         | ********* | Wed 10-12 PM              |
+| **Tyler Shollenberger**     | ********* | Wed 10-12 PM              |
 
 ---
 
